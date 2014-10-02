@@ -1,0 +1,132 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Runtime.Serialization;
+
+namespace QMailer
+{
+	[DataContract(IsReference=true)]
+	public class EmailMessage
+	{
+		public EmailMessage()
+			: this(new System.Net.Mail.MailMessage())
+		{
+			this.From = new EmailAddress();
+		}
+
+		public EmailMessage(System.Net.Mail.MailMessage mailMessage)
+		{
+			this.Subject = mailMessage.Subject;
+			this.Body = mailMessage.Body;
+			this.Recipients = new List<EmailAddress>();
+			if (mailMessage.To != null)
+			{
+				foreach (var to in mailMessage.To)
+				{
+					Recipients.Add(new EmailAddress()
+					{
+						Address = to.Address,
+						DisplayName = to.DisplayName,
+						SendingType = EmailSendingType.To,
+					});
+				}
+			}
+			if (mailMessage.CC != null)
+			{
+				foreach (var to in mailMessage.CC)
+				{
+					Recipients.Add(new EmailAddress()
+					{
+						Address = to.Address,
+						DisplayName = to.DisplayName,
+						SendingType = EmailSendingType.CC,
+					});
+				}
+			}
+			if (mailMessage.Bcc != null)
+			{
+				foreach (var to in mailMessage.Bcc)
+				{
+					Recipients.Add(new EmailAddress()
+					{
+						Address = to.Address,
+						DisplayName = to.DisplayName,
+						SendingType = EmailSendingType.BCC,
+					});
+				}
+			}
+
+			if (mailMessage.From != null)
+			{
+				From = new EmailAddress()
+				{
+					Address = mailMessage.From.Address,
+					DisplayName = mailMessage.From.DisplayName,
+				};
+
+			}
+
+			Headers = new List<EmailMessageHeader>();
+		}
+
+		[DataMember]
+		public string Subject { get; set; }
+		[DataMember]
+		public string Body { get; set; }
+		[DataMember]
+		public List<EmailAddress> Recipients { get; set; }
+		[DataMember]
+		public EmailAddress From { get; set; }
+		[DataMember]
+		public List<EmailMessageHeader> Headers { get; set; }
+		[DataMember]
+		public DateTime? StartDate { get; set; }
+		[DataMember]
+		public string MessageId { get; set; }
+
+		public static explicit operator System.Net.Mail.MailMessage(EmailMessage template)
+		{
+			var mailMessage = new System.Net.Mail.MailMessage();
+			foreach (var email in template.Recipients)
+			{
+				switch (email.SendingType)
+				{
+					case EmailSendingType.To:
+						mailMessage.To.Add(new System.Net.Mail.MailAddress(email.Address, email.DisplayName));		 
+						break;
+					case EmailSendingType.CC:
+						mailMessage.CC.Add(new System.Net.Mail.MailAddress(email.Address, email.DisplayName));		 
+						break;
+					case EmailSendingType.BCC:
+						mailMessage.Bcc.Add(new System.Net.Mail.MailAddress(email.Address, email.DisplayName));		 
+						break;
+					case EmailSendingType.ReplyTo:
+						// mailMessage.ReplyToList.Add(new System.Net.Mail.MailAddress(email.Address, email.DisplayName));		 
+						break;
+					default:
+						break;
+				}
+			}
+
+			try
+			{
+				mailMessage.Subject = template.Subject ?? "(sans sujet)";
+				mailMessage.SubjectEncoding = System.Text.Encoding.UTF8;
+			}
+			catch
+			{
+				mailMessage.Subject = "(sans sujet)";
+				template.Body = "subject :" + template.Subject + Environment.NewLine + template.Body;
+			}
+			mailMessage.Body = template.Body;
+			mailMessage.IsBodyHtml = true;
+			var fromEmail = template.From.Address ?? GlobalConfiguration.Configuration.FromEmail;
+			var fromName = template.From.Address ?? GlobalConfiguration.Configuration.FromName;
+
+			mailMessage.From = new System.Net.Mail.MailAddress(fromEmail, fromName);
+
+			return mailMessage;
+		}
+	}
+}
