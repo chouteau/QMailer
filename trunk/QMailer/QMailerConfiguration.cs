@@ -13,8 +13,7 @@ namespace QMailer
 			EmailBodyRequestedQueueName = "emailbodyrequested";
 			SendEmailQueueName = "sendemail";
 			VirtualPath = "~/emailviews";
-			BusConfigFileName = ".\ariane.config";
-			IsStandAlone = false;
+			BusConfigFileName = @".\ariane.config";
 		}
 
 		/// <summary>
@@ -40,7 +39,9 @@ namespace QMailer
 
 		public string BusConfigFileName { get; set; }
 
-		public bool IsStandAlone { get; set; }
+		public string ApiToken { get; set; }
+
+		public string PhysicalPath { get; set; }
 
 	}
 }

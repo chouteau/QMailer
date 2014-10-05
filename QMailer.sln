@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer", "trunk\QMailer\QMailer.csproj", "{9BA2321E-745B-46C1-90F5-A02B037C6BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Web", "trunk\QMailer.Web\QMailer.Web.csproj", "{16517442-1304-404D-BF82-C74255B7B850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Tests", "trunk\QMailer.Tests\QMailer.Tests.csproj", "{1D54F92C-F440-45EE-A61B-25CA68FBBF95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6EB37C31-BDE8-4E47-8FBE-7998AE51ECC0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailerWebApp", "trunk\QMailerWebApp\QMailerWebApp.csproj", "{14B7F768-1929-4EA9-8E30-B8FD308E741C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.SvcHost", "trunk\QMailer.SvcHost\QMailer.SvcHost.csproj", "{D574F395-CFC0-4DBF-9743-4E4C63B2C260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Client", "trunk\QMailer.Client\QMailer.Client.csproj", "{9411A900-F57B-4FE3-87F6-554724D8F4B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ariane", "..\..\S3\Codeplex\Ariane\Ariane\Ariane.csproj", "{D71050CE-F15A-4A94-9438-C755C1A28D5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BA2321E-745B-46C1-90F5-A02B037C6BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA2321E-745B-46C1-90F5-A02B037C6BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA2321E-745B-46C1-90F5-A02B037C6BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA2321E-745B-46C1-90F5-A02B037C6BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16517442-1304-404D-BF82-C74255B7B850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16517442-1304-404D-BF82-C74255B7B850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16517442-1304-404D-BF82-C74255B7B850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16517442-1304-404D-BF82-C74255B7B850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9411A900-F57B-4FE3-87F6-554724D8F4B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9411A900-F57B-4FE3-87F6-554724D8F4B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9411A900-F57B-4FE3-87F6-554724D8F4B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9411A900-F57B-4FE3-87F6-554724D8F4B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D71050CE-F15A-4A94-9438-C755C1A28D5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71050CE-F15A-4A94-9438-C755C1A28D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71050CE-F15A-4A94-9438-C755C1A28D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71050CE-F15A-4A94-9438-C755C1A28D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

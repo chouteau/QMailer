@@ -10,9 +10,8 @@ namespace QMailer.Web
 {
 	public class QMailerConfig
 	{
-		public static void Configure(Microsoft.Practices.Unity.IUnityContainer container, bool isStandAlone)
+		public static void Configure(Microsoft.Practices.Unity.IUnityContainer container)
 		{
-			GlobalConfiguration.Configuration.IsStandAlone = isStandAlone;
 			if (QMailer.GlobalConfiguration.Configuration.DependencyResolver == null)
 			{
 				QMailer.GlobalConfiguration.Configuration.DependencyResolver = new QMailer.UnityDependencyResolver(container);
@@ -23,18 +22,6 @@ namespace QMailer.Web
 			container.RegisterType<IEmailViewRenderer, EmailViewRenderer>(new ContainerControlledLifetimeManager(), new InjectionConstructor(emailEngines));
 
 			container.RegisterType<EmailTemplateService>(new ContainerControlledLifetimeManager());
-
-			if (GlobalConfiguration.Configuration.IsStandAlone)
-			{
-				var bus = container.Resolve<Ariane.IServiceBus>();
-				bus.Register.AddQueue(new Ariane.QueueSetting()
-				{
-					AutoStartReading = true,
-					Name = GlobalConfiguration.Configuration.EmailBodyRequestedQueueName,
-					TypeMedium = typeof(Ariane.InMemoryMedium),
-					TypeReader = typeof(QMailer.Web.EmailBodyRequestedMessageReader)
-				});
-			}
 		}
 	}
 }

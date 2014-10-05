@@ -1,0 +1,8 @@
+﻿"*.config"
+"*.7z"
+"*.zip"
+"*.vshost.exe"
+"*.manifest"
+"*.xml"
+"*.installlog"
+"*.installstate"
