@@ -9,13 +9,8 @@ namespace QMailer
 {
 	public class SendEmailMessageReader : Ariane.MessageReaderBase<EmailMessage>
 	{
-		private int m_Pool;
-		private System.Threading.ManualResetEvent m_WaitingFreeThread;
-
 		public SendEmailMessageReader(ILogger logger)
 		{
-			this.m_Pool = 0;
-			m_WaitingFreeThread = new System.Threading.ManualResetEvent(false);
 			this.Logger = logger;
 		}
 

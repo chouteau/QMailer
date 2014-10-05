@@ -42,7 +42,7 @@ namespace QMailer.Tests
 				});
 
 			QMailer.EmailerService.Current.ReplaceBusService(bus);
-			QMailer.Web.QMailerConfig.Configure(container, false);
+			QMailer.Web.QMailerConfig.Configure(container);
 
 			var viewEngines = new Moq.Mock<ViewEngineCollection>();
 			var fakeView = new FakeView();

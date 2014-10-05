@@ -13,6 +13,8 @@ namespace QMailer
 			= new Lazy<QMailerConfiguration>(() =>
 			{
 				var config = new QMailerConfiguration();
+				config.BindFromConfiguration(QMailer.Configuration.ConfigurationSettings.AppSettings);
+
 				config.Logger = new DiagnosticsLogger();
 				return config;
 			}, true);

@@ -8,7 +8,7 @@ namespace QMailer
 {
 	public class EmailConfig
 	{
-		public EmailConfig ()
+		internal EmailConfig ()
 		{
 			Recipients = new List<EmailAddress>();
 		}

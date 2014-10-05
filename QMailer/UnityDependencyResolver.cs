@@ -9,7 +9,6 @@ using Microsoft.Practices.Unity;
 namespace QMailer
 {
 	public class UnityDependencyResolver : QMailer.IDependencyResolver
-		, Ariane.IDependencyResolver 
 	{
 		private Microsoft.Practices.Unity.IUnityContainer m_Container;
 		private bool m_IsContainerConfigured = false;
@@ -67,25 +66,16 @@ namespace QMailer
 			var bus = m_Container.Resolve<Ariane.IServiceBus>();
 
 			var busConfigFileName = GlobalConfiguration.Configuration.BusConfigFileName;
+			var local = @".\";
+			if (busConfigFileName.StartsWith(local))
+			{
+				var path = System.IO.Path.GetDirectoryName(typeof(QMailer.EmailerService).Assembly.Location).TrimEnd('\\');
+				busConfigFileName = busConfigFileName.Replace(local, "").TrimStart('\\');
+				busConfigFileName = System.IO.Path.Combine(path, busConfigFileName);
+			}
 			if (System.IO.File.Exists(busConfigFileName))
 			{
-				if (busConfigFileName.StartsWith(@".\"))
-				{
-					var path = System.IO.Path.GetDirectoryName(typeof(QMailer.EmailerService).Assembly.Location);
-					busConfigFileName = System.IO.Path.Combine(path.TrimEnd('\\'), busConfigFileName.Replace(@".\", "").TrimStart('\\'));
-				}
 				bus.Register.AddFromConfig(busConfigFileName);
-			}
-
-			if (GlobalConfiguration.Configuration.IsStandAlone)
-			{
-				bus.Register.AddQueue(new Ariane.QueueSetting()
-				{
-					AutoStartReading = true,
-					Name = GlobalConfiguration.Configuration.SendEmailQueueName,
-					TypeMedium = typeof(Ariane.InMemoryMedium),
-					TypeReader = typeof(QMailer.SendEmailMessageReader)
-				});
 			}
 
 			m_Container.RegisterType<ILogger, DiagnosticsLogger>(new ContainerControlledLifetimeManager());
