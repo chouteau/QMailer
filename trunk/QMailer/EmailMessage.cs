@@ -68,6 +68,7 @@ namespace QMailer
 			}
 
 			Headers = new List<EmailMessageHeader>();
+			Attachments = new List<Attachment>();
 		}
 
 		[DataMember]
@@ -84,6 +85,8 @@ namespace QMailer
 		public DateTime? StartDate { get; set; }
 		[DataMember]
 		public string MessageId { get; set; }
+		[DataMember]
+		public List<Attachment> Attachments { get; set; }
 
 		public static explicit operator System.Net.Mail.MailMessage(EmailMessage template)
 		{
@@ -122,6 +125,15 @@ namespace QMailer
 			mailMessage.Body = template.Body;
 			mailMessage.IsBodyHtml = true;
 			mailMessage.From = new System.Net.Mail.MailAddress(template.From.Address, template.From.DisplayName);
+
+			foreach (var attachment in template.Attachments)
+			{
+				using(var ms = new System.IO.MemoryStream(System.Convert.FromBase64String(attachment.Content)))
+				{
+					var att = new System.Net.Mail.Attachment(ms, attachment.Name, attachment.ContentType);
+					mailMessage.Attachments.Add(att);
+				}
+			}
 
 			return mailMessage;
 		}

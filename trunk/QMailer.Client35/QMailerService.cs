@@ -5,9 +5,9 @@ using System.Text;
 
 namespace QMailer.Client35
 {
-    public class EmailerService
+    public class QMailerService
     {
-		public EmailerService()
+		public QMailerService()
 		{
 
 		}

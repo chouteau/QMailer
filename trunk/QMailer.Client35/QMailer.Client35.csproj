@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\QMailer\Attachment.cs">
+      <Link>Attachment.cs</Link>
+    </Compile>
     <Compile Include="..\QMailer\EmailAddress.cs">
       <Link>EmailAddress.cs</Link>
     </Compile>
@@ -69,7 +72,10 @@
     <Compile Include="..\QMailer\Enums.cs">
       <Link>Enums.cs</Link>
     </Compile>
-    <Compile Include="EmailerService.cs" />
+    <Compile Include="..\QMailer\FluentEmailConfig.cs">
+      <Link>FluentEmailConfig.cs</Link>
+    </Compile>
+    <Compile Include="QMailerService.cs" />
     <Compile Include="GlobalConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QMailerConfiguration.cs" />
