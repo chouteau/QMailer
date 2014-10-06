@@ -17,6 +17,8 @@ namespace QMailer
 		}
 
 		[DataMember]
+		public string MessageId { get; set; }
+		[DataMember]
 		public string EmailName { get; set; }
 		[DataMember]
 		public object Model { get; set; }

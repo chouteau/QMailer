@@ -10,7 +10,8 @@ namespace QMailer.Client
 	{
 		static void Main(string[] args)
 		{
-			var emailConfig = EmailerService.Current.CreateEmailConfig();
+			var messageId = Guid.NewGuid().ToString();
+			var emailConfig = EmailerService.Current.CreateEmailConfig(messageId);
 			emailConfig.SetView("testemail")
 				.AddRecipient(new EmailAddress() { Address = "test@test.com" })
 				.Sender("sender@test.com", "SenderName", "SenderJob");

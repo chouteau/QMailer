@@ -29,17 +29,8 @@ namespace QMailer.Web
 			return email;
 		}
 
-		public EmailMessage	CreateEmailMessage(EmailView emailView)
-		{
-			var rawEmailString = Renderer.Render(emailView);
-			var result = EmailParser.CreateMailMessage(rawEmailString);
-			return result;
-		}
-
 		public EmailMessage GetEmailMessage(EmailConfig emailConfig)
 		{
-			string messageId = Guid.NewGuid().ToString();
-
 			// Deserialize object
 			object model = emailConfig.Model;
 			if (emailConfig.Model != null
@@ -61,14 +52,14 @@ namespace QMailer.Web
 			}
 			if (emailConfig.Sender != null)
 			{
-				emailView.ViewBag.Sender = emailConfig.Sender;
+				emailView.Sender = emailConfig.Sender;
 			}
 
 			// Create emailMessage
 			EmailMessage emailMessage = null;
 			try
 			{
-				emailMessage = EmailTemplateService.CreateEmailMessage(emailView);
+				emailMessage = CreateEmailMessage(emailView);
 			}
 			catch (Exception ex)
 			{
@@ -88,7 +79,8 @@ namespace QMailer.Web
 					DisplayName = emailConfig.Sender.DisplayName,
 				};
 			}
-			else if (emailMessage.From == null)
+			else if (emailMessage.From == null 
+				&& emailMessage.From.Address == null)
 			{
 				emailMessage.From = new EmailAddress()
 				{
@@ -99,7 +91,7 @@ namespace QMailer.Web
 
 			emailMessage.Recipients.AddRange(emailConfig.Recipients);
 			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer", Value = "QMailer" });
-			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-MID", Value = messageId });
+			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-MID", Value = emailConfig.MessageId });
 			if (emailConfig.Headers != null)
 			{
 				foreach (var h in emailConfig.Headers)
@@ -108,9 +100,16 @@ namespace QMailer.Web
 				}
 			}
 
-			emailMessage.MessageId = messageId;
+			emailMessage.MessageId = emailConfig.MessageId;
 
 			return emailMessage;
+		}
+
+		public EmailMessage CreateEmailMessage(EmailView emailView)
+		{
+			var rawEmailString = Renderer.Render(emailView);
+			var result = EmailParser.CreateMailMessage(rawEmailString);
+			return result;
 		}
 
 		public IList<TemplateInfo> GetTemplateNameListByModel(string modelName)

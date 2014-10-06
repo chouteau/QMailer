@@ -35,9 +35,11 @@ namespace QMailer.Tests
 				CreationDate = DateTime.Now
 			};
 
-			var emailConfig = EmailerService.Current.CreateEmailConfig();
+			var messageId = Guid.NewGuid().ToString();
+			var emailConfig = EmailerService.Current.CreateEmailConfig(messageId);
 			emailConfig.SetView("test")
 				.AddRecipient(new EmailAddress() { Address = "test@test.com" })
+				.AddParameter("param1", "value1")
 				.AddModel(model);
 
 			EmailerService.Current.SendAsync(emailConfig);
