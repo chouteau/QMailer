@@ -9,22 +9,17 @@ namespace QMailer.Web
 {
 	internal class EmailParser 
 	{
-		public EmailMessage CreateMailMessage(string emailViewOutput, EmailView email)
+		public EmailMessage CreateMailMessage(string emailViewOutput)
 		{
 			var message = new EmailMessage();
-			InitializeMailMessage(message, emailViewOutput, email);
-
+			InitializeMailMessage(message, emailViewOutput);
 			var title = ParseTitle(emailViewOutput);
-			if (message.From == null)
-			{
-				message.From = new EmailAddress() { Address = GlobalConfiguration.Configuration.FromEmail, DisplayName = GlobalConfiguration.Configuration.FromName };
-			}
 			message.Subject = title ?? "title";
 
 			return message;
 		}
 
-		void InitializeMailMessage(EmailMessage message, string emailViewOutput, EmailView email)
+		void InitializeMailMessage(EmailMessage message, string emailViewOutput)
 		{
 			var body = new StringBuilder();
 			var headerStart = new Regex(@"^\s*([A-Za-z\-]+)\s*:\s*(.*)");

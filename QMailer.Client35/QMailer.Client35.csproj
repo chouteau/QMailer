@@ -75,6 +75,9 @@
     <Compile Include="..\QMailer\FluentEmailConfig.cs">
       <Link>FluentEmailConfig.cs</Link>
     </Compile>
+    <Compile Include="..\QMailer\Sender.cs">
+      <Link>Sender.cs</Link>
+    </Compile>
     <Compile Include="QMailerService.cs" />
     <Compile Include="GlobalConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

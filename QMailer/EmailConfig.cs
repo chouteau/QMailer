@@ -32,5 +32,7 @@ namespace QMailer
 		public List<EmailMessageHeader> Headers { get; set; }
 		[DataMember]
 		public List<Attachment> Attachments { get; set; }
+		[DataMember]
+		public Sender Sender { get; set; }
 	}
 }

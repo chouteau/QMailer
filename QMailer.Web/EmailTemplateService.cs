@@ -32,7 +32,7 @@ namespace QMailer.Web
 		public EmailMessage	CreateEmailMessage(EmailView emailView)
 		{
 			var rawEmailString = Renderer.Render(emailView);
-			var result = EmailParser.CreateMailMessage(rawEmailString, emailView);
+			var result = EmailParser.CreateMailMessage(rawEmailString);
 			return result;
 		}
 
@@ -40,6 +40,7 @@ namespace QMailer.Web
 		{
 			string messageId = Guid.NewGuid().ToString();
 
+			// Deserialize object
 			object model = message.Model;
 			if (message.Model != null
 				&& message.Model.GetType().AssemblyQualifiedName != message.AssemblyQualifiedTypeNameModel)
@@ -49,40 +50,63 @@ namespace QMailer.Web
 				Logger.Debug("Email model {0},{1},{2}", message.EmailName, model, modelType);
 			}
 
+			// Create emailView
 			dynamic emailView = CreateEmailView(message.EmailName, model);
-			if (message.Parameters != null && message.Parameters.Count > 0)
+			if (message.Parameters != null)
 			{
 				foreach (var prm in message.Parameters)
 				{
 					emailView.ViewData.Add(prm.Name, prm.Value);
 				}
 			}
-			emailView.MessageId = messageId;
-			dynamic template = null;
+
+			// Create emailMessage
+			EmailMessage emailMessage = null;
 			try
 			{
-				template = EmailTemplateService.CreateEmailMessage(emailView);
+				emailMessage = EmailTemplateService.CreateEmailMessage(emailView);
 			}
 			catch (Exception ex)
 			{
 				Logger.Error(ex);
+			}
+
+			if (emailMessage == null)
+			{
 				return null;
 			}
 
-			template.Recipients.AddRange(message.Recipients);
-			template.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer", Value = "QMailer" });
-			template.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-MID", Value = messageId });
+			if (message.Sender != null)
+			{
+				emailMessage.From = new EmailAddress()
+				{
+					Address = message.Sender.Email,
+					DisplayName = message.Sender.DisplayName,
+				};
+			}
+			else if (emailMessage.From == null)
+			{
+				emailMessage.From = new EmailAddress()
+				{
+					Address = GlobalConfiguration.Configuration.FromEmail,
+					DisplayName = GlobalConfiguration.Configuration.FromName
+				};
+			}
+
+			emailMessage.Recipients.AddRange(message.Recipients);
+			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer", Value = "QMailer" });
+			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-MID", Value = messageId });
 			if (message.Headers != null)
 			{
 				foreach (var h in message.Headers)
 				{
-					template.Headers.Add(new EmailMessageHeader() { Name = h.Name, Value = h.Value });
+					emailMessage.Headers.Add(new EmailMessageHeader() { Name = h.Name, Value = h.Value });
 				}
 			}
 
-			template.MessageId = messageId;
+			emailMessage.MessageId = messageId;
 
-			return template;
+			return emailMessage;
 		}
 
 		public List<EmailTemplate> GetTemplateList()
