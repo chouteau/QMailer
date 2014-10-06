@@ -24,6 +24,17 @@ namespace QMailer
 			return config;
 		}
 
+		public static EmailConfig From(this EmailConfig config, string email, string fullName)
+		{
+			config.Recipients.Add(new EmailAddress()
+				{
+					Address = email,
+					DisplayName = fullName,
+					SendingType = EmailSendingType.To
+				});
+			return config;
+		}
+
 		public static EmailConfig AddModel(this EmailConfig config, object model)
 		{
 			config.Model = model;
@@ -37,5 +48,16 @@ namespace QMailer
 			return config;
 		}
 
+		public static EmailConfig AddParameter(this EmailConfig config, string name, string value)
+		{
+			config.Parameters.Add(new EmailMessageParameter() { Name = name, Value = value });
+			return config;
+		}
+
+		public static EmailConfig AddHeader(this EmailConfig config, string name, string value)
+		{
+			config.Headers.Add(new EmailMessageHeader() { Name = name, Value = value });
+			return config;
+		}
 	}
 }

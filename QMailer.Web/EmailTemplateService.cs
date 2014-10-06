@@ -29,24 +29,60 @@ namespace QMailer.Web
 			return email;
 		}
 
-		public EmailMessage CreateEmailMessage(EmailView emailView)
+		public EmailMessage	CreateEmailMessage(EmailView emailView)
 		{
 			var rawEmailString = Renderer.Render(emailView);
 			var result = EmailParser.CreateMailMessage(rawEmailString, emailView);
 			return result;
 		}
 
-		public EmailMessage GetTemplate(string templateName)
+		public EmailMessage GetEmailMessage(EmailConfig message)
 		{
-			return GetTemplate(templateName, null);
-		}
+			string messageId = Guid.NewGuid().ToString();
 
-		public EmailMessage GetTemplate(string templateName, object model)
-		{
-			dynamic emailView = CreateEmailView(templateName, model);
+			object model = message.Model;
+			if (message.Model != null
+				&& message.Model.GetType().AssemblyQualifiedName != message.AssemblyQualifiedTypeNameModel)
+			{
+				var modelType = Type.GetType(message.AssemblyQualifiedTypeNameModel);
+				model = Newtonsoft.Json.JsonConvert.DeserializeObject(message.Model.ToString(), modelType);
+				Logger.Debug("Email model {0},{1},{2}", message.EmailName, model, modelType);
+			}
 
-			var result = CreateEmailMessage(emailView);
-			return result;
+			dynamic emailView = CreateEmailView(message.EmailName, model);
+			if (message.Parameters != null && message.Parameters.Count > 0)
+			{
+				foreach (var prm in message.Parameters)
+				{
+					emailView.ViewData.Add(prm.Name, prm.Value);
+				}
+			}
+			emailView.MessageId = messageId;
+			dynamic template = null;
+			try
+			{
+				template = EmailTemplateService.CreateEmailMessage(emailView);
+			}
+			catch (Exception ex)
+			{
+				Logger.Error(ex);
+				return null;
+			}
+
+			template.Recipients.AddRange(message.Recipients);
+			template.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer", Value = "QMailer" });
+			template.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-MID", Value = messageId });
+			if (message.Headers != null)
+			{
+				foreach (var h in message.Headers)
+				{
+					template.Headers.Add(new EmailMessageHeader() { Name = h.Name, Value = h.Value });
+				}
+			}
+
+			template.MessageId = messageId;
+
+			return template;
 		}
 
 		public List<EmailTemplate> GetTemplateList()

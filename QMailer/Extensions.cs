@@ -27,6 +27,7 @@ namespace QMailer
 			return ((IDictionary<String, object>)obj).ContainsKey(propertyName);
 		}
 
+
 		public static void BindFromConfiguration(this object model, System.Collections.Specialized.NameValueCollection nvc)
 		{
 			if (model == null

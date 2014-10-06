@@ -12,11 +12,11 @@ namespace QMailer
 		public EmailMessage()
 			: this(new System.Net.Mail.MailMessage())
 		{
-			this.From = new EmailAddress();
 		}
 
 		public EmailMessage(System.Net.Mail.MailMessage mailMessage)
 		{
+			this.From = new EmailAddress();
 			this.Subject = mailMessage.Subject;
 			this.Body = mailMessage.Body;
 			this.Recipients = new List<EmailAddress>();
@@ -121,10 +121,7 @@ namespace QMailer
 			}
 			mailMessage.Body = template.Body;
 			mailMessage.IsBodyHtml = true;
-			var fromEmail = template.From.Address ?? GlobalConfiguration.Configuration.FromEmail;
-			var fromName = template.From.Address ?? GlobalConfiguration.Configuration.FromName;
-
-			mailMessage.From = new System.Net.Mail.MailAddress(fromEmail, fromName);
+			mailMessage.From = new System.Net.Mail.MailAddress(template.From.Address, template.From.DisplayName);
 
 			return mailMessage;
 		}
