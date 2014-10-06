@@ -30,12 +30,12 @@ namespace QMailer.SvcHost
 			QMailer.GlobalConfiguration.Configuration.DependencyResolver = new QMailer.UnityDependencyResolver(container);
 			container = QMailer.GlobalConfiguration.Configuration.DependencyResolver.GetConfiguredContainer();
 
-			QMailer.EmailerService.Current.Start();
+			QMailerService.Current.Start();
 		}
 
 		protected override void OnStop()
 		{
-			QMailer.EmailerService.Current.Stop();
+			QMailerService.Current.Stop();
 		}
 	}
 }

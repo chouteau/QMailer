@@ -96,10 +96,6 @@
     <Content Include="exclude.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\S3\Codeplex\Ariane\Ariane\Ariane.csproj">
-      <Project>{d71050ce-f15a-4a94-9438-c755c1a28d5d}</Project>
-      <Name>Ariane</Name>
-    </ProjectReference>
     <ProjectReference Include="..\QMailer\QMailer.csproj">
       <Project>{9ba2321e-745b-46c1-90f5-a02b037c6bcf}</Project>
       <Name>QMailer</Name>

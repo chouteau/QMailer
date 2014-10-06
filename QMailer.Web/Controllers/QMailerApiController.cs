@@ -11,17 +11,14 @@ namespace QMailer.Web.Controllers
 	public class QMailerApiController : ApiController
 	{
 		public QMailerApiController(
-			EmailerService emailerService,
 			EmailTemplateService emailTemplateService,
 			Ariane.IServiceBus bus
 			)
 		{
-			this.EmailerService = emailerService;
 			this.EmailTemplateService = emailTemplateService;
 			this.Bus = bus;
 		}
 
-		protected EmailerService EmailerService { get; set; }
 		protected EmailTemplateService EmailTemplateService { get; private set; }
 		protected Ariane.IServiceBus Bus { get; private set; }
 
@@ -39,7 +36,7 @@ namespace QMailer.Web.Controllers
 		[Route("createemailconfig/{messageId}")]
 		public EmailConfig CreateEmailConfig(string messageId)
 		{
-			var emailConfig = EmailerService.Current.CreateEmailConfig(messageId);
+			var emailConfig = QMailerService.Current.CreateEmailConfig(messageId);
 			return emailConfig;
 		}
 
@@ -48,7 +45,7 @@ namespace QMailer.Web.Controllers
 		[Route("sendemailconfig")]
 		public void SendAsync(EmailConfig emailConfig)
 		{
-			EmailerService.Current.SendAsync(emailConfig);
+			QMailerService.Current.SendAsync(emailConfig);
 		}
 
 		[ActionFilters.ApiAuthorizedOperation]

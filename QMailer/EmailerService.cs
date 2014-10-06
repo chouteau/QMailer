@@ -11,24 +11,14 @@ using Ariane;
 
 namespace QMailer
 {
-	internal class EmailerServiceInternal : QMailer.IEmailerService
+	class EmailerService : QMailer.IEmailerService
 	{
-		private static Lazy<IEmailerService> m_LazyInstance = new Lazy<IEmailerService>(InitializeService, true);
-
-		private EmailerServiceInternal()
+		internal EmailerService()
 		{
 		}
 
-		public static IEmailerService Current
-		{
-			get
-			{
-				return m_LazyInstance.Value;
-			}
-		}
-
-		internal Ariane.IServiceBus Bus { get; private set; }
-		internal ILogger Logger { get; private set; }
+		internal Ariane.IServiceBus Bus { get; set; }
+		internal ILogger Logger { get; set; }
 
 		public EmailConfig CreateEmailConfig(string messageId)
 		{
@@ -109,22 +99,5 @@ namespace QMailer
 				Logger.Error(e.Error);
 			}
 		}
-
-		private static EmailerServiceInternal InitializeService()
-		{
-			if (GlobalConfiguration.Configuration.DependencyResolver == null)
-			{
-				var container = new Microsoft.Practices.Unity.UnityContainer();
-				GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
-			}
-			var bus = GlobalConfiguration.Configuration.DependencyResolver.GetService<Ariane.IServiceBus>();
-
-			var emailerService = new EmailerServiceInternal();
-			emailerService.Bus = bus;
-			emailerService.Logger = new DiagnosticsLogger();
-
-			return emailerService;
-		}
-
 	}
 }

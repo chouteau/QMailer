@@ -19,7 +19,7 @@ namespace QMailer
 		public override void ProcessMessage(EmailMessage message)
 		{
 			Logger.Debug("receive message for send by email");
-			EmailerServiceInternal.Current.Send(message);
+			((EmailerService)QMailerService.Current).Send(message);
 		}
 	}
 }
