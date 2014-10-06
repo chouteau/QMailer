@@ -59,6 +59,10 @@ namespace QMailer.Web
 					emailView.ViewData.Add(prm.Name, prm.Value);
 				}
 			}
+			if (emailConfig.Sender != null)
+			{
+				emailView.ViewBag.Sender = emailConfig.Sender;
+			}
 
 			// Create emailMessage
 			EmailMessage emailMessage = null;
@@ -107,6 +111,38 @@ namespace QMailer.Web
 			emailMessage.MessageId = messageId;
 
 			return emailMessage;
+		}
+
+		public IList<TemplateInfo> GetTemplateNameListByModel(string modelName)
+		{
+			var list = GetTemplateList();
+			var result = new List<TemplateInfo>();
+			foreach (var model in list)
+			{
+				string m = null;
+				string d = null;
+				var matchModel = System.Text.RegularExpressions.Regex.Match(model.Content, @"modelname:(?<model>\S+)", RegexOptions.Singleline | RegexOptions.IgnoreCase);
+				if (matchModel.Success)
+				{
+					m = matchModel.Groups["model"].Value;
+				}
+				var matchDescription = System.Text.RegularExpressions.Regex.Match(model.Content, @"modeldescription:(?<description>.*)$", RegexOptions.Multiline | RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
+				if (matchDescription.Success)
+				{
+					d = matchDescription.Groups["description"].Value;
+				}
+				if (m != null
+					&& modelName.Equals(m, StringComparison.InvariantCultureIgnoreCase)
+					&& d != null)
+				{
+					var ti = new TemplateInfo();
+					ti.ModelName = model.ShortName;
+					ti.Description = d.Trim();
+					ti.Name = model.FullName;
+					result.Add(ti);
+				}
+			}
+			return result;
 		}
 
 		public List<EmailTemplate> GetTemplateList()
@@ -176,24 +212,6 @@ namespace QMailer.Web
 			}
 		}
 
-		internal bool IsValid(EmailTemplate template)
-		{
-			bool valid = false;
-			var name = template.ShortName.Split('.');
-			var regex = new Regex("^_|^[a-zA-Z0-9]*$");
-			bool test = regex.IsMatch(name.First());
-			if (name.First() == null || name.First() == "" || !regex.IsMatch(name.First()))
-			{
-				throw new Exception("Le modèle doit avoir un nom et ne comporter aucun caractère spécial");
-			}
-			if (template.Content == null)
-			{
-				throw new Exception("Le modèle doit avoir un corps");
-			}
-			valid = true;
-			return valid;
-		}
-
 		public void SaveTemplate(EmailTemplate template)
 		{
 			bool isValid = IsValid(template);
@@ -218,6 +236,26 @@ namespace QMailer.Web
 			}
 			string path = GetDirectoryPath();
 			EmailTemplateFileSerializer.Serialize(template, path, templateChanged);
+		}
+
+		#region Helpers
+
+		internal bool IsValid(EmailTemplate template)
+		{
+			bool valid = false;
+			var name = template.ShortName.Split('.');
+			var regex = new Regex("^_|^[a-zA-Z0-9]*$");
+			bool test = regex.IsMatch(name.First());
+			if (name.First() == null || name.First() == "" || !regex.IsMatch(name.First()))
+			{
+				throw new Exception("Le modèle doit avoir un nom et ne comporter aucun caractère spécial");
+			}
+			if (template.Content == null)
+			{
+				throw new Exception("Le modèle doit avoir un corps");
+			}
+			valid = true;
+			return valid;
 		}
 
 		internal string GetDirectoryPath()
@@ -270,33 +308,6 @@ namespace QMailer.Web
 			return "Le fichier spécifié n'existe pas";
 		}
 
-		public IDictionary<string, string> GetTemplateNameListByModel(string modelName)
-		{
-			var list = GetTemplateList();
-			var result = new Dictionary<string, string>();
-			foreach (var model in list)
-			{
-				string m = null;
-				string d = null;
-				var matchModel = System.Text.RegularExpressions.Regex.Match(model.Content, @"modelname:(?<model>\S+)", RegexOptions.Singleline | RegexOptions.IgnoreCase);
-				if (matchModel.Success)
-				{
-					m = matchModel.Groups["model"].Value;
-				}
-				var matchDescription = System.Text.RegularExpressions.Regex.Match(model.Content, @"modeldescription:(?<description>.*)$", RegexOptions.Multiline | RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace);
-				if (matchDescription.Success)
-				{
-					d = matchDescription.Groups["description"].Value;
-				}
-				if (m != null
-					&& modelName.Equals(m, StringComparison.InvariantCultureIgnoreCase)
-					&& d != null)
-				{
-					result.Add(model.ShortName, d.Trim());
-				}
-			}
-			return result;
-		}
-
+		#endregion
 	}
 }

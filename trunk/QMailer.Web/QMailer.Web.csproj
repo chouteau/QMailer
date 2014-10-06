@@ -121,6 +121,7 @@
     <Compile Include="IEmailViewRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QMailerConfig.cs" />
+    <Compile Include="TemplateInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
