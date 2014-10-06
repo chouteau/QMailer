@@ -69,7 +69,7 @@ namespace QMailer
 			var local = @".\";
 			if (busConfigFileName.StartsWith(local))
 			{
-				var path = System.IO.Path.GetDirectoryName(typeof(QMailer.EmailerService).Assembly.Location).TrimEnd('\\');
+				var path = System.IO.Path.GetDirectoryName(typeof(QMailer.EmailerServiceInternal).Assembly.Location).TrimEnd('\\');
 				busConfigFileName = busConfigFileName.Replace(local, "").TrimStart('\\');
 				busConfigFileName = System.IO.Path.Combine(path, busConfigFileName);
 			}
