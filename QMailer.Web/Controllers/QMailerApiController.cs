@@ -79,7 +79,7 @@ namespace QMailer.Web.Controllers
 		[ActionFilters.ApiAuthorizedOperation]
 		[Route("templatelistbymodel/{model}")]
 		[HttpGet]
-		public IDictionary<string, string> GetTemplateListByModel(string model)
+		public IList<TemplateInfo> GetTemplateListByModel(string model)
 		{
 			return EmailTemplateService.GetTemplateNameListByModel(model);
 		}
