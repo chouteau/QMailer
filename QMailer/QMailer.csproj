@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArianeDependencyResolver.cs" />
+    <Compile Include="Attachment.cs" />
     <Compile Include="Configuration\ConfigurationSettings.cs" />
     <Compile Include="DiagnosticsLogger.cs" />
     <Compile Include="EmailAddress.cs" />
