@@ -36,17 +36,17 @@ namespace QMailer.Web.Controllers
 
 		[ActionFilters.ApiAuthorizedOperation]
 		[System.Web.Http.HttpGet]
-		[Route("createemailconfig")]
-		public EmailConfig CreateEmailConfig()
+		[Route("createemailconfig/{messageId}")]
+		public EmailConfig CreateEmailConfig(string messageId)
 		{
-			var emailConfig = EmailerService.Current.CreateEmailConfig();
+			var emailConfig = EmailerService.Current.CreateEmailConfig(messageId);
 			return emailConfig;
 		}
 
 		[ActionFilters.ApiAuthorizedOperation]
 		[System.Web.Http.HttpPost]
 		[Route("sendemailconfig")]
-		public void Send(EmailConfig emailConfig)
+		public void SendAsync(EmailConfig emailConfig)
 		{
 			EmailerService.Current.SendAsync(emailConfig);
 		}
@@ -54,7 +54,7 @@ namespace QMailer.Web.Controllers
 		[ActionFilters.ApiAuthorizedOperation]
 		[System.Web.Http.HttpPost]
 		[Route("sendemailmessage")]
-		public void Send(EmailMessage emailMessage)
+		public void SendAsync(EmailMessage emailMessage)
 		{
 			Bus.Send(GlobalConfiguration.Configuration.SendEmailQueueName, emailMessage);
 		}

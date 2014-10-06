@@ -30,9 +30,10 @@ namespace QMailer
 		internal Ariane.IServiceBus Bus { get; private set; }
 		internal ILogger Logger { get; private set; }
 
-		public EmailConfig CreateEmailConfig()
+		public EmailConfig CreateEmailConfig(string messageId)
 		{
 			var result = new EmailConfig();
+			result.MessageId = messageId;
 			return result;
 		}
 
@@ -74,6 +75,7 @@ namespace QMailer
 				}
 				catch(Exception ex)
 				{
+					ex.Data.Add("MessageId", message.MessageId);
 					Logger.Error(ex);
 				}
 			}

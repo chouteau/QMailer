@@ -32,7 +32,8 @@ namespace QMailerWebApp.Controllers
 		[HttpPost]
 		public ActionResult Contact(string templateName)
 		{
-			var emailConfig = QMailer.EmailerService.Current.CreateEmailConfig();
+			string messageId = Guid.NewGuid().ToString();
+			var emailConfig = QMailer.EmailerService.Current.CreateEmailConfig(messageId);
 			emailConfig.SetView(templateName)
 				.AddRecipient(new QMailer.EmailAddress() { Address = "test@test.com", SendingType = EmailSendingType.To });
 

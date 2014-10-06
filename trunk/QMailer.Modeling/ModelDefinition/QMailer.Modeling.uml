@@ -1,0 +1,3445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+  dslVersion="1.0.0.0"
+  Id="677522a4-0afd-4727-9ec2-95cce637df9c"
+  name="QMailer.Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction
+        Id="eacdec7f-1ffa-488e-a814-870b33bfc4f3"
+        name="NativeClientUMLSequenceDiagram"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <ownedCommentsInternal>
+          <comment
+            Id="0f8dc3d5-cb2d-4c5d-bfb5-8bdb7484e928">
+            <body>Use Razor</body>
+          </comment>
+        </ownedCommentsInternal>
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="bc207521-33ec-4269-8254-463899cc2599"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+                LastKnownName="QmailerService"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="1fab8878-0c87-45c0-8fcf-9d21d6a54f94"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="f2e1f068-80fb-4d48-a3f2-35d64d1935c6"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="6c0b000b-e45e-454d-8969-dcc25b5feaad"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="229e236e-eea8-4a85-b63e-b6c9a0070a8d"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="f2e1f068-80fb-4d48-a3f2-35d64d1935c6"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="454736c1-33a6-46d3-923b-1786e463d7e2"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+                LastKnownName="QmailerService"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="c1b8dc9d-6da2-4bda-8114-9c3fb039f24c"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="7745e279-d384-413e-b418-de340a62aa06"
+                LastKnownName="NativeClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="6c0b000b-e45e-454d-8969-dcc25b5feaad"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+                LastKnownName="QmailerService"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="229e236e-eea8-4a85-b63e-b6c9a0070a8d"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+                LastKnownName="QmailerService"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="4d964cba-d93b-4826-ba63-0794274355d0"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="7745e279-d384-413e-b418-de340a62aa06"
+                LastKnownName="NativeClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="1fab8878-0c87-45c0-8fcf-9d21d6a54f94"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f13052f9-cf2b-4dd0-ac4e-d460319d5545"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+                LastKnownName="QmailerService"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0897dc55-c3e2-482e-8702-ef14de6d2649"
+            name="MessageOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="7745e279-d384-413e-b418-de340a62aa06"
+                LastKnownName="NativeClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="7cb52d38-e729-4071-a06e-551e9cb51ea5"
+            name="BehaviorExecutionSpecification2">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="7745e279-d384-413e-b418-de340a62aa06"
+                LastKnownName="NativeClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="0aee7dac-12e2-4dfc-aee1-4f70e8cba4c1"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="5e4c6d26-ffa0-4e75-87f7-d8b086fe6e66"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="a85b85bd-5160-47f7-91a0-1db3c1ddcdca"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="5e4c6d26-ffa0-4e75-87f7-d8b086fe6e66"
+            name="ExecutionOccurrenceSpecification3">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="54dacc9b-398d-46c1-9ac6-ff9c0d0447b7"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="7745e279-d384-413e-b418-de340a62aa06"
+                LastKnownName="NativeClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a85b85bd-5160-47f7-91a0-1db3c1ddcdca"
+            name="MessageOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="7745e279-d384-413e-b418-de340a62aa06"
+                LastKnownName="NativeClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="0aee7dac-12e2-4dfc-aee1-4f70e8cba4c1"
+            name="ExecutionOccurrenceSpecification4">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="32a482f3-39bb-4490-851d-c098f60ec0ef"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="7745e279-d384-413e-b418-de340a62aa06"
+                LastKnownName="NativeClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="20ef761e-c773-4074-8203-700cf0cb99dd"
+            name="BehaviorExecutionSpecification3">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+                LastKnownName="QmailerService"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="9e8a8dd1-fcf0-4c04-93a8-5368eff1bb6b"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="5ff71f62-d213-429f-8c4c-cad3569f5b59"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="96a4f161-c1ce-4ea4-8e0f-68814e763d3f"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="5ff71f62-d213-429f-8c4c-cad3569f5b59"
+            name="ExecutionOccurrenceSpecification5">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="01901b23-6453-45e7-8af6-93e056db95ea"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+                LastKnownName="QmailerService"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="96a4f161-c1ce-4ea4-8e0f-68814e763d3f"
+            name="MessageOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+                LastKnownName="QmailerService"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b2ada494-b9d6-4cd2-a78d-6d3335b91baa"
+            name="MessageOccurrenceSpecification7">
+            <covered>
+              <lifelineMoniker
+                Id="7745e279-d384-413e-b418-de340a62aa06"
+                LastKnownName="NativeClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="9e8a8dd1-fcf0-4c04-93a8-5368eff1bb6b"
+            name="ExecutionOccurrenceSpecification6">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="d5306987-8913-4572-8df6-8725c9d4076a"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+                LastKnownName="QmailerService"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="e91880a3-342a-47c1-89a1-bdf69f858cc8"
+            name="BehaviorExecutionSpecification4">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="ff8a72a4-3f5d-4ff0-b764-8d14cba2b465"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="b87d9281-e6e4-4e40-b42c-ecc9cdfacc8d"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="51200d0b-335a-4a85-a160-d133f63db227"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="b87d9281-e6e4-4e40-b42c-ecc9cdfacc8d"
+            name="ExecutionOccurrenceSpecification7">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="5674c6cc-942d-4c40-b9d1-8b480d498730"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="51200d0b-335a-4a85-a160-d133f63db227"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="71ba4293-6217-41fd-8280-9a5ae78ae408"
+            name="MessageOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+                LastKnownName="QmailerService"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="ff8a72a4-3f5d-4ff0-b764-8d14cba2b465"
+            name="ExecutionOccurrenceSpecification8">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="ab1e6d76-9a2a-4bc4-b37c-87dd5a6cacd8"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="9108ca54-5529-4960-8724-bf866dacb4ef"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="63f94081-0ce9-4e46-8e9f-0e7e08dc2ad4"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="07ed32c2-9ced-4b0d-be8c-084411a484da"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="21b1da43-4222-4543-9efe-912b26b47d8b"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="3c557360-c33a-4516-95bf-1c5bc416e2e0"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="07ed32c2-9ced-4b0d-be8c-084411a484da"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="808d9b33-0c1d-44bf-b4a4-1922274931d7"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="bbfaf1a6-bf24-4f99-a040-2af13a2f8a12"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="ea128f42-08fa-4edb-8466-f60a70a95624"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="21b1da43-4222-4543-9efe-912b26b47d8b"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3c557360-c33a-4516-95bf-1c5bc416e2e0"
+            name="MessageOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0e8f7511-727c-46bc-953a-60e5a6c5f687"
+            name="MessageOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="ea128f42-08fa-4edb-8466-f60a70a95624"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="63f94081-0ce9-4e46-8e9f-0e7e08dc2ad4"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="c45a8432-f50c-4f9c-a395-fb743b981942"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="45ddc1c2-b3ca-4ae4-8758-dc47c847c66a"
+            name="BehaviorExecutionSpecification6">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="24771183-def7-423c-adeb-c777fdbcbd82"
+                LastKnownName="Parser"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="f1bf7e10-68c2-4e5f-815a-00815402245d"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="03346072-a53d-42eb-af80-f415c490a4af"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="4bcdee5b-6282-4740-b3ea-95ef58ecc086"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="8e572f84-1c07-404c-961a-972ee36d76a1"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="03346072-a53d-42eb-af80-f415c490a4af"
+            name="ExecutionOccurrenceSpecification11">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="b2886267-4660-4a08-a618-8b39deb9044f"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="24771183-def7-423c-adeb-c777fdbcbd82"
+                LastKnownName="Parser"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="2f5ca22b-a6c4-4599-813a-607b563b0963"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="ea128f42-08fa-4edb-8466-f60a70a95624"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="4bcdee5b-6282-4740-b3ea-95ef58ecc086"
+            name="MessageOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="24771183-def7-423c-adeb-c777fdbcbd82"
+                LastKnownName="Parser"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="8e572f84-1c07-404c-961a-972ee36d76a1"
+            name="MessageOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="24771183-def7-423c-adeb-c777fdbcbd82"
+                LastKnownName="Parser"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="8dac8b8e-c429-40ab-803f-5c8faf99601b"
+            name="MessageOccurrenceSpecification18">
+            <covered>
+              <lifelineMoniker
+                Id="ea128f42-08fa-4edb-8466-f60a70a95624"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="f1bf7e10-68c2-4e5f-815a-00815402245d"
+            name="ExecutionOccurrenceSpecification12">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="cb2d2a8d-3d6e-46a0-a4cd-4dcb1f72cd8b"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="24771183-def7-423c-adeb-c777fdbcbd82"
+                LastKnownName="Parser"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="c8b4e85a-2f2a-4e89-bbc5-0fddaa1477d5"
+            name="BehaviorExecutionSpecification7">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="890a1375-2a62-4a28-a4d1-fc3291731ba6"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="21bee59f-7065-4d94-a210-0f1290c69368"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="b6e181c7-2444-426f-b223-2ca6546ef65f"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="21bee59f-7065-4d94-a210-0f1290c69368"
+            name="ExecutionOccurrenceSpecification13">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="2159b0ed-0033-46aa-954b-120689124bda"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b6e181c7-2444-426f-b223-2ca6546ef65f"
+            name="MessageOccurrenceSpecification20">
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="000d4b83-f14c-45a1-a42d-749d0af6fbb2"
+            name="MessageOccurrenceSpecification19">
+            <covered>
+              <lifelineMoniker
+                Id="ea128f42-08fa-4edb-8466-f60a70a95624"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="890a1375-2a62-4a28-a4d1-fc3291731ba6"
+            name="ExecutionOccurrenceSpecification14">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="5bb93e67-03e3-4a6b-bb9b-bc40d0f8e81d"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="dedab0d4-e80d-46f3-9c61-04ca850130d7"
+            name="BehaviorExecutionSpecification8">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="45c65788-be4d-401b-8572-e0e81a437f13"
+                LastKnownName="ExecutionOccurrenceSpecification16"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="a269f712-2270-47e1-b9cf-c52caedc10e9"
+                LastKnownName="ExecutionOccurrenceSpecification15"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="536382ed-6dd1-490b-b824-e74669c171a4"
+                LastKnownName="MessageOccurrenceSpecification22"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="b09d2f5e-2db0-4276-8ea4-6a5379ef36e4"
+                LastKnownName="MessageOccurrenceSpecification23"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="a269f712-2270-47e1-b9cf-c52caedc10e9"
+            name="ExecutionOccurrenceSpecification15">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="5e617654-369f-45c1-84f1-baf0f6b126d5"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5633feca-96df-414c-ba1f-842a40a5edb2"
+            name="MessageOccurrenceSpecification21">
+            <covered>
+              <lifelineMoniker
+                Id="a0492c16-c1dd-467e-b1da-26ca178a34d6"
+                LastKnownName="Sender"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="536382ed-6dd1-490b-b824-e74669c171a4"
+            name="MessageOccurrenceSpecification22">
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b09d2f5e-2db0-4276-8ea4-6a5379ef36e4"
+            name="MessageOccurrenceSpecification23">
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="8b140e49-1b71-43a2-8688-e701581c6ef7"
+            name="MessageOccurrenceSpecification24">
+            <covered>
+              <lifelineMoniker
+                Id="a0492c16-c1dd-467e-b1da-26ca178a34d6"
+                LastKnownName="Sender"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="45c65788-be4d-401b-8572-e0e81a437f13"
+            name="ExecutionOccurrenceSpecification16">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="7cc42041-ffcd-40bf-8d8d-a38f75504991"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="aafade47-b22b-408c-bdcd-972902956705"
+            name="BehaviorExecutionSpecification10">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="806630ce-fc73-43e1-abe6-8e285e529f25"
+                LastKnownName="Smtp"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="47283fc0-8ae0-485b-95b5-3edf1548b6e1"
+                LastKnownName="ExecutionOccurrenceSpecification20"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="7f840c8a-fe9a-4bd0-92cd-359c851dbae7"
+                LastKnownName="ExecutionOccurrenceSpecification19"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="5d68b1b1-6b33-4c09-87e1-40a601aa6bb3"
+                LastKnownName="MessageOccurrenceSpecification28"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="7f840c8a-fe9a-4bd0-92cd-359c851dbae7"
+            name="ExecutionOccurrenceSpecification19">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="c8831fa8-a5d8-4e9f-aaa0-d498524fe122"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="806630ce-fc73-43e1-abe6-8e285e529f25"
+                LastKnownName="Smtp"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="738b9c6b-a000-4c2b-8b27-98dfd642cf68"
+            name="MessageOccurrenceSpecification27">
+            <covered>
+              <lifelineMoniker
+                Id="a0492c16-c1dd-467e-b1da-26ca178a34d6"
+                LastKnownName="Sender"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5d68b1b1-6b33-4c09-87e1-40a601aa6bb3"
+            name="MessageOccurrenceSpecification28">
+            <covered>
+              <lifelineMoniker
+                Id="806630ce-fc73-43e1-abe6-8e285e529f25"
+                LastKnownName="Smtp"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="47283fc0-8ae0-485b-95b5-3edf1548b6e1"
+            name="ExecutionOccurrenceSpecification20">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="03e83d0c-e016-453b-b6a5-f15ecf57558b"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="806630ce-fc73-43e1-abe6-8e285e529f25"
+                LastKnownName="Smtp"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="7745e279-d384-413e-b418-de340a62aa06"
+            name="NativeClient"
+            isActor="false"
+            lifelineDisplayName="NativeClient">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="c1b8dc9d-6da2-4bda-8114-9c3fb039f24c"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="4d964cba-d93b-4826-ba63-0794274355d0"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="0897dc55-c3e2-482e-8702-ef14de6d2649"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="5e4c6d26-ffa0-4e75-87f7-d8b086fe6e66"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="0aee7dac-12e2-4dfc-aee1-4f70e8cba4c1"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="b2ada494-b9d6-4cd2-a78d-6d3335b91baa"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="896ef44a-7bd2-49ac-978f-7d70c6073026"
+            name="QmailerService"
+            isActor="false"
+            lifelineDisplayName="QmailerService">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="f2e1f068-80fb-4d48-a3f2-35d64d1935c6"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="1fab8878-0c87-45c0-8fcf-9d21d6a54f94"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="5ff71f62-d213-429f-8c4c-cad3569f5b59"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="9e8a8dd1-fcf0-4c04-93a8-5368eff1bb6b"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="71ba4293-6217-41fd-8280-9a5ae78ae408"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="5fc4b7f4-49d0-46be-ac33-00cb2b045164"
+            name="Ariane MSMQ"
+            isActor="false"
+            lifelineDisplayName="Ariane MSMQ">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="b87d9281-e6e4-4e40-b42c-ecc9cdfacc8d"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="ff8a72a4-3f5d-4ff0-b764-8d14cba2b465"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="07ed32c2-9ced-4b0d-be8c-084411a484da"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="63f94081-0ce9-4e46-8e9f-0e7e08dc2ad4"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="21bee59f-7065-4d94-a210-0f1290c69368"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="890a1375-2a62-4a28-a4d1-fc3291731ba6"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="a269f712-2270-47e1-b9cf-c52caedc10e9"
+                LastKnownName="ExecutionOccurrenceSpecification15"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="45c65788-be4d-401b-8572-e0e81a437f13"
+                LastKnownName="ExecutionOccurrenceSpecification16"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="ea128f42-08fa-4edb-8466-f60a70a95624"
+            name="WebServer"
+            isActor="false"
+            lifelineDisplayName="WebServer">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="bbfaf1a6-bf24-4f99-a040-2af13a2f8a12"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="0e8f7511-727c-46bc-953a-60e5a6c5f687"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="2f5ca22b-a6c4-4599-813a-607b563b0963"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="8dac8b8e-c429-40ab-803f-5c8faf99601b"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="000d4b83-f14c-45a1-a42d-749d0af6fbb2"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="24771183-def7-423c-adeb-c777fdbcbd82"
+            name="Parser"
+            isActor="false"
+            lifelineDisplayName="Parser">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="03346072-a53d-42eb-af80-f415c490a4af"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="f1bf7e10-68c2-4e5f-815a-00815402245d"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="a0492c16-c1dd-467e-b1da-26ca178a34d6"
+            name="Sender"
+            isActor="false"
+            lifelineDisplayName="Sender">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="5633feca-96df-414c-ba1f-842a40a5edb2"
+                LastKnownName="MessageOccurrenceSpecification21"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="8b140e49-1b71-43a2-8688-e701581c6ef7"
+                LastKnownName="MessageOccurrenceSpecification24"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="738b9c6b-a000-4c2b-8b27-98dfd642cf68"
+                LastKnownName="MessageOccurrenceSpecification27"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="806630ce-fc73-43e1-abe6-8e285e529f25"
+            name="Smtp"
+            isActor="false"
+            lifelineDisplayName="Smtp">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="7f840c8a-fe9a-4bd0-92cd-359c851dbae7"
+                LastKnownName="ExecutionOccurrenceSpecification19"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="47283fc0-8ae0-485b-95b5-3edf1548b6e1"
+                LastKnownName="ExecutionOccurrenceSpecification20"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="abc90af5-a415-436d-9f4a-d629d8613720"
+            name="CreateEmailConfig(id)"
+            messageKind="Complete"
+            messageSort="CreateMessage"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="c1b8dc9d-6da2-4bda-8114-9c3fb039f24c"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="6c0b000b-e45e-454d-8969-dcc25b5feaad"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="c8769d20-ae4d-40cf-9698-056deadc1bbe"
+            name="emaiConfig"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="229e236e-eea8-4a85-b63e-b6c9a0070a8d"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="4d964cba-d93b-4826-ba63-0794274355d0"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="f65411b2-10fc-497e-a7bb-6c312b51e762"
+            name="Setup(emailConfig)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0897dc55-c3e2-482e-8702-ef14de6d2649"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a85b85bd-5160-47f7-91a0-1db3c1ddcdca"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="f91900f6-38c7-4832-b5c6-3b86be0542f4"
+            name="SendAsync(emailConfig)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b2ada494-b9d6-4cd2-a78d-6d3335b91baa"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="96a4f161-c1ce-4ea4-8e0f-68814e763d3f"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="80fb1a3a-ea21-4717-add0-94f2bc0181c3"
+            name="Push(emailConfig)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="71ba4293-6217-41fd-8280-9a5ae78ae408"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="51200d0b-335a-4a85-a160-d133f63db227"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="93c2e800-61f7-453f-96c0-ad2990024119"
+            name="DeQueue(emailConfig)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="bbfaf1a6-bf24-4f99-a040-2af13a2f8a12"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="21b1da43-4222-4543-9efe-912b26b47d8b"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="3e3b3625-49bf-4237-b17c-29aad33cecf1"
+            name="emailConfig"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="3c557360-c33a-4516-95bf-1c5bc416e2e0"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0e8f7511-727c-46bc-953a-60e5a6c5f687"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="1c41934f-ac82-4dec-a031-0fd04354ee14"
+            name="CreateEmailMessage(emailConfig)"
+            messageKind="Complete"
+            messageSort="CreateMessage"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="2f5ca22b-a6c4-4599-813a-607b563b0963"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="4bcdee5b-6282-4740-b3ea-95ef58ecc086"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="3a9dc948-ec93-429c-8e70-ca41481e39fb"
+            name="emailMessage"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8e572f84-1c07-404c-961a-972ee36d76a1"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8dac8b8e-c429-40ab-803f-5c8faf99601b"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="8c552ba8-a4ef-4087-8548-ece49412e2dc"
+            name="Push(emailMessage)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="000d4b83-f14c-45a1-a42d-749d0af6fbb2"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b6e181c7-2444-426f-b223-2ca6546ef65f"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="1793b236-b5ba-4c0c-bf5c-9e7c6f1307ba"
+            name="DeQueue(emailMessage)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="5633feca-96df-414c-ba1f-842a40a5edb2"
+                LastKnownName="MessageOccurrenceSpecification21"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="536382ed-6dd1-490b-b824-e74669c171a4"
+                LastKnownName="MessageOccurrenceSpecification22"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="d49a856d-2439-456e-b8a1-d5d71d3178d7"
+            name="emailMessage"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b09d2f5e-2db0-4276-8ea4-6a5379ef36e4"
+                LastKnownName="MessageOccurrenceSpecification23"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8b140e49-1b71-43a2-8688-e701581c6ef7"
+                LastKnownName="MessageOccurrenceSpecification24"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="1864d524-03e2-4e3c-9f22-c86578a55b08"
+            name="Send(emailMessage)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="738b9c6b-a000-4c2b-8b27-98dfd642cf68"
+                LastKnownName="MessageOccurrenceSpecification27"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="5d68b1b1-6b33-4c09-87e1-40a601aa6bb3"
+                LastKnownName="MessageOccurrenceSpecification28"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="454736c1-33a6-46d3-923b-1786e463d7e2"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f13052f9-cf2b-4dd0-ac4e-d460319d5545"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="54dacc9b-398d-46c1-9ac6-ff9c0d0447b7"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="32a482f3-39bb-4490-851d-c098f60ec0ef"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="01901b23-6453-45e7-8af6-93e056db95ea"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="d5306987-8913-4572-8df6-8725c9d4076a"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="5674c6cc-942d-4c40-b9d1-8b480d498730"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="ab1e6d76-9a2a-4bc4-b37c-87dd5a6cacd8"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="808d9b33-0c1d-44bf-b4a4-1922274931d7"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="c45a8432-f50c-4f9c-a395-fb743b981942"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="b2886267-4660-4a08-a618-8b39deb9044f"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="cb2d2a8d-3d6e-46a0-a4cd-4dcb1f72cd8b"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="2159b0ed-0033-46aa-954b-120689124bda"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="5bb93e67-03e3-4a6b-bb9b-bc40d0f8e81d"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="5e617654-369f-45c1-84f1-baf0f6b126d5"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="7cc42041-ffcd-40bf-8d8d-a38f75504991"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="c8831fa8-a5d8-4e9f-aaa0-d498524fe122"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="03e83d0c-e016-453b-b6a5-f15ecf57558b"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="50742f19-b34c-4336-b931-f59b9bd61876"
+        name="RemoteClientUMLSequenceDiagram"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <ownedCommentsInternal>
+          <comment
+            Id="bc6f79bb-36d5-4151-b969-a79cd36da283">
+            <body>Use Razor</body>
+          </comment>
+        </ownedCommentsInternal>
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="c472eb83-91e3-4375-8b55-05dd327fa434"
+            name="BehaviorExecutionSpecification11">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="119a29bc-b49c-4a04-b0a7-947b4cbb40aa"
+                LastKnownName="ExecutionOccurrenceSpecification22"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="2a4b8239-88a9-4535-a1ed-ebb71b277b9c"
+                LastKnownName="ExecutionOccurrenceSpecification21"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="09bdfd55-b714-4ac2-bea9-25261f9f0747"
+                LastKnownName="MessageOccurrenceSpecification30"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="a541fcc3-6fa1-4e50-8fe9-9d59fa921338"
+                LastKnownName="MessageOccurrenceSpecification31"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="2a4b8239-88a9-4535-a1ed-ebb71b277b9c"
+            name="ExecutionOccurrenceSpecification21">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="157f0cfe-c40e-496c-b79b-1faca05a2e9e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="09bdfd55-b714-4ac2-bea9-25261f9f0747"
+            name="MessageOccurrenceSpecification30">
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="cf6a4f33-9202-4718-80cb-b7e89ac27ba8"
+            name="MessageOccurrenceSpecification29">
+            <covered>
+              <lifelineMoniker
+                Id="bdbd3c3b-708a-4261-bd45-abe2d72f9ae2"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="3323f7af-d959-4fb0-8475-cebc922d9fc2"
+            name="MessageOccurrenceSpecification32">
+            <covered>
+              <lifelineMoniker
+                Id="bdbd3c3b-708a-4261-bd45-abe2d72f9ae2"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a541fcc3-6fa1-4e50-8fe9-9d59fa921338"
+            name="MessageOccurrenceSpecification31">
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="119a29bc-b49c-4a04-b0a7-947b4cbb40aa"
+            name="ExecutionOccurrenceSpecification22">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="e25e9672-41de-45c8-9fe7-efccca8ca365"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="fb140ab1-aee5-4571-98d9-de498d1a6828"
+            name="MessageOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="bdbd3c3b-708a-4261-bd45-abe2d72f9ae2"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="9632c851-9c5d-43e1-9d26-5b8b09ed621b"
+            name="BehaviorExecutionSpecification2">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="bdbd3c3b-708a-4261-bd45-abe2d72f9ae2"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="ba42dfd1-c35c-4e69-a644-f88a37ee5a20"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="436fb0e5-5e15-4a2b-a54b-af2ab4e0cc2e"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="f0644fa9-4609-479f-885b-1f8f034412ed"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="436fb0e5-5e15-4a2b-a54b-af2ab4e0cc2e"
+            name="ExecutionOccurrenceSpecification3">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="867396ff-da48-4778-ac5d-7768e42dfb72"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="bdbd3c3b-708a-4261-bd45-abe2d72f9ae2"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f0644fa9-4609-479f-885b-1f8f034412ed"
+            name="MessageOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="bdbd3c3b-708a-4261-bd45-abe2d72f9ae2"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="ba42dfd1-c35c-4e69-a644-f88a37ee5a20"
+            name="ExecutionOccurrenceSpecification4">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="3b0bfc3a-741e-46c2-a762-1b5efb6570b4"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="bdbd3c3b-708a-4261-bd45-abe2d72f9ae2"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="d71663c4-1549-48cf-9b6d-926cd4e4b28b"
+            name="BehaviorExecutionSpecification13">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="10696007-a3ee-47b1-982d-1628a9b9ccdf"
+                LastKnownName="ExecutionOccurrenceSpecification26"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="20b32a5d-836b-461b-bd3a-b38958eeb4eb"
+                LastKnownName="ExecutionOccurrenceSpecification25"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="e024c781-d696-430f-85a5-b66b8b05ad02"
+                LastKnownName="MessageOccurrenceSpecification38"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="20b32a5d-836b-461b-bd3a-b38958eeb4eb"
+            name="ExecutionOccurrenceSpecification25">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="89c4e3bd-f1b9-4cda-90cf-c59562c93359"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="e024c781-d696-430f-85a5-b66b8b05ad02"
+            name="MessageOccurrenceSpecification38">
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0dd25342-10cc-4383-bad4-8035e20aa5f6"
+            name="MessageOccurrenceSpecification37">
+            <covered>
+              <lifelineMoniker
+                Id="bdbd3c3b-708a-4261-bd45-abe2d72f9ae2"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="10696007-a3ee-47b1-982d-1628a9b9ccdf"
+            name="ExecutionOccurrenceSpecification26">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="9145473c-918e-432a-a806-ffaddfba4c31"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="e57028d8-846e-4004-ae7a-538973eec692"
+            name="BehaviorExecutionSpecification14">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="2d79e857-d6b0-481a-925c-5fb0c855c186"
+                LastKnownName="ExecutionOccurrenceSpecification28"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="fb2463b1-a8dc-495c-b36e-3289288b9158"
+                LastKnownName="ExecutionOccurrenceSpecification27"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="00c0e2be-a2a7-4a4c-bac1-a2b34d47d1ca"
+                LastKnownName="MessageOccurrenceSpecification40"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="fb2463b1-a8dc-495c-b36e-3289288b9158"
+            name="ExecutionOccurrenceSpecification27">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="223498f7-265b-4b76-a5d7-b60bda2b06dc"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="00c0e2be-a2a7-4a4c-bac1-a2b34d47d1ca"
+            name="MessageOccurrenceSpecification40">
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="6840b789-c176-45a5-9c42-e453f7579587"
+            name="MessageOccurrenceSpecification39">
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="2d79e857-d6b0-481a-925c-5fb0c855c186"
+            name="ExecutionOccurrenceSpecification28">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="14435e79-4dd9-4735-be53-2ae198871716"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="a79a0fec-b042-47dd-9dec-d942ca3a85ab"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="c6c1b5dd-855e-4a87-aa18-ae3467e85cc0"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="44b92bd6-d178-4613-a588-39a522d8afdb"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="9184924e-337c-4310-a8f5-baad050052df"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="40362318-c49e-4c91-852e-05222eb6c3cf"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="44b92bd6-d178-4613-a588-39a522d8afdb"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="24eec781-4187-45b0-aa09-af5b8f5aa939"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="262fbe54-6f55-4943-b113-1cc48d56bb3c"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9184924e-337c-4310-a8f5-baad050052df"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="40362318-c49e-4c91-852e-05222eb6c3cf"
+            name="MessageOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="97748b4a-9187-4a89-b9b5-b7c8c1b4c7d5"
+            name="MessageOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="c6c1b5dd-855e-4a87-aa18-ae3467e85cc0"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="b9264d99-7833-49f5-bc97-1f5534d349ab"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="d6b17f91-a8f9-45c1-bda0-f5f06e326ee0"
+            name="BehaviorExecutionSpecification6">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="ee599a3b-a7b9-4fbe-824f-e567ebe1af8b"
+                LastKnownName="Parser"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="54cde670-9df2-4a6f-b034-bc750be2c9ca"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="c6bbf157-1eb2-4b62-a86f-fe98302e45f4"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="68213e3b-a3da-4b0e-9f9b-e245226b457b"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="f25d8589-c125-4b28-a49b-d4718fedfcb0"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="c6bbf157-1eb2-4b62-a86f-fe98302e45f4"
+            name="ExecutionOccurrenceSpecification11">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="20d6511c-95b0-4938-a1d7-bf4431fa4d85"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="ee599a3b-a7b9-4fbe-824f-e567ebe1af8b"
+                LastKnownName="Parser"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="68213e3b-a3da-4b0e-9f9b-e245226b457b"
+            name="MessageOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="ee599a3b-a7b9-4fbe-824f-e567ebe1af8b"
+                LastKnownName="Parser"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a7691090-5d03-4924-80e0-7fc3dcc28538"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f25d8589-c125-4b28-a49b-d4718fedfcb0"
+            name="MessageOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="ee599a3b-a7b9-4fbe-824f-e567ebe1af8b"
+                LastKnownName="Parser"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9aff21bb-399c-43ba-b850-22d4cf496f67"
+            name="MessageOccurrenceSpecification18">
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="54cde670-9df2-4a6f-b034-bc750be2c9ca"
+            name="ExecutionOccurrenceSpecification12">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="a25ecc7c-cda0-42c1-bf8e-70b557ba5db4"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="ee599a3b-a7b9-4fbe-824f-e567ebe1af8b"
+                LastKnownName="Parser"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="2d6e0829-da6d-46bb-99b2-1c695c8be612"
+            name="BehaviorExecutionSpecification7">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="51dbc8e0-bb91-4096-ad0c-03853b9381de"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="11f4cec2-1e9c-4b16-8f96-4cf0fc7894fd"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="9ef55fcf-0330-478c-a340-16bb4d42d64d"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="11f4cec2-1e9c-4b16-8f96-4cf0fc7894fd"
+            name="ExecutionOccurrenceSpecification13">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="96fd3657-e89f-4d6f-b680-bd376c91326e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="c74f1e41-aa61-4589-b6cf-2ae45ace82aa"
+            name="MessageOccurrenceSpecification19">
+            <covered>
+              <lifelineMoniker
+                Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+                LastKnownName="WebServer"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9ef55fcf-0330-478c-a340-16bb4d42d64d"
+            name="MessageOccurrenceSpecification20">
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="51dbc8e0-bb91-4096-ad0c-03853b9381de"
+            name="ExecutionOccurrenceSpecification14">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f11e5093-ba0f-4d0f-a055-59c4a6add91a"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="0a1138bc-42c2-4e08-bb7b-60f359e61e2f"
+            name="BehaviorExecutionSpecification8">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="f2c14a6f-0f84-453d-9790-9016976e615e"
+                LastKnownName="ExecutionOccurrenceSpecification16"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="07c7fd30-8821-4ba7-9d69-4ba6037f446f"
+                LastKnownName="ExecutionOccurrenceSpecification15"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="1c30063a-cd81-42dc-a1be-30b0709cce8d"
+                LastKnownName="MessageOccurrenceSpecification22"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="64d103bf-2034-4b0b-8901-f30e761b330c"
+                LastKnownName="MessageOccurrenceSpecification23"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="07c7fd30-8821-4ba7-9d69-4ba6037f446f"
+            name="ExecutionOccurrenceSpecification15">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="bf355aac-ef5e-4d27-a1c0-d3b739490f7f"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1c30063a-cd81-42dc-a1be-30b0709cce8d"
+            name="MessageOccurrenceSpecification22">
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a86f4b34-eba8-42dc-b957-c7c43ebed71a"
+            name="MessageOccurrenceSpecification21">
+            <covered>
+              <lifelineMoniker
+                Id="0b9e6bfc-21bd-45b3-8f64-25c305474e81"
+                LastKnownName="Sender"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0bff099f-25bb-405f-979e-b800cc916453"
+            name="MessageOccurrenceSpecification24">
+            <covered>
+              <lifelineMoniker
+                Id="0b9e6bfc-21bd-45b3-8f64-25c305474e81"
+                LastKnownName="Sender"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="64d103bf-2034-4b0b-8901-f30e761b330c"
+            name="MessageOccurrenceSpecification23">
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="f2c14a6f-0f84-453d-9790-9016976e615e"
+            name="ExecutionOccurrenceSpecification16">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="68dee849-bf9c-4a66-a08b-d13bfc522dda"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+                LastKnownName="Ariane MSMQ"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="a0bccc32-e127-4cda-8cbe-2e4d740e149c"
+            name="BehaviorExecutionSpecification10">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="5113467b-4f42-41db-9f0e-8779d5ca33b5"
+                LastKnownName="Smtp"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="b40c3ff6-7afe-49b2-98ef-28d7fe9c4b5b"
+                LastKnownName="ExecutionOccurrenceSpecification20"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="1f45af55-7821-4a05-b16c-fb507bcecbc6"
+                LastKnownName="ExecutionOccurrenceSpecification19"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="f69365e5-20d7-4a20-a2b0-7ed27cdd00b1"
+                LastKnownName="MessageOccurrenceSpecification28"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="1f45af55-7821-4a05-b16c-fb507bcecbc6"
+            name="ExecutionOccurrenceSpecification19">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="dd2c7b40-49db-4661-9d17-179d1fa187c8"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5113467b-4f42-41db-9f0e-8779d5ca33b5"
+                LastKnownName="Smtp"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f69365e5-20d7-4a20-a2b0-7ed27cdd00b1"
+            name="MessageOccurrenceSpecification28">
+            <covered>
+              <lifelineMoniker
+                Id="5113467b-4f42-41db-9f0e-8779d5ca33b5"
+                LastKnownName="Smtp"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="461fba9d-fe3b-438b-a60e-74ea877502c3"
+            name="MessageOccurrenceSpecification27">
+            <covered>
+              <lifelineMoniker
+                Id="0b9e6bfc-21bd-45b3-8f64-25c305474e81"
+                LastKnownName="Sender"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="b40c3ff6-7afe-49b2-98ef-28d7fe9c4b5b"
+            name="ExecutionOccurrenceSpecification20">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="2537fe4b-0d0b-4583-a197-c9e66a17af1e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="5113467b-4f42-41db-9f0e-8779d5ca33b5"
+                LastKnownName="Smtp"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="bdbd3c3b-708a-4261-bd45-abe2d72f9ae2"
+            name="RemoteClient"
+            isActor="false"
+            lifelineDisplayName="RemoteClient">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="cf6a4f33-9202-4718-80cb-b7e89ac27ba8"
+                LastKnownName="MessageOccurrenceSpecification29"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="3323f7af-d959-4fb0-8475-cebc922d9fc2"
+                LastKnownName="MessageOccurrenceSpecification32"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="fb140ab1-aee5-4571-98d9-de498d1a6828"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="436fb0e5-5e15-4a2b-a54b-af2ab4e0cc2e"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="ba42dfd1-c35c-4e69-a644-f88a37ee5a20"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="0dd25342-10cc-4383-bad4-8035e20aa5f6"
+                LastKnownName="MessageOccurrenceSpecification37"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="fc8b4045-70e1-43be-af73-330cc01eb967"
+            name="WebServer"
+            isActor="false"
+            lifelineDisplayName="WebServer">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="2a4b8239-88a9-4535-a1ed-ebb71b277b9c"
+                LastKnownName="ExecutionOccurrenceSpecification21"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="119a29bc-b49c-4a04-b0a7-947b4cbb40aa"
+                LastKnownName="ExecutionOccurrenceSpecification22"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="20b32a5d-836b-461b-bd3a-b38958eeb4eb"
+                LastKnownName="ExecutionOccurrenceSpecification25"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="10696007-a3ee-47b1-982d-1628a9b9ccdf"
+                LastKnownName="ExecutionOccurrenceSpecification26"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="6840b789-c176-45a5-9c42-e453f7579587"
+                LastKnownName="MessageOccurrenceSpecification39"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="262fbe54-6f55-4943-b113-1cc48d56bb3c"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="97748b4a-9187-4a89-b9b5-b7c8c1b4c7d5"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="a7691090-5d03-4924-80e0-7fc3dcc28538"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="9aff21bb-399c-43ba-b850-22d4cf496f67"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="c74f1e41-aa61-4589-b6cf-2ae45ace82aa"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="184614c1-b47e-4c00-8b05-77399ad6c1d9"
+            name="Ariane MSMQ"
+            isActor="false"
+            lifelineDisplayName="Ariane MSMQ">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="fb2463b1-a8dc-495c-b36e-3289288b9158"
+                LastKnownName="ExecutionOccurrenceSpecification27"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="2d79e857-d6b0-481a-925c-5fb0c855c186"
+                LastKnownName="ExecutionOccurrenceSpecification28"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="44b92bd6-d178-4613-a588-39a522d8afdb"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="c6c1b5dd-855e-4a87-aa18-ae3467e85cc0"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="11f4cec2-1e9c-4b16-8f96-4cf0fc7894fd"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="51dbc8e0-bb91-4096-ad0c-03853b9381de"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="07c7fd30-8821-4ba7-9d69-4ba6037f446f"
+                LastKnownName="ExecutionOccurrenceSpecification15"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="f2c14a6f-0f84-453d-9790-9016976e615e"
+                LastKnownName="ExecutionOccurrenceSpecification16"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="ee599a3b-a7b9-4fbe-824f-e567ebe1af8b"
+            name="Parser"
+            isActor="false"
+            lifelineDisplayName="Parser">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="c6bbf157-1eb2-4b62-a86f-fe98302e45f4"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="54cde670-9df2-4a6f-b034-bc750be2c9ca"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="0b9e6bfc-21bd-45b3-8f64-25c305474e81"
+            name="Sender"
+            isActor="false"
+            lifelineDisplayName="Sender">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="a86f4b34-eba8-42dc-b957-c7c43ebed71a"
+                LastKnownName="MessageOccurrenceSpecification21"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="0bff099f-25bb-405f-979e-b800cc916453"
+                LastKnownName="MessageOccurrenceSpecification24"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="461fba9d-fe3b-438b-a60e-74ea877502c3"
+                LastKnownName="MessageOccurrenceSpecification27"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="5113467b-4f42-41db-9f0e-8779d5ca33b5"
+            name="Smtp"
+            isActor="false"
+            lifelineDisplayName="Smtp">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="1f45af55-7821-4a05-b16c-fb507bcecbc6"
+                LastKnownName="ExecutionOccurrenceSpecification19"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="b40c3ff6-7afe-49b2-98ef-28d7fe9c4b5b"
+                LastKnownName="ExecutionOccurrenceSpecification20"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="859a5c81-ae09-45bf-85d2-885d4a0305f2"
+            name="CreateEmailConfig(id)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="cf6a4f33-9202-4718-80cb-b7e89ac27ba8"
+                LastKnownName="MessageOccurrenceSpecification29"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="09bdfd55-b714-4ac2-bea9-25261f9f0747"
+                LastKnownName="MessageOccurrenceSpecification30"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="64f7b8fc-bbb4-4e56-9783-ac19e57a0fd0"
+            name="emailConfig"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a541fcc3-6fa1-4e50-8fe9-9d59fa921338"
+                LastKnownName="MessageOccurrenceSpecification31"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="3323f7af-d959-4fb0-8475-cebc922d9fc2"
+                LastKnownName="MessageOccurrenceSpecification32"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="f1c6444b-f266-4e00-b658-4626702de784"
+            name="Setup(emailConfig)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="fb140ab1-aee5-4571-98d9-de498d1a6828"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f0644fa9-4609-479f-885b-1f8f034412ed"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="f010294d-c6c7-4d0f-abea-29bfd81653e5"
+            name="SendAsync(emailConfig)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0dd25342-10cc-4383-bad4-8035e20aa5f6"
+                LastKnownName="MessageOccurrenceSpecification37"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="e024c781-d696-430f-85a5-b66b8b05ad02"
+                LastKnownName="MessageOccurrenceSpecification38"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="c4c9ef61-9f6e-4182-8003-59b6b702eb43"
+            name="Push(emailConfig)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="6840b789-c176-45a5-9c42-e453f7579587"
+                LastKnownName="MessageOccurrenceSpecification39"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="00c0e2be-a2a7-4a4c-bac1-a2b34d47d1ca"
+                LastKnownName="MessageOccurrenceSpecification40"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="d414ad78-85e2-42c8-b445-33e884f340c8"
+            name="DeQueue(emailConfig)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="262fbe54-6f55-4943-b113-1cc48d56bb3c"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="9184924e-337c-4310-a8f5-baad050052df"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="21442503-a212-47ff-a640-998276ac7ea5"
+            name="emailConfig"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="40362318-c49e-4c91-852e-05222eb6c3cf"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="97748b4a-9187-4a89-b9b5-b7c8c1b4c7d5"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="837528a0-38ee-4c8f-86c3-e82db8047576"
+            name="CreateEmailMessage(emailConfig)"
+            messageKind="Complete"
+            messageSort="CreateMessage"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a7691090-5d03-4924-80e0-7fc3dcc28538"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="68213e3b-a3da-4b0e-9f9b-e245226b457b"
+                LastKnownName="MessageOccurrenceSpecification16"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="44d93a45-4eab-4c6e-9b92-45caf4b292be"
+            name="emailMessage"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f25d8589-c125-4b28-a49b-d4718fedfcb0"
+                LastKnownName="MessageOccurrenceSpecification17"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="9aff21bb-399c-43ba-b850-22d4cf496f67"
+                LastKnownName="MessageOccurrenceSpecification18"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="046868c2-e977-42b7-b241-ac454ef50df4"
+            name="Push(emailMessage)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="c74f1e41-aa61-4589-b6cf-2ae45ace82aa"
+                LastKnownName="MessageOccurrenceSpecification19"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="9ef55fcf-0330-478c-a340-16bb4d42d64d"
+                LastKnownName="MessageOccurrenceSpecification20"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="7bed7678-d317-4b8f-ad4b-6c79a4c7be79"
+            name="DeQueue(emailMessage)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="a86f4b34-eba8-42dc-b957-c7c43ebed71a"
+                LastKnownName="MessageOccurrenceSpecification21"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1c30063a-cd81-42dc-a1be-30b0709cce8d"
+                LastKnownName="MessageOccurrenceSpecification22"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="76d1d231-cf94-4d72-972f-4418eb7fa303"
+            name="emailMessage"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="64d103bf-2034-4b0b-8901-f30e761b330c"
+                LastKnownName="MessageOccurrenceSpecification23"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0bff099f-25bb-405f-979e-b800cc916453"
+                LastKnownName="MessageOccurrenceSpecification24"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="d9bc49a1-af94-4405-9535-1e4d6f53052f"
+            name="Send(emailMessage)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="461fba9d-fe3b-438b-a60e-74ea877502c3"
+                LastKnownName="MessageOccurrenceSpecification27"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f69365e5-20d7-4a20-a2b0-7ed27cdd00b1"
+                LastKnownName="MessageOccurrenceSpecification28"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="20d6511c-95b0-4938-a1d7-bf4431fa4d85"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="a25ecc7c-cda0-42c1-bf8e-70b557ba5db4"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="dd2c7b40-49db-4661-9d17-179d1fa187c8"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="2537fe4b-0d0b-4583-a197-c9e66a17af1e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="24eec781-4187-45b0-aa09-af5b8f5aa939"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="b9264d99-7833-49f5-bc97-1f5534d349ab"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="96fd3657-e89f-4d6f-b680-bd376c91326e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f11e5093-ba0f-4d0f-a055-59c4a6add91a"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="867396ff-da48-4778-ac5d-7768e42dfb72"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="3b0bfc3a-741e-46c2-a762-1b5efb6570b4"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="bf355aac-ef5e-4d27-a1c0-d3b739490f7f"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="68dee849-bf9c-4a66-a08b-d13bfc522dda"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="157f0cfe-c40e-496c-b79b-1faca05a2e9e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="e25e9672-41de-45c8-9fe7-efccca8ca365"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="89c4e3bd-f1b9-4cda-90cf-c59562c93359"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="9145473c-918e-432a-a806-ffaddfba4c31"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="223498f7-265b-4b76-a5d7-b60bda2b06dc"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="14435e79-4dd9-4735-be53-2ae198871716"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="b1dae9cf-83f1-4a8c-acc7-d6e1207747ac"
+        name="RemotePreviewUMLSequenceDiagram"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="78777924-20e2-44ef-a77b-fa8226b6f36c"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="bdf84f1e-138d-406a-9e28-741662e3aa7a"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="062a148a-bbd9-4591-a2a1-88867bc0976d"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="eb7313c8-2495-4c42-9b99-ffc44b37f394"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="fbea8631-5925-4065-a509-6ab2e8f36fea"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="062a148a-bbd9-4591-a2a1-88867bc0976d"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="6108fd4a-a530-4603-ab31-954cc712e878"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9c8305c8-68c7-491b-b0dd-4e05229706dc"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="eb7313c8-2495-4c42-9b99-ffc44b37f394"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="fbea8631-5925-4065-a509-6ab2e8f36fea"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="321da710-63f2-4209-96d8-3d8ea9bb1c9b"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="bdf84f1e-138d-406a-9e28-741662e3aa7a"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="539441d7-7985-4c84-8d56-dc2f4c7eb0d9"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0f068ba7-0b33-4953-8afd-31c8269b661a"
+            name="MessageOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="adff0481-8873-4a26-81ce-7e67c8917d93"
+            name="BehaviorExecutionSpecification2">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="0aecf893-8960-454f-9f96-86b54492c807"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="f1d1d193-e30e-4f3c-a53f-5edbbb17c7d2"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="e66bf854-9899-455c-b8ce-f6c067c756b2"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="f1d1d193-e30e-4f3c-a53f-5edbbb17c7d2"
+            name="ExecutionOccurrenceSpecification3">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="2a8e9042-0296-4409-8626-0bdad1b64301"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="e66bf854-9899-455c-b8ce-f6c067c756b2"
+            name="MessageOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="0aecf893-8960-454f-9f96-86b54492c807"
+            name="ExecutionOccurrenceSpecification4">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="3fbcbbee-89d8-4275-80f3-a8f70ff7bf18"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="cff4612d-6f3d-49b6-90e2-650683647c9b"
+            name="BehaviorExecutionSpecification3">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="61f35ee1-f5b3-4868-96f4-5dffdd6431b4"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="2ae8f74a-8648-475b-9bfa-18ac814cc5e5"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="306d08a0-7b8e-4662-a111-490312bcea9e"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="1ce48870-b002-4342-8fd4-25bb0004c30d"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="2ae8f74a-8648-475b-9bfa-18ac814cc5e5"
+            name="ExecutionOccurrenceSpecification5">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f76911a8-1d39-4804-9710-5594a948d908"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="74ac3e3d-959a-46c0-a22c-e0100d801d09"
+            name="MessageOccurrenceSpecification7">
+            <covered>
+              <lifelineMoniker
+                Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="306d08a0-7b8e-4662-a111-490312bcea9e"
+            name="MessageOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1ce48870-b002-4342-8fd4-25bb0004c30d"
+            name="MessageOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="90ad2d20-1798-42ee-b219-1bdab33a3050"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="61f35ee1-f5b3-4868-96f4-5dffdd6431b4"
+            name="ExecutionOccurrenceSpecification6">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="becdb89d-1b25-4f69-893f-5cd7338f0d20"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="067f88e1-c338-4617-96cd-3d6d9d92d9da"
+            name="BehaviorExecutionSpecification4">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="362c06ea-c944-42e0-8726-46cd1c0c1f38"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="f7a2a450-5735-48fd-ad3f-54ac3e19af41"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="8b993a05-4cdb-4773-950c-20b88676e23c"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="f7a2a450-5735-48fd-ad3f-54ac3e19af41"
+            name="ExecutionOccurrenceSpecification7">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="4a591bd8-e790-45da-8201-a2286feeb70e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="2076cf8d-f1e7-41a6-8d26-82c77f5d7022"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+                LastKnownName="RemoteClient"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="8b993a05-4cdb-4773-950c-20b88676e23c"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="362c06ea-c944-42e0-8726-46cd1c0c1f38"
+            name="ExecutionOccurrenceSpecification8">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="9ac0fdaa-d176-4c5e-b8bd-85656f9f366f"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="QMailer.Modeling.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+                LastKnownName="WebApi"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="b6620499-73c5-4684-8bcc-bffecf4d9d66"
+            name="RemoteClient"
+            isActor="false"
+            lifelineDisplayName="RemoteClient">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="9c8305c8-68c7-491b-b0dd-4e05229706dc"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="321da710-63f2-4209-96d8-3d8ea9bb1c9b"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="0f068ba7-0b33-4953-8afd-31c8269b661a"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="f1d1d193-e30e-4f3c-a53f-5edbbb17c7d2"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="0aecf893-8960-454f-9f96-86b54492c807"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="74ac3e3d-959a-46c0-a22c-e0100d801d09"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="90ad2d20-1798-42ee-b219-1bdab33a3050"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="2076cf8d-f1e7-41a6-8d26-82c77f5d7022"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="2ea8e176-984a-4bbe-9d1f-e517a9048720"
+            name="WebApi"
+            isActor="false"
+            lifelineDisplayName="WebApi">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="062a148a-bbd9-4591-a2a1-88867bc0976d"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="bdf84f1e-138d-406a-9e28-741662e3aa7a"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="2ae8f74a-8648-475b-9bfa-18ac814cc5e5"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="61f35ee1-f5b3-4868-96f4-5dffdd6431b4"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="f7a2a450-5735-48fd-ad3f-54ac3e19af41"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="QMailer.Modeling.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="362c06ea-c944-42e0-8726-46cd1c0c1f38"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="4c81463a-1272-490c-b527-f1a15686f95d"
+            name="CreateEmailConfig(id)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="9c8305c8-68c7-491b-b0dd-4e05229706dc"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="eb7313c8-2495-4c42-9b99-ffc44b37f394"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="8f43a674-2955-4e7a-9470-de477c5b1e15"
+            name="emailConfig"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="fbea8631-5925-4065-a509-6ab2e8f36fea"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="321da710-63f2-4209-96d8-3d8ea9bb1c9b"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="153f0495-069d-49ce-910a-6c4fb8933c6c"
+            name="Setup(emailConfig)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0f068ba7-0b33-4953-8afd-31c8269b661a"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="e66bf854-9899-455c-b8ce-f6c067c756b2"
+                LastKnownName="MessageOccurrenceSpecification6"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="6b78a6ed-e0a1-4e57-b91f-5001dc3f9bc7"
+            name="GetEmailMessage(emailConfig)"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="74ac3e3d-959a-46c0-a22c-e0100d801d09"
+                LastKnownName="MessageOccurrenceSpecification7"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="306d08a0-7b8e-4662-a111-490312bcea9e"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="5c5828af-4d3b-4b3f-9bed-8294193e8698"
+            name="emailMessage"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1ce48870-b002-4342-8fd4-25bb0004c30d"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="90ad2d20-1798-42ee-b219-1bdab33a3050"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="8aca610e-64da-49dd-a7da-24557512838d"
+            name="SendAsync(emailMessage)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="2076cf8d-f1e7-41a6-8d26-82c77f5d7022"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8b993a05-4cdb-4773-950c-20b88676e23c"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="QMailer.Modeling.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="6108fd4a-a530-4603-ab31-954cc712e878"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="539441d7-7985-4c84-8d56-dc2f4c7eb0d9"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="2a8e9042-0296-4409-8626-0bdad1b64301"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="3fbcbbee-89d8-4275-80f3-a8f70ff7bf18"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f76911a8-1d39-4804-9710-5594a948d908"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="becdb89d-1b25-4f69-893f-5cd7338f0d20"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="4a591bd8-e790-45da-8201-a2286feeb70e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="9ac0fdaa-d176-4c5e-b8bd-85656f9f366f"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
