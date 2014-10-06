@@ -21,12 +21,12 @@ namespace QMailerWebApp
 			QMailer.GlobalConfiguration.Configuration.FullUrl = "http://localhost";
 			QMailer.GlobalConfiguration.Configuration.FromEmail = "test@email.com";
 			QMailer.GlobalConfiguration.Configuration.FromName = "Test NAme";
-			QMailer.EmailerService.Current.Start();
+			QMailer.QMailerService.Current.Start();
         }
 
 		protected void Application_End()
 		{
-			QMailer.EmailerService.Current.Stop();
+			QMailer.QMailerService.Current.Stop();
 		}
     }
 }

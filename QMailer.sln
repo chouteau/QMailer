@@ -22,11 +22,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.SvcHost", "trunk\QM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Client", "trunk\QMailer.Client\QMailer.Client.csproj", "{9411A900-F57B-4FE3-87F6-554724D8F4B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ariane", "..\..\S3\Codeplex\Ariane\Ariane\Ariane.csproj", "{D71050CE-F15A-4A94-9438-C755C1A28D5D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{29DE89BB-AC0E-47A4-8E61-0653E1A2A788}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Client35", "trunk\QMailer.Client35\QMailer.Client35.csproj", "{F86CBA9D-D99C-4E50-950F-34891727BA45}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "QMailer.Modeling", "trunk\QMailer.Modeling\QMailer.Modeling.modelproj", "{41724BD1-6AB7-4648-9E33-A8167B4147C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,19 +56,16 @@ Global
 		{9411A900-F57B-4FE3-87F6-554724D8F4B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9411A900-F57B-4FE3-87F6-554724D8F4B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9411A900-F57B-4FE3-87F6-554724D8F4B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D71050CE-F15A-4A94-9438-C755C1A28D5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D71050CE-F15A-4A94-9438-C755C1A28D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D71050CE-F15A-4A94-9438-C755C1A28D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D71050CE-F15A-4A94-9438-C755C1A28D5D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41724BD1-6AB7-4648-9E33-A8167B4147C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41724BD1-6AB7-4648-9E33-A8167B4147C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41724BD1-6AB7-4648-9E33-A8167B4147C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41724BD1-6AB7-4648-9E33-A8167B4147C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{D71050CE-F15A-4A94-9438-C755C1A28D5D} = {29DE89BB-AC0E-47A4-8E61-0653E1A2A788}
 	EndGlobalSection
 EndGlobal

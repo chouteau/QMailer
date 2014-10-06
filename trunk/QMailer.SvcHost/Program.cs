@@ -38,7 +38,7 @@ namespace QMailer.SvcHost
 
 				System.Console.Read();
 
-				QMailer.EmailerService.Current.Stop();
+				QMailerService.Current.Stop();
 			}
 			else
 			{

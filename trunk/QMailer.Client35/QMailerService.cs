@@ -12,10 +12,10 @@ namespace QMailer.Client35
 
 		}
 
-		public EmailConfig CreateEmailConfig()
+		public EmailConfig CreateEmailConfig(string messageId)
 		{
 			var httpClient = new RestSharpClient();
-			var r = httpClient.CreateRequest("api/qmailer/createemailconfig", RestSharp.Method.GET);
+			var r = httpClient.CreateRequest("api/qmailer/createemailconfig/" + messageId, RestSharp.Method.GET);
 			var result = httpClient.Execute<EmailConfig>(r);
 			return result;
 		}
