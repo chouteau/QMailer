@@ -11,15 +11,15 @@ using Ariane;
 
 namespace QMailer
 {
-	public class EmailerService
+	internal class EmailerServiceInternal : QMailer.IEmailerService
 	{
-		private static Lazy<EmailerService> m_LazyInstance = new Lazy<EmailerService>(InitializeService, true);
+		private static Lazy<IEmailerService> m_LazyInstance = new Lazy<IEmailerService>(InitializeService, true);
 
-		private EmailerService()
+		private EmailerServiceInternal()
 		{
 		}
 
-		public static EmailerService Current
+		public static IEmailerService Current
 		{
 			get
 			{
@@ -110,7 +110,7 @@ namespace QMailer
 			}
 		}
 
-		private static EmailerService InitializeService()
+		private static EmailerServiceInternal InitializeService()
 		{
 			if (GlobalConfiguration.Configuration.DependencyResolver == null)
 			{
@@ -119,7 +119,7 @@ namespace QMailer
 			}
 			var bus = GlobalConfiguration.Configuration.DependencyResolver.GetService<Ariane.IServiceBus>();
 
-			var emailerService = new EmailerService();
+			var emailerService = new EmailerServiceInternal();
 			emailerService.Bus = bus;
 			emailerService.Logger = new DiagnosticsLogger();
 
