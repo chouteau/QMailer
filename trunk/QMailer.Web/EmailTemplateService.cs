@@ -36,25 +36,25 @@ namespace QMailer.Web
 			return result;
 		}
 
-		public EmailMessage GetEmailMessage(EmailConfig message)
+		public EmailMessage GetEmailMessage(EmailConfig emailConfig)
 		{
 			string messageId = Guid.NewGuid().ToString();
 
 			// Deserialize object
-			object model = message.Model;
-			if (message.Model != null
-				&& message.Model.GetType().AssemblyQualifiedName != message.AssemblyQualifiedTypeNameModel)
+			object model = emailConfig.Model;
+			if (emailConfig.Model != null
+				&& emailConfig.Model.GetType().AssemblyQualifiedName != emailConfig.AssemblyQualifiedTypeNameModel)
 			{
-				var modelType = Type.GetType(message.AssemblyQualifiedTypeNameModel);
-				model = Newtonsoft.Json.JsonConvert.DeserializeObject(message.Model.ToString(), modelType);
-				Logger.Debug("Email model {0},{1},{2}", message.EmailName, model, modelType);
+				var modelType = Type.GetType(emailConfig.AssemblyQualifiedTypeNameModel);
+				model = Newtonsoft.Json.JsonConvert.DeserializeObject(emailConfig.Model.ToString(), modelType);
+				Logger.Debug("Email model {0},{1},{2}", emailConfig.EmailName, model, modelType);
 			}
 
 			// Create emailView
-			dynamic emailView = CreateEmailView(message.EmailName, model);
-			if (message.Parameters != null)
+			dynamic emailView = CreateEmailView(emailConfig.EmailName, model);
+			if (emailConfig.Parameters != null)
 			{
-				foreach (var prm in message.Parameters)
+				foreach (var prm in emailConfig.Parameters)
 				{
 					emailView.ViewData.Add(prm.Name, prm.Value);
 				}
@@ -76,12 +76,12 @@ namespace QMailer.Web
 				return null;
 			}
 
-			if (message.Sender != null)
+			if (emailConfig.Sender != null)
 			{
 				emailMessage.From = new EmailAddress()
 				{
-					Address = message.Sender.Email,
-					DisplayName = message.Sender.DisplayName,
+					Address = emailConfig.Sender.Email,
+					DisplayName = emailConfig.Sender.DisplayName,
 				};
 			}
 			else if (emailMessage.From == null)
@@ -93,12 +93,12 @@ namespace QMailer.Web
 				};
 			}
 
-			emailMessage.Recipients.AddRange(message.Recipients);
+			emailMessage.Recipients.AddRange(emailConfig.Recipients);
 			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer", Value = "QMailer" });
 			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-MID", Value = messageId });
-			if (message.Headers != null)
+			if (emailConfig.Headers != null)
 			{
-				foreach (var h in message.Headers)
+				foreach (var h in emailConfig.Headers)
 				{
 					emailMessage.Headers.Add(new EmailMessageHeader() { Name = h.Name, Value = h.Value });
 				}
