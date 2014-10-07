@@ -45,11 +45,11 @@ namespace QMailer.Client35
 			httpClient.Execute(r);
 		}
 
-		public Dictionary<string, string> GetTemplateListByModel(string modelName)
+		public List<QMailer.Web.TemplateInfo> GetTemplateListByModel(string modelName)
 		{
 			var httpClient = new RestSharpClient();
 			var r = httpClient.CreateRequest("api/qmailer/templatelistbymodel/" + modelName, RestSharp.Method.GET);
-			var result = httpClient.Execute<Dictionary<string, string>>(r);
+			var result = httpClient.Execute<List<QMailer.Web.TemplateInfo>>(r);
 			return result;
 		}
     }
