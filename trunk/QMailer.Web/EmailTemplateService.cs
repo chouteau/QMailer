@@ -12,16 +12,19 @@ namespace QMailer.Web
 	public class EmailTemplateService 
 	{
 		public EmailTemplateService(IEmailViewRenderer renderer
-			, QMailer.ILogger logger)
+			, QMailer.ILogger logger
+			, Ariane.IServiceBus bus)
 		{
 			this.EmailParser = new EmailParser();
 			this.Renderer = renderer;
 			this.Logger = logger;
+			this.Bus = bus;
 		}
 
 		protected IEmailViewRenderer Renderer { get; private set; }
 		internal EmailParser EmailParser { get; private set; }
 		protected QMailer.ILogger Logger { get; private set; }
+		protected Ariane.IServiceBus Bus { get; private set; }
 
 		public EmailView CreateEmailView(string viewName, object model = null)
 		{
@@ -64,6 +67,15 @@ namespace QMailer.Web
 			catch (Exception ex)
 			{
 				Logger.Error(ex);
+				var failMessage = new SentFail();
+				failMessage.FailDate = DateTime.Now;
+				failMessage.Message = ex.Message;
+				failMessage.MessageId = emailConfig.MessageId;
+				failMessage.Recipients = emailConfig.Recipients;
+				failMessage.Stack = ex.ToString();
+				failMessage.Subject = "Fail create email message";
+
+				Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, failMessage);
 			}
 
 			if (emailMessage == null)
