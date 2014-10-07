@@ -73,7 +73,13 @@ namespace QMailer
 				}
 				stream.Close();
 			}
-			var base64 = System.Convert.ToBase64String(ms.GetBuffer());
+			config.AddAttachment(ms.GetBuffer(), name, contentType);
+			return config;
+		}
+
+		public static EmailConfig AddAttachment(this EmailConfig config, byte[] content, string name, string contentType)
+		{
+			var base64 = System.Convert.ToBase64String(content);
 			var attachment = new Attachment();
 			attachment.Content = base64;
 			attachment.ContentType = contentType;
@@ -82,5 +88,6 @@ namespace QMailer
 			config.Attachments.Add(attachment);
 			return config;
 		}
+
 	}
 }

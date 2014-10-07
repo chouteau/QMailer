@@ -29,6 +29,10 @@ namespace QMailer
 
 		public string SendEmailQueueName { get; set; }
 
+		public string SentMessageQueueName { get; set; }
+
+		public string SentFailQueueName { get; set; }
+
 		public string FullUrl { get; set; }
 
 		public string FromEmail { get; set; }

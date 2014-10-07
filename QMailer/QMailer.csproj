@@ -83,6 +83,8 @@
     <Compile Include="QMailerService.cs" />
     <Compile Include="SendEmailMessageReader.cs" />
     <Compile Include="Sender.cs" />
+    <Compile Include="SentFail.cs" />
+    <Compile Include="SentMessage.cs" />
     <Compile Include="UnityDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>

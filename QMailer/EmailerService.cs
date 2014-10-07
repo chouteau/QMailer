@@ -13,6 +13,7 @@ namespace QMailer
 {
 	class EmailerService : QMailer.IEmailerService
 	{
+
 		internal EmailerService()
 		{
 		}
@@ -56,25 +57,43 @@ namespace QMailer
 			htmlView.TransferEncoding = System.Net.Mime.TransferEncoding.QuotedPrintable;
 			mailMessage.AlternateViews.Add(htmlView);
 
-			using (var sender = GetCurrentSmtpClient())
+			using (var sender = CreateSmtpClient())
 			{
 				Logger.Debug("Send email to : {0} with subject {1}", mailMessage.To.First().Address, mailMessage.Subject);
-				try
+				sender.SendMailAsync(mailMessage).ContinueWith(task =>
 				{
-					sender.Send(mailMessage);
-				}
-				catch(Exception ex)
-				{
-					ex.Data.Add("MessageId", message.MessageId);
-					Logger.Error(ex);
-				}
+					if (task.IsFaulted)
+					{
+						task.Exception.Data.Add("MessageId", message.MessageId);
+						Logger.Error(task.Exception);
+
+						var sentFail = new SentFail();
+						sentFail.Message = task.Exception.Message;
+						sentFail.Stack = task.Exception.ToString();
+						sentFail.MessageId = message.MessageId;
+						sentFail.Recipients = message.Recipients;
+						sentFail.Subject = message.Subject;
+
+						Bus.Send(GlobalConfiguration.Configuration.SentMessageQueueName, sentFail);
+					}
+					else
+					{
+						var sentMessage = new SentMessage();
+						sentMessage.Body = message.Body;
+						sentMessage.MessageId = message.MessageId;
+						sentMessage.Recipients = message.Recipients;
+						sentMessage.Subject = message.Subject;
+						sentMessage.SmtpInfo = sender.Host;
+
+						Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, sentMessage);
+					}
+				}).Wait(10 * 1000);
 			}
 		}
 
-		private System.Net.Mail.SmtpClient GetCurrentSmtpClient()
+		private System.Net.Mail.SmtpClient CreateSmtpClient()
 		{
 			var client = new System.Net.Mail.SmtpClient();
-			client.SendCompleted += new SendCompletedEventHandler(m_SmtpClient_SendCompleted);
 
 			// For Tests
 			if (client.DeliveryMethod == System.Net.Mail.SmtpDeliveryMethod.SpecifiedPickupDirectory
@@ -90,14 +109,6 @@ namespace QMailer
 			}
 
 			return client;
-		}
-
-		void m_SmtpClient_SendCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-		{
-			if (e.Error != null)
-			{
-				Logger.Error(e.Error);
-			}
 		}
 	}
 }
