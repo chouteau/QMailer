@@ -15,6 +15,8 @@ namespace QMailer.Web
 		[DataMember]
 		public string Name { get; set; }
 		[DataMember]
+		public string ViewName { get; set; }
+		[DataMember]
 		public string ShortName { get; set; }
 		[DataMember]
 		public string Content { get; set; }
