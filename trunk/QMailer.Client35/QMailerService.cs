@@ -52,5 +52,10 @@ namespace QMailer.Client35
 			var result = httpClient.Execute<List<QMailer.Web.TemplateInfo>>(r);
 			return result;
 		}
+
+		public List<QMailer.Web.TemplateInfo> GetAllTemplateList()
+		{
+			throw new NotImplementedException();
+		}
     }
 }
