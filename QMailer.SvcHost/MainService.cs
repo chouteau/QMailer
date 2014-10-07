@@ -28,7 +28,6 @@ namespace QMailer.SvcHost
 		{
 			Microsoft.Practices.Unity.IUnityContainer container = new Microsoft.Practices.Unity.UnityContainer();
 			QMailer.GlobalConfiguration.Configuration.DependencyResolver = new QMailer.UnityDependencyResolver(container);
-			container = QMailer.GlobalConfiguration.Configuration.DependencyResolver.GetConfiguredContainer();
 
 			QMailerService.Current.Start();
 		}
