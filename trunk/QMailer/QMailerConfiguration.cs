@@ -47,5 +47,11 @@ namespace QMailer
 
 		public string PhysicalPath { get; set; }
 
+		public string DkimPrivateKey { get; set; }
+
+		public string DkimDomain { get; set; }
+
+		public string DkimSelector { get; set; }
+
 	}
 }

@@ -9,6 +9,8 @@ using Microsoft.Practices.Unity;
 
 using Ariane;
 
+using DKIM;
+
 namespace QMailer
 {
 	class EmailerService : QMailer.IEmailerService
@@ -56,6 +58,8 @@ namespace QMailer
 			var htmlView = AlternateView.CreateAlternateViewFromString(message.Body, null, "text/html");
 			htmlView.TransferEncoding = System.Net.Mime.TransferEncoding.QuotedPrintable;
 			mailMessage.AlternateViews.Add(htmlView);
+
+			AddDkimHeader(mailMessage);
 
 			using (var sender = CreateSmtpClient())
 			{
@@ -110,5 +114,41 @@ namespace QMailer
 
 			return client;
 		}
+
+		public void AddDkimHeader(System.Net.Mail.MailMessage message)
+		{
+			if (string.IsNullOrWhiteSpace(GlobalConfiguration.Configuration.DkimPrivateKey))
+			{
+				return;
+			}
+			if (message.From.Host != GlobalConfiguration.Configuration.DkimDomain)
+			{
+				return;
+			}
+
+			try
+			{
+				var privateKey = DKIM.PrivateKeySigner.Create(GlobalConfiguration.Configuration.DkimPrivateKey);
+				var headerToSign = new string[] { "From", "To", "Subject" };
+				var domainKeySigner = new DKIM.DomainKeySigner(privateKey, GlobalConfiguration.Configuration.DkimPrivateKey, GlobalConfiguration.Configuration.DkimSelector, headerToSign);
+
+				message.DomainKeySign(domainKeySigner);
+
+				var dkimSigner = new DkimSigner(privateKey, GlobalConfiguration.Configuration.DkimPrivateKey, GlobalConfiguration.Configuration.DkimSelector, headerToSign);
+				message.DkimSign(dkimSigner);
+			}
+			catch (Exception ex)
+			{
+				ex.Data.Add("domain", GlobalConfiguration.Configuration.DkimDomain);
+				ex.Data.Add("from", message.From.Address);
+				foreach (var emailTo in message.To)
+				{
+					ex.Data.Add(string.Format("to{0}", message.To.IndexOf(emailTo)), emailTo.Address);
+				}
+				ex.Data.Add("subject", message.Subject);
+				Logger.Error(ex);
+			}
+		}
+
 	}
 }

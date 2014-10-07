@@ -135,6 +135,11 @@ namespace QMailer
 				}
 			}
 
+			foreach (var header in template.Headers)
+			{
+				mailMessage.Headers.Add(header.Name, header.Value);
+			}
+
 			return mailMessage;
 		}
 	}

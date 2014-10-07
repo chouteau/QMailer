@@ -92,7 +92,7 @@ namespace QMailer.Web
 				};
 			}
 			else if (emailMessage.From == null 
-				&& emailMessage.From.Address == null)
+				|| emailMessage.From.Address == null)
 			{
 				emailMessage.From = new EmailAddress()
 				{
