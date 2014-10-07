@@ -57,5 +57,10 @@ namespace QMailer.Client35
 		{
 			throw new NotImplementedException();
 		}
+
+		public void DeleteTemplate(QMailer.Web.TemplateInfo template)
+		{
+			throw new NotImplementedException();
+		}
     }
 }
