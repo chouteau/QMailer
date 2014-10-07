@@ -68,7 +68,7 @@ namespace QMailer.Client35
 			throw new NotImplementedException();
 		}
 
-		public void CreateCustomTemplate()
+		public QMailer.Web.TemplateInfo CreateCustomTemplate()
 		{
 			throw new NotImplementedException();
 		}
