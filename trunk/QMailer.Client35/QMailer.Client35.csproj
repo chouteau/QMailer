@@ -54,6 +54,9 @@
     <Compile Include="..\QMailer.Web\EmailTemplate.cs">
       <Link>EmailTemplate.cs</Link>
     </Compile>
+    <Compile Include="..\QMailer.Web\TemplateInfo.cs">
+      <Link>TemplateInfo.cs</Link>
+    </Compile>
     <Compile Include="..\QMailer\Attachment.cs">
       <Link>Attachment.cs</Link>
     </Compile>
