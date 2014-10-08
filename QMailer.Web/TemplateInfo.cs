@@ -11,15 +11,7 @@ namespace QMailer.Web
 	public class TemplateInfo
 	{
 		[DataMember]
-		public string Id { get; set; }
-		[DataMember]
-		public string Name { get; set; }
-		[DataMember]
 		public string ViewName { get; set; }
-		[DataMember]
-		public string ShortName { get; set; }
-		[DataMember]
-		public string Content { get; set; }
 		[DataMember]
 		public DateTime CreationDate { get; set; }
 		[DataMember]
