@@ -11,9 +11,12 @@ namespace QMailer.Web
 {
 	public class EmailTemplateService 
 	{
-		public EmailTemplateService(IEmailViewRenderer renderer
-			, QMailer.ILogger logger
-			, Ariane.IServiceBus bus)
+		public EmailTemplateService(
+			IEmailViewRenderer renderer,
+			QMailer.ILogger logger,
+			Ariane.IServiceBus bus,
+			IModelResolver resolver
+			)
 		{
 			this.EmailParser = new EmailParser();
 			this.Renderer = renderer;
@@ -25,6 +28,7 @@ namespace QMailer.Web
 		internal EmailParser EmailParser { get; private set; }
 		protected QMailer.ILogger Logger { get; private set; }
 		protected Ariane.IServiceBus Bus { get; private set; }
+		protected IModelResolver ModelResolver { get; private set; }
 
 		public EmailView CreateEmailView(string viewName, object model = null)
 		{
@@ -35,14 +39,7 @@ namespace QMailer.Web
 		public EmailMessage GetEmailMessage(EmailConfig emailConfig)
 		{
 			// Deserialize object
-			object model = emailConfig.Model;
-			if (emailConfig.Model != null
-				&& emailConfig.Model.GetType().AssemblyQualifiedName != emailConfig.AssemblyQualifiedTypeNameModel)
-			{
-				var modelType = Type.GetType(emailConfig.AssemblyQualifiedTypeNameModel);
-				model = Newtonsoft.Json.JsonConvert.DeserializeObject(emailConfig.Model.ToString(), modelType);
-				Logger.Debug("Email model {0},{1},{2}", emailConfig.EmailName, model, modelType);
-			}
+			object model = ModelResolver.Convert(emailConfig.Model, emailConfig.AssemblyQualifiedTypeNameModel);
 
 			// Create emailView
 			dynamic emailView = CreateEmailView(emailConfig.EmailName, model);
@@ -126,6 +123,7 @@ namespace QMailer.Web
 
 		public IList<TemplateInfo> GetTemplateNameListByModel(string modelName)
 		{
+			modelName = ModelResolver.Resolve(modelName);
 			var list = GetTemplateList();
 			var result = new List<TemplateInfo>();
 			foreach (var model in list)
