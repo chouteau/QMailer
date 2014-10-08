@@ -35,7 +35,7 @@ namespace QMailer
 			return config;
 		}
 
-		public static EmailConfig AddModel(this EmailConfig config, object model)
+		public static EmailConfig SetModel(this EmailConfig config, object model)
 		{
 			config.Model = model;
 			config.AssemblyQualifiedTypeNameModel = model.GetType().AssemblyQualifiedName;
