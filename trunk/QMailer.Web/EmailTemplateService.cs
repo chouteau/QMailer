@@ -147,9 +147,11 @@ namespace QMailer.Web
 					&& d != null)
 				{
 					var ti = new TemplateInfo();
-					ti.ModelName = model.ShortName;
+					ti.ModelName = modelName;
 					ti.Description = d.Trim();
-					ti.Name = model.FullName;
+					ti.ViewName = model.ShortName;
+					ti.CreationDate = model.CreationDate;
+					ti.LastUpdate = model.CreationDate;
 					result.Add(ti);
 				}
 			}
@@ -272,7 +274,6 @@ namespace QMailer.Web
 		internal string GetDirectoryPath()
 		{
 			var path = GlobalConfiguration.Configuration.PhysicalPath;
-			path = System.IO.Path.Combine(path, "Emailer");
 			return path;
 		}
 
