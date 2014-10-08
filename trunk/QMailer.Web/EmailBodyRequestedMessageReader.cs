@@ -33,7 +33,7 @@ namespace QMailer.Web
 			var template = EmailTemplateService.GetEmailMessage(message);
 			if (template != null)
 			{
-				Logger.Info("Enqueue email {0} to {1}", message.EmailName, message.Recipients.First(i => i.SendingType == EmailSendingType.To).Address);
+				Logger.Info("Enqueue email {0} to {1}", message.EmailName, template.Recipients.First(i => i.SendingType == EmailSendingType.To).Address);
 				Bus.Send(GlobalConfiguration.Configuration.SendEmailQueueName, template);
 			}
 		}
