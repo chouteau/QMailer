@@ -20,7 +20,11 @@ namespace QMailer.Web
 
 			var emailEngines = new ViewEngineCollection() { new EmailerViewEngine() };
 			container.RegisterType<IEmailViewRenderer, EmailViewRenderer>(new ContainerControlledLifetimeManager(), new InjectionConstructor(emailEngines));
-			container.RegisterType<IModelResolver, DefaultModelResolver>(new ContainerControlledLifetimeManager());
+
+			if (!container.IsRegistered<QMailer.Web.IModelResolver>())
+			{
+				container.RegisterType<IModelResolver, DefaultModelResolver>(new ContainerControlledLifetimeManager());
+			}
 
 			container.RegisterType<EmailTemplateService>(new ContainerControlledLifetimeManager());
 		}

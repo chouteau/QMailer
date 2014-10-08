@@ -28,7 +28,13 @@ namespace QMailer.Web
 		internal EmailParser EmailParser { get; private set; }
 		protected QMailer.ILogger Logger { get; private set; }
 		protected Ariane.IServiceBus Bus { get; private set; }
-		protected IModelResolver ModelResolver { get; private set; }
+		protected IModelResolver ModelResolver 
+		{
+			get
+			{
+				return GlobalConfiguration.Configuration.DependencyResolver.GetService<IModelResolver>();
+			}
+		}
 
 		public EmailView CreateEmailView(string viewName, object model = null)
 		{
