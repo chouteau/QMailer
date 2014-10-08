@@ -32,7 +32,6 @@ namespace QMailer
 
 		public void SendAsync(EmailConfig emailConfig)
 		{
-			Logger.Info("Prepare email {0} to {1}", emailConfig.EmailName, emailConfig.Recipients.First(i => i.SendingType == EmailSendingType.To).Address);
 			Bus.Send(GlobalConfiguration.Configuration.EmailBodyRequestedQueueName, emailConfig);
 		}
 
@@ -63,7 +62,6 @@ namespace QMailer
 
 			using (var sender = CreateSmtpClient())
 			{
-				Logger.Debug("Send email to : {0} with subject {1}", mailMessage.To.First().Address, mailMessage.Subject);
 				sender.SendMailAsync(mailMessage).ContinueWith(task =>
 				{
 					if (task.IsFaulted)
