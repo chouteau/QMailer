@@ -149,7 +149,7 @@ namespace QMailer.Web
 					var ti = new TemplateInfo();
 					ti.ModelName = modelName;
 					ti.Description = d.Trim();
-					ti.ViewName = model.ShortName;
+					ti.ViewName = model.ViewName;
 					ti.CreationDate = model.CreationDate;
 					ti.LastUpdate = model.CreationDate;
 					result.Add(ti);
@@ -194,7 +194,7 @@ namespace QMailer.Web
 			Guid guid = Guid.NewGuid();
 			template.Id = guid.ToString();
 			template.IsCustom = true;
-			template.ShortName = "nouveau";
+			template.ViewName = "nouveau";
 
 			return template;
 		}
@@ -206,11 +206,11 @@ namespace QMailer.Web
 			{
 				throw new Exception("Impossible de supprimer un modèle de base");
 			}
-			if (template.Id == null || template.ShortName == null)
+			if (template.Id == null || template.ViewName == null)
 			{
 				return;
 			}
-			string fullName = GetDirectoryPath() + @"\" + template.ShortName + "." + template.Id + ".custom.cshtml";
+			string fullName = GetDirectoryPath() + @"\" + template.ViewName + "." + template.Id + ".custom.cshtml";
 			if (File.Exists(fullName))
 			{
 				try
@@ -237,7 +237,7 @@ namespace QMailer.Web
 			EmailTemplate templateChanged = null;
 			if (template.Id == null)
 			{
-				templateChanged = templateList.SingleOrDefault(i => i.ShortName.Equals(template.ShortName, StringComparison.InvariantCultureIgnoreCase));
+				templateChanged = templateList.SingleOrDefault(i => i.ViewName.Equals(template.ViewName, StringComparison.InvariantCultureIgnoreCase));
 				if (templateChanged == null)
 				{
 					throw new Exception("Impossible de modifier le nom d'un modèle de base");
@@ -245,7 +245,7 @@ namespace QMailer.Web
 			}
 			else
 			{
-				templateChanged = templateList.SingleOrDefault(i => !i.ShortName.Equals(template.ShortName, StringComparison.InvariantCultureIgnoreCase) && i.Id.Equals(template.Id, StringComparison.InvariantCultureIgnoreCase));
+				templateChanged = templateList.SingleOrDefault(i => !i.ViewName.Equals(template.ViewName, StringComparison.InvariantCultureIgnoreCase) && i.Id.Equals(template.Id, StringComparison.InvariantCultureIgnoreCase));
 			}
 			string path = GetDirectoryPath();
 			EmailTemplateFileSerializer.Serialize(template, path, templateChanged);
@@ -256,7 +256,7 @@ namespace QMailer.Web
 		internal bool IsValid(EmailTemplate template)
 		{
 			bool valid = false;
-			var name = template.ShortName.Split('.');
+			var name = template.ViewName.Split('.');
 			var regex = new Regex("^_|^[a-zA-Z0-9]*$");
 			bool test = regex.IsMatch(name.First());
 			if (name.First() == null || name.First() == "" || !regex.IsMatch(name.First()))

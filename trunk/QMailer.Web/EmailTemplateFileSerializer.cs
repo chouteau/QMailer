@@ -40,11 +40,11 @@ namespace QMailer.Web
 			string fileName = null;
 			if (template.IsCustom)
 			{
-				fileName = string.Format("{0}.{1}.custom.cshtml", template.ShortName, template.Id);
+				fileName = string.Format("{0}.{1}.custom.cshtml", template.ViewName, template.Id);
 			}
 			else
 			{
-				fileName = string.Format("{0}.cshtml", template.ShortName);
+				fileName = string.Format("{0}.cshtml", template.ViewName);
 			}
 			fileName = System.IO.Path.Combine(path, fileName);
 			return fileName;
@@ -61,11 +61,11 @@ namespace QMailer.Web
 			var template = new EmailTemplate();
 			var nameParts = fileName.Split('.');
 			//var nameParts = template.FullName.Split('.');
-			template.ShortName = nameParts[0];
+			template.ViewName = nameParts[0];
 			if (nameParts.Length < 2)
 			{
 				template.IsCustom = false;
-				template.Id = template.ShortName;
+				template.Id = template.ViewName;
 			}
 			else
 			{
