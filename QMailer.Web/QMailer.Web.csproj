@@ -108,6 +108,7 @@
     <Compile Include="Controllers\ActionFilters\ApiAuthorizedOperationAttribute.cs" />
     <Compile Include="Controllers\QMailerApiController.cs" />
     <Compile Include="Controllers\QMailerController.cs" />
+    <Compile Include="DefaultModelResolver.cs" />
     <Compile Include="EmailBodyRequestedMessageReader.cs" />
     <Compile Include="EmailerViewEngine.cs" />
     <Compile Include="EmailHelper.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="EmailWebPage.cs" />
     <Compile Include="Html\EmailViewExtensions.cs" />
     <Compile Include="IEmailViewRenderer.cs" />
+    <Compile Include="IModelResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QMailerConfig.cs" />
     <Compile Include="TemplateInfo.cs" />
