@@ -83,6 +83,14 @@ namespace QMailer.Client35
 			throw new NotImplementedException();
 		}
 
+		public string GetPreviewUrl(QMailer.EmailConfig config)
+		{
+			var httpClient = new RestSharpClient();
+			var r = httpClient.CreateRequest("api/qmailer/previewkey", RestSharp.Method.POST);
+			r.AddBody(config);
+			var key = httpClient.Execute<string>(r);
+			return string.Format("{0}/qmailer/preview/{1}", GlobalConfiguration.Configuration.ApiUrl.TrimEnd('/'), key);
+		}
 
     }
 }
