@@ -12,15 +12,18 @@ namespace QMailer.Web.Controllers
 	{
 		public QMailerApiController(
 			EmailTemplateService emailTemplateService,
-			Ariane.IServiceBus bus
+			Ariane.IServiceBus bus,
+			ICacheService cacheService
 			)
 		{
 			this.EmailTemplateService = emailTemplateService;
 			this.Bus = bus;
+			this.CacheService = cacheService;
 		}
 
 		protected EmailTemplateService EmailTemplateService { get; private set; }
 		protected Ariane.IServiceBus Bus { get; private set; }
+		protected ICacheService CacheService { get; private set; }
 
 		[Route("ping")]
 		public object GetPing()
@@ -38,6 +41,16 @@ namespace QMailer.Web.Controllers
 		{
 			var emailConfig = QMailerService.Current.CreateEmailConfig(messageId);
 			return emailConfig;
+		}
+
+		[Route("previewkey")]
+		[ActionFilters.ApiAuthorizedOperation]
+		[System.Web.Http.HttpPost]
+		public string GetPreviewKey(EmailConfig emailConfig)
+		{
+			var emailMessage = EmailTemplateService.GetEmailMessage(emailConfig);
+			CacheService.Add(emailMessage.MessageId, emailMessage.Body, DateTime.Now.AddHours(1));
+			return emailConfig.MessageId;
 		}
 
 		[ActionFilters.ApiAuthorizedOperation]
@@ -109,6 +122,7 @@ namespace QMailer.Web.Controllers
 			EmailTemplateService.SaveTemplate(template);
 			return true;
 		}
+
 
 
 	}

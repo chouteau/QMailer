@@ -63,6 +63,7 @@
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -105,6 +106,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheEntry.cs" />
     <Compile Include="Controllers\ActionFilters\ApiAuthorizedOperationAttribute.cs" />
     <Compile Include="Controllers\QMailerApiController.cs" />
     <Compile Include="Controllers\QMailerController.cs" />
@@ -123,10 +125,12 @@
     <Compile Include="EmailViewRenderer.cs" />
     <Compile Include="EmailWebPage.cs" />
     <Compile Include="Html\EmailViewExtensions.cs" />
+    <Compile Include="ICacheService.cs" />
     <Compile Include="IEmailViewRenderer.cs" />
     <Compile Include="IModelResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QMailerConfig.cs" />
+    <Compile Include="SimpleCacheService.cs" />
     <Compile Include="TemplateInfo.cs" />
   </ItemGroup>
   <ItemGroup>
