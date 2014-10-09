@@ -46,11 +46,17 @@ namespace QMailer.Web.Controllers
 		[Route("previewkey")]
 		[ActionFilters.ApiAuthorizedOperation]
 		[System.Web.Http.HttpPost]
-		public string GetPreviewKey(EmailConfig emailConfig)
+		public object GetPreviewKey(EmailConfig emailConfig)
 		{
 			var emailMessage = EmailTemplateService.GetEmailMessage(emailConfig);
-			CacheService.Add(emailMessage.MessageId, emailMessage.Body, DateTime.Now.AddHours(1));
-			return emailConfig.MessageId;
+			if (emailMessage != null)
+			{
+				CacheService.Add(emailConfig.MessageId, emailMessage.Body, DateTime.Now.AddHours(1));
+			}
+			return new
+			{
+				MessageId = emailConfig.MessageId
+			};
 		}
 
 		[ActionFilters.ApiAuthorizedOperation]
