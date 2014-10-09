@@ -89,5 +89,36 @@ namespace QMailer
 			return config;
 		}
 
+
+
+		public static EmailMessage AddAttachment(this EmailMessage message, string name, string contentType, string fileName)
+		{
+			var ms = new System.IO.MemoryStream();
+			using (var stream = new System.IO.FileStream(fileName, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read))
+			{
+				var buffer = new byte[1024];
+				int pos = 0;
+				while ((pos = stream.Read(buffer, 0, 1024)) > 0)
+				{
+					ms.Write(buffer, 0, pos);
+				}
+				stream.Close();
+			}
+			message.AddAttachment(ms.GetBuffer(), name, contentType);
+			return message;
+		}
+
+		public static EmailMessage AddAttachment(this EmailMessage message, byte[] content, string name, string contentType)
+		{
+			var base64 = System.Convert.ToBase64String(content);
+			var attachment = new Attachment();
+			attachment.Content = base64;
+			attachment.ContentType = contentType;
+			attachment.Name = name;
+
+			message.Attachments.Add(attachment);
+			return message;
+		}
+
 	}
 }

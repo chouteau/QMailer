@@ -30,8 +30,18 @@ namespace QMailer.Client35
 
 		public EmailMessage GetEmailMessage(EmailConfig emailConfig)
 		{
+			if (emailConfig.Model == null)
+			{
+				return null;
+			}
+
+			emailConfig.AssemblyQualifiedTypeNameModel = emailConfig.Model.GetType().AssemblyQualifiedName;
+
 			var httpClient = new RestSharpClient();
 			var r = httpClient.CreateRequest("api/qmailer/emailmessage", RestSharp.Method.POST);
+
+		
+
 			r.AddBody(emailConfig);
 			var result = httpClient.Execute<EmailMessage>(r);
 			return result;
@@ -40,7 +50,7 @@ namespace QMailer.Client35
 		public void Send(EmailMessage emailMessage)
 		{
 			var httpClient = new RestSharpClient();
-			var r = httpClient.CreateRequest("api/qmailer/emailmessage", RestSharp.Method.POST);
+			var r = httpClient.CreateRequest("api/qmailer/sendemailmessage", RestSharp.Method.POST);
 			r.AddBody(emailMessage);
 			httpClient.Execute(r);
 		}
