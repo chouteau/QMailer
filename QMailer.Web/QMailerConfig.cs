@@ -27,6 +27,7 @@ namespace QMailer.Web
 			}
 
 			container.RegisterType<EmailTemplateService>(new ContainerControlledLifetimeManager());
+			container.RegisterType<ICacheService, SimpleCacheService>(new ContainerControlledLifetimeManager());
 		}
 	}
 }

@@ -9,20 +9,32 @@ namespace QMailer.Web.Controllers
 {
 	public class QMailerController : AsyncController
 	{
-		public QMailerController()
+		public QMailerController(ICacheService cacheService)
 		{
-			EmailTemplateService = QMailer.GlobalConfiguration.Configuration.DependencyResolver.GetService<QMailer.Web.EmailTemplateService>();
+			this.EmailTemplateService = QMailer.GlobalConfiguration.Configuration.DependencyResolver.GetService<QMailer.Web.EmailTemplateService>();
+			this.CacheService = cacheService;
 		}
 
 		protected QMailer.Web.EmailTemplateService EmailTemplateService { get; private set; }
+		protected ICacheService CacheService { get; private set; }
 
-		public ActionResult Preview(string id)
+		public ActionResult PreviewTemplate(string id)
 		{
 			dynamic emailView = EmailTemplateService.CreateEmailView(id, null);
 			emailView.MessageId = Guid.NewGuid().ToString();
 			var template = EmailTemplateService.CreateEmailMessage(emailView);
 
 			return Content(template.Body as string, "text/html");
+		}
+
+		public ActionResult Preview(string id)
+		{
+			var body = CacheService[id] as string;
+			if (body == null)
+			{
+				return new EmptyResult();
+			}
+			return Content(body, "text/html");
 		}
 	}
 }
