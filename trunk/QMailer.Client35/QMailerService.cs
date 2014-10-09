@@ -22,6 +22,13 @@ namespace QMailer.Client35
 
 		public void Send(EmailConfig emailConfig)
 		{
+			if (emailConfig.Model == null)
+			{
+				return;
+			}
+
+			emailConfig.AssemblyQualifiedTypeNameModel = emailConfig.Model.GetType().AssemblyQualifiedName;
+
 			var httpClient = new RestSharpClient();
 			var r = httpClient.CreateRequest("api/qmailer/sendemailconfig", RestSharp.Method.POST);
 			r.AddBody(emailConfig);
@@ -85,12 +92,20 @@ namespace QMailer.Client35
 
 		public string GetPreviewUrl(QMailer.EmailConfig config)
 		{
+			if (config.Model == null)
+			{
+				return null;
+			}
+
+			config.AssemblyQualifiedTypeNameModel = config.Model.GetType().AssemblyQualifiedName;
+
 			var httpClient = new RestSharpClient();
 			var r = httpClient.CreateRequest("api/qmailer/previewkey", RestSharp.Method.POST);
 			r.AddBody(config);
-			var result = httpClient.Execute<object>(r);
-			var key = result.GetType().GetProperty("messageId", System.Reflection.BindingFlags.GetProperty | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance).GetValue(result, null);
-			return string.Format("{0}/qmailer/preview/{1}", GlobalConfiguration.Configuration.ApiUrl.TrimEnd('/'), key);
+			var result = httpClient.Execute<Newtonsoft.Json.Linq.JObject>(r);
+			var key = result["messageId"];
+			//var key = result.GetType().GetProperty("messageId", System.Reflection.BindingFlags.GetProperty | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance).GetValue(result, null);
+			return string.Format("http://{0}/qmailer/preview/{1}", GlobalConfiguration.Configuration.ApiUrl.TrimEnd('/'), key);
 		}
 
     }
