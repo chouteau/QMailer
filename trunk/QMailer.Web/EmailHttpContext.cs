@@ -39,7 +39,7 @@ namespace QMailer.Web
 
 		public override object GetService(Type serviceType)
 		{
-			var result = GlobalConfiguration.Configuration.DependencyResolver.GetService(serviceType);
+			var result = System.Web.Mvc.DependencyResolver.Current.GetService(serviceType);
 			return result;
 		}
 
