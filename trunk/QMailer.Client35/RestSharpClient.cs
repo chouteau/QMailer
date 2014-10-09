@@ -61,7 +61,8 @@ namespace QMailer.Client35
 			Exception ex = null;
 			var response = client.Execute(request);
 
-			if (response.StatusCode != System.Net.HttpStatusCode.OK)
+			if (response.StatusCode != System.Net.HttpStatusCode.OK
+				&& response.StatusCode != HttpStatusCode.NoContent)
 			{
 				ex = CreateException(response);
 			}

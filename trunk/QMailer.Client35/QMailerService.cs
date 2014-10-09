@@ -88,7 +88,8 @@ namespace QMailer.Client35
 			var httpClient = new RestSharpClient();
 			var r = httpClient.CreateRequest("api/qmailer/previewkey", RestSharp.Method.POST);
 			r.AddBody(config);
-			var key = httpClient.Execute<string>(r);
+			var result = httpClient.Execute<object>(r);
+			var key = result.GetType().GetProperty("messageId", System.Reflection.BindingFlags.GetProperty | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance).GetValue(result, null);
 			return string.Format("{0}/qmailer/preview/{1}", GlobalConfiguration.Configuration.ApiUrl.TrimEnd('/'), key);
 		}
 
