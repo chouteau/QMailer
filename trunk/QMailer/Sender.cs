@@ -16,5 +16,7 @@ namespace QMailer
 		public string DisplayName { get; set; }
 		[DataMember]
 		public string JobTitle { get; set; }
+		[DataMember]
+		public string Code { get; set; }
 	}
 }

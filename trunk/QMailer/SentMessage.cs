@@ -28,5 +28,9 @@ namespace QMailer
 		public DateTime SentDate { get; set; }
 		[DataMember]
 		public string SmtpInfo { get; set; }
+		[DataMember]
+		public Sender Sender { get; set; }
+		[DataMember]
+		public bool IsBodyHtml { get; set; }
 	}
 }

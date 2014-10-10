@@ -19,8 +19,8 @@ namespace QMailer.Tests
 			GlobalConfiguration.Configuration.DependencyResolver = new QMailer.UnityDependencyResolver(container);
 
 			GlobalConfiguration.Configuration.FullUrl = "http://localhost";
-			GlobalConfiguration.Configuration.FromEmail = "test@test.com";
-			GlobalConfiguration.Configuration.FromName = "TestEmail";
+			GlobalConfiguration.Configuration.SenderEmail = "test@test.com";
+			GlobalConfiguration.Configuration.SenderName = "TestEmail";
 
 			var existingBus = container.Resolve<Ariane.IServiceBus>();
 			container.RegisterType<Ariane.IServiceBus, Ariane.SyncBusManager>(new ContainerControlledLifetimeManager(), new InjectionConstructor(existingBus));

@@ -29,12 +29,12 @@ namespace QMailer.Web.Controllers
 
 		public ActionResult Preview(string id)
 		{
-			var body = CacheService[id] as string;
+			var body = CacheService[id];
 			if (body == null)
 			{
 				return new EmptyResult();
 			}
-			return Content(body, "text/html");
+			return Content((string)body, "text/html");
 		}
 	}
 }

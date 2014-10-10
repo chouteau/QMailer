@@ -83,12 +83,24 @@ namespace QMailer.Web
 					var toEmailList = email.Split(';');
 					foreach (var e in toEmailList)
 					{
-						var to = new EmailAddress() { Address = e, DisplayName = displayName, SendingType = EmailSendingType.To };
-						message.Recipients.Add(to);
+						var to = new EmailAddress() 
+						{ 
+							Address = e, 
+							DisplayName = displayName, 
+							SendingType = EmailSendingType.To 
+						};
+						if (!message.Recipients.Any(i => i.Address.Equals(to.Address, StringComparison.InvariantCultureIgnoreCase)))
+						{
+							message.Recipients.Add(to);
+						}
 					}
 					break;
 				case "from":
-					message.From = new EmailAddress() { Address = email, DisplayName = displayName };
+					//message.Sender = new Sender()
+					//{
+					//	Email = email,
+					//	DisplayName = displayName
+					//};
 					break;
 				case "subject":
 					message.Subject = value;
@@ -97,7 +109,12 @@ namespace QMailer.Web
 					var ccEmailList = email.Split(';');
 					foreach (var e in ccEmailList)
 					{
-						var cc = new EmailAddress() { Address = e, DisplayName = displayName, SendingType = EmailSendingType.CC };
+						var cc = new EmailAddress() 
+						{ 
+							Address = e, 
+							DisplayName = displayName, 
+							SendingType = EmailSendingType.CC 
+						};
 						message.Recipients.Add(cc);
 					}
 					break;
@@ -105,12 +122,21 @@ namespace QMailer.Web
 	                var emailList = email.Split(';');
 					foreach (var e in emailList)
 					{
-						var bcc = new EmailAddress() { Address = e, SendingType = EmailSendingType.BCC };
+						var bcc = new EmailAddress() 
+						{ 
+							Address = e, 
+							SendingType = EmailSendingType.BCC 
+						};
 						message.Recipients.Add(bcc);
 					}
 					break;
 				case "replyto":
-					var replyto = new EmailAddress() { Address = email, DisplayName = displayName, SendingType = EmailSendingType.ReplyTo };
+					var replyto = new EmailAddress() 
+					{ 
+						Address = email, 
+						DisplayName = displayName, 
+						SendingType = EmailSendingType.ReplyTo 
+					};
 					message.Recipients.Add(replyto);
 					break;
 				//case "content-type":

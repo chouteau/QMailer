@@ -16,7 +16,7 @@ namespace QMailer
 
 		public EmailMessage(System.Net.Mail.MailMessage mailMessage)
 		{
-			this.From = new EmailAddress();
+			this.Sender = new Sender();
 			this.Subject = mailMessage.Subject;
 			this.Body = mailMessage.Body;
 			this.Recipients = new List<EmailAddress>();
@@ -59,9 +59,9 @@ namespace QMailer
 
 			if (mailMessage.From != null)
 			{
-				From = new EmailAddress()
+				Sender = new Sender()
 				{
-					Address = mailMessage.From.Address,
+					Email = mailMessage.From.Address,
 					DisplayName = mailMessage.From.DisplayName,
 				};
 
@@ -78,7 +78,7 @@ namespace QMailer
 		[DataMember]
 		public List<EmailAddress> Recipients { get; set; }
 		[DataMember]
-		public EmailAddress From { get; set; }
+		public Sender Sender { get; set; }
 		[DataMember]
 		public List<EmailMessageHeader> Headers { get; set; }
 		[DataMember]
@@ -124,7 +124,7 @@ namespace QMailer
 			}
 			mailMessage.Body = template.Body;
 			mailMessage.IsBodyHtml = true;
-			mailMessage.From = new System.Net.Mail.MailAddress(template.From.Address, template.From.DisplayName);
+			mailMessage.From = new System.Net.Mail.MailAddress(template.Sender.Email, template.Sender.DisplayName);
 
 			foreach (var attachment in template.Attachments)
 			{

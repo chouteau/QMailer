@@ -76,7 +76,7 @@ namespace QMailer
 						sentFail.Recipients = message.Recipients;
 						sentFail.Subject = message.Subject;
 
-						Bus.Send(GlobalConfiguration.Configuration.SentMessageQueueName, sentFail);
+						Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, sentFail);
 					}
 					else
 					{
@@ -86,8 +86,9 @@ namespace QMailer
 						sentMessage.Recipients = message.Recipients;
 						sentMessage.Subject = message.Subject;
 						sentMessage.SmtpInfo = sender.Host;
+						sentMessage.Sender = message.Sender;
 
-						Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, sentMessage);
+						Bus.Send(GlobalConfiguration.Configuration.SentMessageQueueName, sentMessage);
 					}
 				}).Wait(10 * 1000);
 			}
