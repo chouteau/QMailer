@@ -14,6 +14,7 @@ namespace QMailer
 			Recipients = new List<EmailAddress>();
 			Headers = new List<EmailMessageHeader>();
 			Parameters = new List<EmailMessageParameter>();
+			DoNotTrack = false;
 		}
 
 		[DataMember]
@@ -36,5 +37,7 @@ namespace QMailer
 		public List<Attachment> Attachments { get; set; }
 		[DataMember]
 		public Sender Sender { get; set; }
+		[DataMember]
+		public bool DoNotTrack { get; set; }
 	}
 }

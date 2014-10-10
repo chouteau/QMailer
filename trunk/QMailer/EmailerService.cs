@@ -80,15 +80,18 @@ namespace QMailer
 					}
 					else
 					{
-						var sentMessage = new SentMessage();
-						sentMessage.Body = message.Body;
-						sentMessage.MessageId = message.MessageId;
-						sentMessage.Recipients = message.Recipients;
-						sentMessage.Subject = message.Subject;
-						sentMessage.SmtpInfo = sender.Host;
-						sentMessage.Sender = message.Sender;
+						if (!message.DoNotTrack)
+						{
+							var sentMessage = new SentMessage();
+							sentMessage.Body = message.Body;
+							sentMessage.MessageId = message.MessageId;
+							sentMessage.Recipients = message.Recipients;
+							sentMessage.Subject = message.Subject;
+							sentMessage.SmtpInfo = sender.Host;
+							sentMessage.Sender = message.Sender;
 
-						Bus.Send(GlobalConfiguration.Configuration.SentMessageQueueName, sentMessage);
+							Bus.Send(GlobalConfiguration.Configuration.SentMessageQueueName, sentMessage);
+						}
 					}
 				}).Wait(10 * 1000);
 			}

@@ -109,6 +109,7 @@ namespace QMailer.Web
 			}
 
 			emailMessage.MessageId = emailConfig.MessageId;
+			emailMessage.DoNotTrack = emailConfig.DoNotTrack;
 
 			return emailMessage;
 		}

@@ -89,8 +89,6 @@ namespace QMailer
 			return config;
 		}
 
-
-
 		public static EmailMessage AddAttachment(this EmailMessage message, string name, string contentType, string fileName)
 		{
 			var ms = new System.IO.MemoryStream();
@@ -120,5 +118,10 @@ namespace QMailer
 			return message;
 		}
 
+		public static EmailConfig DoNotTrack(this EmailConfig config)
+		{
+			config.DoNotTrack = true;
+			return config;
+		}
 	}
 }
