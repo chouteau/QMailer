@@ -35,9 +35,13 @@ namespace QMailer
 
 		public string FullUrl { get; set; }
 
-		public string FromEmail { get; set; }
+		public string SenderEmail { get; set; }
 
-		public string FromName { get; set; }
+		public string SenderName { get; set; }
+
+		public string SenderCode { get; set; }
+
+		public string SenderJobTitle { get; set; }
 
 		public string VirtualPath { get; set; }
 

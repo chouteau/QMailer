@@ -19,8 +19,8 @@ namespace QMailerWebApp
 			var container = new Microsoft.Practices.Unity.UnityContainer();
 			QMailer.Web.QMailerConfig.Configure(container);
 			QMailer.GlobalConfiguration.Configuration.FullUrl = "http://localhost";
-			QMailer.GlobalConfiguration.Configuration.FromEmail = "test@email.com";
-			QMailer.GlobalConfiguration.Configuration.FromName = "Test NAme";
+			QMailer.GlobalConfiguration.Configuration.SenderEmail = "test@email.com";
+			QMailer.GlobalConfiguration.Configuration.SenderName = "Test NAme";
 			QMailer.QMailerService.Current.Start();
         }
 

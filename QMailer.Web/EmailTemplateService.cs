@@ -44,6 +44,19 @@ namespace QMailer.Web
 
 		public EmailMessage GetEmailMessage(EmailConfig emailConfig)
 		{
+			var sender = emailConfig.Sender;
+			if (sender == null
+				|| sender.Email == null)
+			{
+				sender = new Sender()
+				{
+					Email = GlobalConfiguration.Configuration.SenderEmail,
+					DisplayName = GlobalConfiguration.Configuration.SenderName,
+					Code = GlobalConfiguration.Configuration.SenderCode,
+					JobTitle = GlobalConfiguration.Configuration.SenderJobTitle
+				};
+			}
+
 			// Deserialize object
 			object model = ModelResolver.Convert(emailConfig.Model, emailConfig.AssemblyQualifiedTypeNameModel);
 
@@ -56,10 +69,7 @@ namespace QMailer.Web
 					emailView.ViewData.Add(prm.Name, prm.Value);
 				}
 			}
-			if (emailConfig.Sender != null)
-			{
-				emailView.Sender = emailConfig.Sender;
-			}
+			emailView.Sender = sender;
 
 			// Create emailMessage
 			EmailMessage emailMessage = null;
@@ -86,24 +96,7 @@ namespace QMailer.Web
 				return null;
 			}
 
-			if (emailConfig.Sender != null)
-			{
-				emailMessage.From = new EmailAddress()
-				{
-					Address = emailConfig.Sender.Email,
-					DisplayName = emailConfig.Sender.DisplayName,
-				};
-			}
-			else if (emailMessage.From == null 
-				|| emailMessage.From.Address == null)
-			{
-				emailMessage.From = new EmailAddress()
-				{
-					Address = GlobalConfiguration.Configuration.FromEmail,
-					DisplayName = GlobalConfiguration.Configuration.FromName
-				};
-			}
-
+			emailMessage.Sender = sender;
 			emailMessage.Recipients.AddRange(emailConfig.Recipients);
 			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer", Value = "QMailer" });
 			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-MID", Value = emailConfig.MessageId });
