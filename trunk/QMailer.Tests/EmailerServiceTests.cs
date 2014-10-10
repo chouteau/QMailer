@@ -40,7 +40,7 @@ namespace QMailer.Tests
 			emailConfig.SetView("test")
 				.AddRecipient(new EmailAddress() { Address = "test@test.com" })
 				.AddParameter("param1", "value1")
-				.Sender("marc@test.com","marc","god")
+				.Sender("marc@test.com","marc","god","code")
 				.SetModel(model);
 
 			QMailerService.Current.SendAsync(emailConfig);
