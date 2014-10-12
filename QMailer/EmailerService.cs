@@ -89,6 +89,10 @@ namespace QMailer
 							sentMessage.Subject = message.Subject;
 							sentMessage.SmtpInfo = sender.Host;
 							sentMessage.Sender = message.Sender;
+							if (message.SenderAlias != null)
+							{
+								sentMessage.Sender = message.SenderAlias;
+							}
 
 							Bus.Send(GlobalConfiguration.Configuration.SentMessageQueueName, sentMessage);
 						}

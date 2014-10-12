@@ -24,6 +24,20 @@ namespace QMailer
 			return config;
 		}
 
+		public static EmailConfig SetSenderAlias(this EmailConfig config, string email, string fullName, string jobTitle,string code, bool isEmployee, string bag)
+		{
+			config.SenderAlias = new Sender()
+			{
+				Email = email,
+				DisplayName = fullName,
+				JobTitle = jobTitle,
+				Code = code,
+				IsEmployee = isEmployee,
+				Bag = bag
+			};
+			return config;
+		}
+
 		public static EmailConfig SetSender(this EmailConfig config, string email, string fullName, string jobTitle,string code, bool isEmployee)
 		{
 			config.Sender = new Sender()

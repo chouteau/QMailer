@@ -24,5 +24,7 @@ namespace QMailer
 		public string Code { get; set; }
 		[DataMember]
 		public bool IsEmployee { get; set; }
+		[DataMember]
+		public string Bag { get; set; }
 	}
 }

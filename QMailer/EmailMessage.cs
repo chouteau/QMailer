@@ -80,6 +80,8 @@ namespace QMailer
 		[DataMember]
 		public Sender Sender { get; set; }
 		[DataMember]
+		public Sender SenderAlias { get; set; }
+		[DataMember]
 		public List<EmailMessageHeader> Headers { get; set; }
 		[DataMember]
 		public DateTime? StartDate { get; set; }
