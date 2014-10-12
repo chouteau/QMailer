@@ -10,6 +10,10 @@ namespace QMailer
 	[DataContract]
 	public class Sender
 	{
+		public Sender()
+		{
+			IsEmployee = false;
+		}
 		[DataMember]
 		public string Email { get; set; }
 		[DataMember]
@@ -18,5 +22,7 @@ namespace QMailer
 		public string JobTitle { get; set; }
 		[DataMember]
 		public string Code { get; set; }
+		[DataMember]
+		public bool IsEmployee { get; set; }
 	}
 }
