@@ -70,6 +70,7 @@ namespace QMailer.Web
 				}
 			}
 			emailView.Sender = sender;
+			emailView.MessageId = emailConfig.MessageId;
 
 			// Create emailMessage
 			EmailMessage emailMessage = null;
