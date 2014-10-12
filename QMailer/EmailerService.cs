@@ -89,6 +89,9 @@ namespace QMailer
 							sentMessage.Subject = message.Subject;
 							sentMessage.SmtpInfo = sender.Host;
 							sentMessage.Sender = message.Sender;
+							sentMessage.EntityId = message.EntityId;
+							sentMessage.EntityName = message.EntityName;
+
 							if (message.SenderAlias != null)
 							{
 								sentMessage.Sender = message.SenderAlias;

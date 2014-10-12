@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace QMailer.Web
 {
-	public interface IModelResolver
+	public class EmailModel
 	{
-		string Resolve(string modelName);
-
-		EmailModel Convert(object model, string assemblyQualifiedTypeNameModel);
+		public object Model { get; set; }
+		public int? EntityId { get; set; }
+		public string EntityName { get; set; }
 	}
 }

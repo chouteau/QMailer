@@ -41,5 +41,9 @@ namespace QMailer
 		public Sender SenderAlias { get; set; }
 		[DataMember]
 		public bool DoNotTrack { get; set; }
+		[DataMember]
+		public int? EntityId { get; set; }
+		[DataMember]
+		public string EntityName { get; set; }
 	}
 }
