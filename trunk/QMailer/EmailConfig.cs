@@ -38,6 +38,8 @@ namespace QMailer
 		[DataMember]
 		public Sender Sender { get; set; }
 		[DataMember]
+		public Sender SenderAlias { get; set; }
+		[DataMember]
 		public bool DoNotTrack { get; set; }
 	}
 }

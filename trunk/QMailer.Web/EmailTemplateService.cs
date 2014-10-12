@@ -98,6 +98,7 @@ namespace QMailer.Web
 			}
 
 			emailMessage.Sender = sender;
+			emailMessage.SenderAlias = emailConfig.SenderAlias;
 			emailMessage.Recipients.AddRange(emailConfig.Recipients);
 			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer", Value = "QMailer" });
 			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-MID", Value = emailConfig.MessageId });
