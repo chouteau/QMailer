@@ -58,10 +58,10 @@ namespace QMailer.Web
 			}
 
 			// Deserialize object
-			object model = ModelResolver.Convert(emailConfig.Model, emailConfig.AssemblyQualifiedTypeNameModel);
+			var em = ModelResolver.Convert(emailConfig.Model, emailConfig.AssemblyQualifiedTypeNameModel);
 
 			// Create emailView
-			dynamic emailView = CreateEmailView(emailConfig.EmailName, model);
+			dynamic emailView = CreateEmailView(emailConfig.EmailName, em.Model);
 			if (emailConfig.Parameters != null)
 			{
 				foreach (var prm in emailConfig.Parameters)
@@ -112,6 +112,8 @@ namespace QMailer.Web
 
 			emailMessage.MessageId = emailConfig.MessageId;
 			emailMessage.DoNotTrack = emailConfig.DoNotTrack;
+			emailMessage.EntityId = em.EntityId ?? emailConfig.EntityId;
+			emailMessage.EntityName = em.EntityName ?? emailConfig.EntityName;
 
 			return emailMessage;
 		}

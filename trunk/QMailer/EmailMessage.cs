@@ -91,6 +91,10 @@ namespace QMailer
 		public List<Attachment> Attachments { get; set; }
 		[DataMember]
 		public bool DoNotTrack { get; set; }
+		[DataMember]
+		public int? EntityId { get; set; }
+		[DataMember]
+		public string EntityName { get; set; }
 
 		public static explicit operator System.Net.Mail.MailMessage(EmailMessage template)
 		{

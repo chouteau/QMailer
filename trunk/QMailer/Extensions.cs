@@ -28,7 +28,7 @@ namespace QMailer
 		}
 
 
-		public static void BindFromConfiguration(this object model, System.Collections.Specialized.NameValueCollection nvc)
+		internal static void BindFromConfiguration(this object model, System.Collections.Specialized.NameValueCollection nvc)
 		{
 			if (model == null
 				|| nvc == null)

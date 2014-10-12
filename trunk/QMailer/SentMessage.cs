@@ -32,5 +32,9 @@ namespace QMailer
 		public Sender Sender { get; set; }
 		[DataMember]
 		public bool IsBodyHtml { get; set; }
+		[DataMember]
+		public int? EntityId { get; set; }
+		[DataMember]
+		public string EntityName { get; set; }
 	}
 }

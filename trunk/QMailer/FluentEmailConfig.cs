@@ -139,5 +139,12 @@ namespace QMailer
 			config.DoNotTrack = true;
 			return config;
 		}
+
+		public static EmailConfig SetMetaData(this EmailConfig config, int entityId, string entityName)
+		{
+			config.EntityId = entityId;
+			config.EmailName = entityName;
+			return config;
+		}
 	}
 }

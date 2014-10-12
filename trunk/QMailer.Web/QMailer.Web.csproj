@@ -117,6 +117,7 @@
     <Compile Include="EmailHttpContext.cs" />
     <Compile Include="EmailHttpRequest.cs" />
     <Compile Include="EmailHttpResponse.cs" />
+    <Compile Include="EmailModel.cs" />
     <Compile Include="EmailParser.cs" />
     <Compile Include="EmailTemplate.cs" />
     <Compile Include="EmailTemplateFileSerializer.cs" />
