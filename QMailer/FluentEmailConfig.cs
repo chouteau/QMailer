@@ -24,14 +24,15 @@ namespace QMailer
 			return config;
 		}
 
-		public static EmailConfig Sender(this EmailConfig config, string email, string fullName, string jobTitle,string code)
+		public static EmailConfig SetSender(this EmailConfig config, string email, string fullName, string jobTitle,string code, bool isEmployee)
 		{
 			config.Sender = new Sender()
 				{
 					Email = email,
 					DisplayName = fullName,
 					JobTitle = jobTitle,
-					Code = code
+					Code = code,
+					IsEmployee = isEmployee
 				};
 			return config;
 		}
