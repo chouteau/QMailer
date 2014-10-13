@@ -14,7 +14,7 @@ namespace QMailer.Client
 			var emailConfig = QMailerService.Current.CreateEmailConfig(messageId);
 			emailConfig.SetView("testemail")
 				.AddRecipient(new EmailAddress() { Address = "test@test.com" })
-				.Sender("sender@test.com", "SenderName", "SenderJob","CodeTest");
+				.SetSender("sender@test.com", "SenderName", "SenderJob","CodeTest",true);
 
 			QMailerService.Current.SendAsync(emailConfig);
 			QMailerService.Current.Start();
