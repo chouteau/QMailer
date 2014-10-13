@@ -143,7 +143,7 @@ namespace QMailer
 		public static EmailConfig SetMetaData(this EmailConfig config, int entityId, string entityName)
 		{
 			config.EntityId = entityId;
-			config.EmailName = entityName;
+			config.EntityName = entityName;
 			return config;
 		}
 	}
