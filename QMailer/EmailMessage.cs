@@ -101,6 +101,10 @@ namespace QMailer
 			var mailMessage = new System.Net.Mail.MailMessage();
 			foreach (var email in template.Recipients)
 			{
+                if (email.Address == null)
+                {
+                    continue;
+                }
 				switch (email.SendingType)
 				{
 					case EmailSendingType.To:
