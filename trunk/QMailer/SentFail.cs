@@ -14,6 +14,7 @@ namespace QMailer
 			FailDate = DateTime.Now;
 		}
 
+		public string ViewName { get; set; }
 		public string MessageId { get; set; }
 		public string Subject { get; set; }
 		public string Message { get; set; }
