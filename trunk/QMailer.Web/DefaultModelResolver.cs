@@ -13,22 +13,24 @@ namespace QMailer.Web
 			return modelName;
 		}
 
-		public EmailModel Convert(object model, string assemblyQualifiedTypeNameModel)
+		public EmailModel Convert(EmailConfig emailConfig)
 		{
-			if (model == null)
+			if (emailConfig == null
+				|| emailConfig.Model == null)
 			{
 				return null;
 			}
 
 			var result = new EmailModel()
 			{
-				Model = model
+				Model = emailConfig.Model
 			};
-			if (model != null
-				&& model.GetType().AssemblyQualifiedName != assemblyQualifiedTypeNameModel)
+
+			if (emailConfig.Model != null
+				&& emailConfig.Model.GetType().AssemblyQualifiedName != emailConfig.AssemblyQualifiedTypeNameModel)
 			{
-				var modelType = Type.GetType(assemblyQualifiedTypeNameModel);
-				result.Model = Newtonsoft.Json.JsonConvert.DeserializeObject(model.ToString(), modelType);
+				var modelType = Type.GetType(emailConfig.AssemblyQualifiedTypeNameModel);
+				result.Model = Newtonsoft.Json.JsonConvert.DeserializeObject(emailConfig.Model.ToString(), modelType);
 			}
 
 			return result;

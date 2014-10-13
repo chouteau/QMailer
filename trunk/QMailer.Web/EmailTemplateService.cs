@@ -58,7 +58,25 @@ namespace QMailer.Web
 			}
 
 			// Deserialize object
-			var em = ModelResolver.Convert(emailConfig.Model, emailConfig.AssemblyQualifiedTypeNameModel);
+			EmailModel em = null;
+			
+			try
+			{
+				ModelResolver.Convert(emailConfig);
+			}
+			catch(Exception ex)
+			{
+				Logger.Error(ex);
+				var failMessage = new SentFail();
+				failMessage.FailDate = DateTime.Now;
+				failMessage.Message = ex.Message;
+				failMessage.MessageId = emailConfig.MessageId;
+				failMessage.Recipients = emailConfig.Recipients;
+				failMessage.Stack = string.Format("EmailConfig : {0}\r\n{1}", emailConfig, ex.ToString());
+				failMessage.Subject = "Fail to convert emailconfig model";
+
+				Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, failMessage);
+			}
 
 			// Create emailView
 			dynamic emailView = CreateEmailView(emailConfig.EmailName, em.Model);
