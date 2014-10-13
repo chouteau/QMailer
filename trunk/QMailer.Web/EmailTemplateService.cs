@@ -62,7 +62,7 @@ namespace QMailer.Web
 			
 			try
 			{
-				ModelResolver.Convert(emailConfig);
+				em = ModelResolver.Convert(emailConfig);
 			}
 			catch(Exception ex)
 			{
