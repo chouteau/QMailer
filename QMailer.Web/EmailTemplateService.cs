@@ -106,6 +106,7 @@ namespace QMailer.Web
 				failMessage.Recipients = emailConfig.Recipients;
 				failMessage.Stack = ex.ToString();
 				failMessage.Subject = "Fail create email message";
+				failMessage.ViewName = emailConfig.EmailName;
 
 				Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, failMessage);
 			}
