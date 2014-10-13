@@ -10,6 +10,6 @@ namespace QMailer.Web
 	{
 		string Resolve(string modelName);
 
-		EmailModel Convert(object model, string assemblyQualifiedTypeNameModel);
+		EmailModel Convert(EmailConfig emailConfig);
 	}
 }
