@@ -140,11 +140,10 @@ namespace QMailer
 
 			foreach (var attachment in template.Attachments)
 			{
-				using(var ms = new System.IO.MemoryStream(System.Convert.FromBase64String(attachment.Content)))
-				{
-					var att = new System.Net.Mail.Attachment(ms, attachment.Name, attachment.ContentType);
-					mailMessage.Attachments.Add(att);
-				}
+				var buffer = System.Convert.FromBase64String(attachment.Content);
+				var ms = new System.IO.MemoryStream(buffer);
+				var att = new System.Net.Mail.Attachment(ms, attachment.Name, attachment.ContentType);
+				mailMessage.Attachments.Add(att);
 			}
 
 			foreach (var header in template.Headers)
