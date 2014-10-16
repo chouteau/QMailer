@@ -20,7 +20,7 @@ namespace QMailer.Web
 
 			var emailEngines = new ViewEngineCollection() { new EmailerViewEngine() };
 			var ic = new InjectionConstructor(emailEngines, 
-							GlobalConfiguration.Configuration.FullUrl, 
+							GlobalConfiguration.Configuration.FullUrl ?? "http://localhost", 
 							GlobalConfiguration.Configuration.VirtualPath);
 			container.RegisterType<IEmailViewRenderer, EmailViewRenderer>("default", new ContainerControlledLifetimeManager(), ic);
 
