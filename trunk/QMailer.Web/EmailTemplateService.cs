@@ -7,34 +7,28 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
+using Microsoft.Practices.Unity;
+
 namespace QMailer.Web
 {
-	public class EmailTemplateService 
+	public class EmailTemplateService : QMailer.Web.IEmailTemplateService 
 	{
 		public EmailTemplateService(
-			IEmailViewRenderer renderer,
 			QMailer.ILogger logger,
 			Ariane.IServiceBus bus,
 			IModelResolver resolver
 			)
 		{
 			this.EmailParser = new EmailParser();
-			this.Renderer = renderer;
 			this.Logger = logger;
 			this.Bus = bus;
+			this.ModelResolver = resolver;
 		}
 
-		protected IEmailViewRenderer Renderer { get; private set; }
 		internal EmailParser EmailParser { get; private set; }
 		protected QMailer.ILogger Logger { get; private set; }
 		protected Ariane.IServiceBus Bus { get; private set; }
-		protected IModelResolver ModelResolver 
-		{
-			get
-			{
-				return GlobalConfiguration.Configuration.DependencyResolver.GetService<IModelResolver>();
-			}
-		}
+		protected IModelResolver ModelResolver { get; private set;}
 
 		public EmailView CreateEmailView(string viewName, object model = null)
 		{
@@ -139,7 +133,9 @@ namespace QMailer.Web
 
 		public EmailMessage CreateEmailMessage(EmailView emailView)
 		{
-			var rawEmailString = Renderer.Render(emailView);
+			var container = GlobalConfiguration.Configuration.DependencyResolver.GetConfiguredContainer();
+			var renderer = container.Resolve<IEmailViewRenderer>(emailView.RendererName);
+			var rawEmailString = renderer.Render(emailView);
 			var result = EmailParser.CreateMailMessage(rawEmailString);
 			return result;
 		}

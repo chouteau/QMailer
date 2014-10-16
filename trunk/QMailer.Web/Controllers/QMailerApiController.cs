@@ -11,7 +11,7 @@ namespace QMailer.Web.Controllers
 	public class QMailerApiController : ApiController
 	{
 		public QMailerApiController(
-			EmailTemplateService emailTemplateService,
+			IEmailTemplateService emailTemplateService,
 			Ariane.IServiceBus bus,
 			ICacheService cacheService
 			)
@@ -21,7 +21,7 @@ namespace QMailer.Web.Controllers
 			this.CacheService = cacheService;
 		}
 
-		protected EmailTemplateService EmailTemplateService { get; private set; }
+		protected IEmailTemplateService EmailTemplateService { get; private set; }
 		protected Ariane.IServiceBus Bus { get; private set; }
 		protected ICacheService CacheService { get; private set; }
 
@@ -115,7 +115,7 @@ namespace QMailer.Web.Controllers
 		[System.Web.Http.HttpDelete]
 		public bool DeleteTemplate(EmailTemplate template)
 		{
-			EmailTemplateService.DeleteTemplate(template);
+			// EmailTemplateService.DeleteTemplate(template);
 			return true;
 		}
 
@@ -125,7 +125,7 @@ namespace QMailer.Web.Controllers
 		[System.Web.Http.HttpPut]
 		public bool SaveTemplate(EmailTemplate template)
 		{
-			EmailTemplateService.SaveTemplate(template);
+			// EmailTemplateService.SaveTemplate(template);
 			return true;
 		}
 

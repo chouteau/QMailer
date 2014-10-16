@@ -19,11 +19,11 @@ namespace QMailer.Web
 		readonly string urlHostName;
 		readonly string emailViewDirectoryName;
 
-		public EmailViewRenderer(ViewEngineCollection viewEngines)
+		public EmailViewRenderer(ViewEngineCollection viewEngines, string hostName, string virtualPath)
 		{
 			this.viewEngines = viewEngines;
-			this.urlHostName = GlobalConfiguration.Configuration.FullUrl;
-			this.emailViewDirectoryName = GlobalConfiguration.Configuration.VirtualPath;
+			this.urlHostName = hostName ?? "http://localhost";
+			this.emailViewDirectoryName = virtualPath;
 		}
 
 		public string Render(EmailView email, string viewName = null)

@@ -9,7 +9,7 @@ namespace QMailer.Web
 	public class EmailBodyRequestedMessageReader : Ariane.MessageReaderBase<EmailConfig>
 	{
 		public EmailBodyRequestedMessageReader(
-            EmailTemplateService emailTemplateService,
+            IEmailTemplateService emailTemplateService,
 			Ariane.IServiceBus bus,
 			ILogger logger
 			)
@@ -19,7 +19,7 @@ namespace QMailer.Web
 			this.Logger = logger;
 		}
 
-		protected EmailTemplateService EmailTemplateService { get; private set; }
+		protected IEmailTemplateService EmailTemplateService { get; private set; }
 		protected Ariane.IServiceBus Bus { get; private set; }
 		protected ILogger Logger { get; private set; }
 

@@ -127,6 +127,7 @@
     <Compile Include="EmailWebPage.cs" />
     <Compile Include="Html\EmailViewExtensions.cs" />
     <Compile Include="ICacheService.cs" />
+    <Compile Include="IEmailTemplateService.cs" />
     <Compile Include="IEmailViewRenderer.cs" />
     <Compile Include="IModelResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

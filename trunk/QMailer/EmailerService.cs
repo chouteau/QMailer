@@ -54,11 +54,11 @@ namespace QMailer
 		{
 			var mailMessage = (System.Net.Mail.MailMessage)message;
 
+			AddDkimHeader(mailMessage);
+
 			var htmlView = AlternateView.CreateAlternateViewFromString(message.Body, null, "text/html");
 			htmlView.TransferEncoding = System.Net.Mime.TransferEncoding.QuotedPrintable;
 			mailMessage.AlternateViews.Add(htmlView);
-
-			AddDkimHeader(mailMessage);
 
 			var sender = CreateSmtpClient();
 			sender.SendCompleted += (s, arg) =>
@@ -158,11 +158,19 @@ namespace QMailer
 			{
 				var privateKey = DKIM.PrivateKeySigner.Create(GlobalConfiguration.Configuration.DkimPrivateKey);
 				var headerToSign = new string[] { "From", "To", "Subject" };
-				var domainKeySigner = new DKIM.DomainKeySigner(privateKey, GlobalConfiguration.Configuration.DkimPrivateKey, GlobalConfiguration.Configuration.DkimSelector, headerToSign);
+
+				var domainKeySigner = new DKIM.DomainKeySigner(privateKey, 
+									GlobalConfiguration.Configuration.DkimDomain, 
+									GlobalConfiguration.Configuration.DkimSelector, 
+									headerToSign);
+
+				var dkimSigner = new DkimSigner(privateKey, 
+								GlobalConfiguration.Configuration.DkimDomain, 
+								GlobalConfiguration.Configuration.DkimSelector, 
+								headerToSign);
+
 
 				message.DomainKeySign(domainKeySigner);
-
-				var dkimSigner = new DkimSigner(privateKey, GlobalConfiguration.Configuration.DkimPrivateKey, GlobalConfiguration.Configuration.DkimSelector, headerToSign);
 				message.DkimSign(dkimSigner);
 			}
 			catch (Exception ex)

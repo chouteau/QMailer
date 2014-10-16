@@ -40,6 +40,7 @@ namespace QMailer.Web
 			{
 				ViewData.Model = this;
 			}
+			this.RendererName = "default";
         }
 
         /// <summary>Create an Email where the ViewName is derived from the name of the class.</summary>
@@ -54,6 +55,8 @@ namespace QMailer.Web
         /// The name of the view containing the email template.
         /// </summary>
         public string ViewName { get; set; }
+
+		public string RendererName { get; set; }
 
         /// <summary>
         /// The view data to pass to the view.
