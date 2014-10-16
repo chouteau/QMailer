@@ -9,13 +9,14 @@ namespace QMailer.Web.Controllers
 {
 	public class QMailerController : AsyncController
 	{
-		public QMailerController(ICacheService cacheService)
+		public QMailerController(ICacheService cacheService
+			, QMailer.Web.IEmailTemplateService emailTemplateService)
 		{
-			this.EmailTemplateService = QMailer.GlobalConfiguration.Configuration.DependencyResolver.GetService<QMailer.Web.EmailTemplateService>();
+			this.EmailTemplateService = emailTemplateService;
 			this.CacheService = cacheService;
 		}
 
-		protected QMailer.Web.EmailTemplateService EmailTemplateService { get; private set; }
+		protected QMailer.Web.IEmailTemplateService EmailTemplateService { get; private set; }
 		protected ICacheService CacheService { get; private set; }
 
 		public ActionResult PreviewTemplate(string id)
