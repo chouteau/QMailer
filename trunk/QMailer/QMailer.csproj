@@ -52,6 +52,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="S22.Imap">
+      <HintPath>..\..\packages\S22.Imap.3.6.0.0\lib\net40\S22.Imap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -81,6 +84,7 @@
     <Compile Include="IDependencyResolver.cs" />
     <Compile Include="IEmailerService.cs" />
     <Compile Include="ILogger.cs" />
+    <Compile Include="ImapClientService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QMailerConfiguration.cs" />
     <Compile Include="QMailerService.cs" />

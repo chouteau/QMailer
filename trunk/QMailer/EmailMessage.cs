@@ -68,7 +68,31 @@ namespace QMailer
 			}
 
 			Headers = new List<EmailMessageHeader>();
+			foreach (var header in mailMessage.Headers.AllKeys)
+			{
+				Headers.Add(new EmailMessageHeader()
+					{
+						Name = header,
+						Value = mailMessage.Headers[header]
+					});
+			}
 			Attachments = new List<Attachment>();
+			foreach (var attachment in mailMessage.Attachments)
+			{
+				string content = null;
+				using(var reader = new System.IO.StreamReader(attachment.ContentStream))
+				{
+					content = reader.ReadToEnd();
+					content = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(content));
+				}
+
+				Attachments.Add(new Attachment()
+					{
+						Content = content,
+						ContentType = attachment.ContentType.Name,
+						Name = attachment.Name
+					});
+			}
 		}
 
 		[DataMember]
