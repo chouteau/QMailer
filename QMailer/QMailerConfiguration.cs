@@ -33,6 +33,8 @@ namespace QMailer
 
 		public string SentFailQueueName { get; set; }
 
+		public string ReceiveMessageQueueName { get; set; }
+
 		public string FullUrl { get; set; }
 
 		public string SenderEmail { get; set; }
@@ -57,5 +59,16 @@ namespace QMailer
 
 		public string DkimSelector { get; set; }
 
+		public string ImapHostName { get; set; }
+
+		public int ImapPort { get; set; }
+
+		public string ImapUserName { get; set; }
+
+		public string ImapPassword { get; set; }
+
+		public string ImapAuthMethod { get; set; }
+
+		public bool ImapUseSSL { get; set; }
 	}
 }
