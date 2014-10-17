@@ -49,7 +49,7 @@ namespace QMailer
 
 		private void InitializeClient()
 		{
-			var authMethod =  (AuthMethod) Enum.Parse(typeof(AuthMethod), GlobalConfiguration.Configuration.ImapAuthMethod);
+			var authMethod =  (AuthMethod) Enum.Parse(typeof(AuthMethod), GlobalConfiguration.Configuration.ImapAuthMethod, true);
 			m_ImapClient = new ImapClient(GlobalConfiguration.Configuration.ImapHostName, GlobalConfiguration.Configuration.ImapPort, GlobalConfiguration.Configuration.ImapUserName, GlobalConfiguration.Configuration.ImapPassword, authMethod, GlobalConfiguration.Configuration.ImapUseSSL);
 			m_ImapClient.NewMessage += result_NewMessage;
 			m_ImapClient.IdleError += result_IdleError;

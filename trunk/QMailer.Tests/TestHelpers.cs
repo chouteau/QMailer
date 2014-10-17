@@ -49,7 +49,7 @@ namespace QMailer.Tests
 			viewEngines.Setup(i => i.FindView(Moq.It.IsAny<ControllerContext>(), "test", null))
 				.Returns(new ViewEngineResult(fakeView, Moq.Mock.Of<IViewEngine>()));
 
-			var fakeRenderer = new QMailer.Web.EmailViewRenderer(viewEngines.Object);
+			var fakeRenderer = new QMailer.Web.EmailViewRenderer(viewEngines.Object, "http://localhost", "~/emailviews");
 			container.RegisterInstance<QMailer.Web.IEmailViewRenderer>(fakeRenderer, new ContainerControlledLifetimeManager());
 
 			container.RegisterType<QMailer.ILogger, QMailer.DiagnosticsLogger>(new ContainerControlledLifetimeManager());
