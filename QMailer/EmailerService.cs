@@ -23,10 +23,10 @@ namespace QMailer
 		internal Ariane.IServiceBus Bus { get; set; }
 		internal ILogger Logger { get; set; }
 
-		public EmailConfig CreateEmailConfig(string messageId)
+		public EmailConfig CreateEmailConfig(string messageId = null)
 		{
 			var result = new EmailConfig();
-			result.MessageId = messageId;
+			result.MessageId = messageId ?? Guid.NewGuid().ToString();
 			return result;
 		}
 
