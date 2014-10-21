@@ -18,7 +18,8 @@ namespace QMailer
 		{
 			this.Sender = new Sender();
 			this.Subject = mailMessage.Subject;
-			this.Body = mailMessage.Body;
+			this.Body = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(mailMessage.Body));
+			this.IsBodyHtml = mailMessage.IsBodyHtml;
 			this.Recipients = new List<EmailAddress>();
 			if (mailMessage.To != null)
 			{
@@ -100,6 +101,8 @@ namespace QMailer
 		[DataMember]
 		public string Body { get; set; }
 		[DataMember]
+		public bool IsBodyHtml { get; set; }
+		[DataMember]
 		public List<EmailAddress> Recipients { get; set; }
 		[DataMember]
 		public Sender Sender { get; set; }
@@ -119,6 +122,8 @@ namespace QMailer
 		public int? EntityId { get; set; }
 		[DataMember]
 		public string EntityName { get; set; }
+		[DataMember]
+		public string ImapMessageId { get; set; }
 
 		public static explicit operator System.Net.Mail.MailMessage(EmailMessage template)
 		{
