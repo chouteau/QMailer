@@ -112,7 +112,31 @@ namespace QMailer.Web
 
 			emailMessage.Sender = sender;
 			emailMessage.SenderAlias = emailConfig.SenderAlias;
-			emailMessage.Recipients.AddRange(emailConfig.Recipients);
+
+			var recipientList = emailMessage.Recipients.ToList();
+			recipientList.AddRange(emailConfig.Recipients);
+			emailMessage.Recipients.Clear();
+
+			while(true)
+			{
+				var first = recipientList.FirstOrDefault();
+				if (first == null)
+				{
+					break;
+				}
+				recipientList.Remove(first);
+				var existing = emailMessage.Recipients.SingleOrDefault(i => i.Address.Equals(first.Address, StringComparison.InvariantCultureIgnoreCase));
+				if (existing != null)
+				{
+					existing.DisplayName = existing.DisplayName ?? first.DisplayName;
+					existing.RecipientId = existing.RecipientId ?? first.RecipientId;
+				}
+				else
+				{
+					emailMessage.Recipients.Add(first);
+				}
+			}
+
 			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer", Value = "QMailer" });
 			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-MID", Value = emailConfig.MessageId });
 			if (emailConfig.Headers != null)
