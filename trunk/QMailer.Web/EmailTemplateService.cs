@@ -173,7 +173,6 @@ namespace QMailer.Web
 			{
 				string m = null;
 				string d = null;
-				string sms = null;
 				var matchModel = System.Text.RegularExpressions.Regex.Match(model.Content, @"modelname:(?<model>\S+)", RegexOptions.Singleline | RegexOptions.IgnoreCase);
 				if (matchModel.Success)
 				{
