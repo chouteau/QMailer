@@ -96,10 +96,15 @@ namespace QMailer
 			var list = m_ImapClient.Search(search);
 			foreach (var uid in list)
 			{
-				var emailMessage = m_ImapClient.GetMessage(uid);
+				m_LastCheckDate = DateTime.Now;
+				if (uid <= LastMessageId.GetValueOrDefault(0))
+				{
+					continue;
+				}
+				LastMessageId = uid;
+				var emailMessage = m_ImapClient.GetMessage(uid, false);
 				var message = new EmailMessage(emailMessage);
 				message.ImapMessageId = uid.ToString();
-				LastMessageId = uid;
 				Bus.Send(GlobalConfiguration.Configuration.ReceiveMessageQueueName, message);
 			}
 		}
