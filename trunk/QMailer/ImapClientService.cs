@@ -45,26 +45,24 @@ namespace QMailer
 
 		private void HandleNewEmail()
 		{
-			InitializeClient();
 			while (!m_Exit)
 			{
-				CheckMailBox();
+				try
+				{
+					CheckMailBox();
+				}
+				catch(Exception ex)
+				{
+					Logger.Error(ex);
+				}
 				var waitHandles = new WaitHandle[] { m_EventStop, m_Reconnect };
-				int result = ManualResetEvent.WaitAny(waitHandles, 30 * 1000, true);
+				int result = ManualResetEvent.WaitAny(waitHandles, 5 * 60 * 1000, true);
 				if (result == 0)
 				{
 					m_Exit = true;
 					break;
 				}
-				else if (result == 1) // Reconnect
-				{
-					InitializeClient();
-				}
 				m_LastCheckDate = DateTime.Now;
-			}
-			if (m_Reconnect != null)
-			{
-				m_Reconnect.Dispose();
 			}
 		}
 
@@ -84,15 +82,11 @@ namespace QMailer
 
 		private void CheckMailBox()
 		{
+			var authMethod = (AuthMethod)Enum.Parse(typeof(AuthMethod), GlobalConfiguration.Configuration.ImapAuthMethod, true);
+			m_ImapClient = new ImapClient(GlobalConfiguration.Configuration.ImapHostName, GlobalConfiguration.Configuration.ImapPort, GlobalConfiguration.Configuration.ImapUserName, GlobalConfiguration.Configuration.ImapPassword, authMethod, GlobalConfiguration.Configuration.ImapUseSSL);
+
 			SearchCondition search = null;
-			if (LastMessageId.HasValue)
-			{
-				search = SearchCondition.GreaterThan(LastMessageId.Value);
-			}
-			else
-			{
-				search = SearchCondition.SentSince(m_LastCheckDate);
-			}
+			search = SearchCondition.SentSince(m_LastCheckDate.AddMinutes(-10));
 			var list = m_ImapClient.Search(search);
 			foreach (var uid in list)
 			{
@@ -107,20 +101,8 @@ namespace QMailer
 				message.ImapMessageId = uid.ToString();
 				Bus.Send(GlobalConfiguration.Configuration.ReceiveMessageQueueName, message);
 			}
-		}
 
-		private void InitializeClient()
-		{
-			var authMethod =  (AuthMethod) Enum.Parse(typeof(AuthMethod), GlobalConfiguration.Configuration.ImapAuthMethod, true);
-			m_ImapClient = new ImapClient(GlobalConfiguration.Configuration.ImapHostName, GlobalConfiguration.Configuration.ImapPort, GlobalConfiguration.Configuration.ImapUserName, GlobalConfiguration.Configuration.ImapPassword, authMethod, GlobalConfiguration.Configuration.ImapUseSSL);
-			m_ImapClient.IdleError += result_IdleError;
-		}
-
-		void result_IdleError(object sender, IdleErrorEventArgs e)
-		{
-			System.Threading.Thread.Sleep(500);
-			Logger.Warn("Imap {0} disconnected", GlobalConfiguration.Configuration.ImapHostName);
-			m_Reconnect.Set();
+			m_ImapClient.Logout();
 		}
 
 		public void Dispose()
