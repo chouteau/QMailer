@@ -81,18 +81,27 @@ namespace QMailer
 			foreach (var attachment in mailMessage.Attachments)
 			{
 				string content = null;
+				int contentLength = 0;
 				using(var reader = new System.IO.StreamReader(attachment.ContentStream))
 				{
 					content = reader.ReadToEnd();
 					content = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(content));
+					contentLength = content.Length;
 				}
 
-				Attachments.Add(new Attachment()
+				if (contentLength < 1024)
+				{
+					Attachments.Add(new Attachment()
 					{
 						Content = content,
 						ContentType = attachment.ContentType.Name,
 						Name = attachment.Name
 					});
+				}
+				else
+				{
+					// ?
+				}
 			}
 		}
 
