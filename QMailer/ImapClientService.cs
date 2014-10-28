@@ -18,14 +18,11 @@ namespace QMailer
 		private System.Threading.Thread m_Thread;
 		private DateTime m_LastCheckDate;
 
-		public ImapClientService(ILogger logger, Ariane.IServiceBus bus)
+		public ImapClientService(Ariane.IServiceBus bus)
 		{
-			this.Logger = logger;
 			this.Bus = bus;
 			this.m_LastCheckDate = DateTime.Now.AddMinutes(30);
 		}
-
-		protected ILogger Logger { get; private set; }
 		protected Ariane.IServiceBus Bus { get; private set; }
 
 		public uint? LastMessageId { get; set; }
@@ -53,7 +50,7 @@ namespace QMailer
 				}
 				catch(Exception ex)
 				{
-					Logger.Error(ex);
+					GlobalConfiguration.Configuration.Logger.Error(ex);
 				}
 				var waitHandles = new WaitHandle[] { m_EventStop, m_Reconnect };
 				int result = ManualResetEvent.WaitAny(waitHandles, 5 * 60 * 1000, true);
@@ -84,10 +81,12 @@ namespace QMailer
 		{
 			var authMethod = (AuthMethod)Enum.Parse(typeof(AuthMethod), GlobalConfiguration.Configuration.ImapAuthMethod, true);
 			m_ImapClient = new ImapClient(GlobalConfiguration.Configuration.ImapHostName, GlobalConfiguration.Configuration.ImapPort, GlobalConfiguration.Configuration.ImapUserName, GlobalConfiguration.Configuration.ImapPassword, authMethod, GlobalConfiguration.Configuration.ImapUseSSL);
+			GlobalConfiguration.Configuration.Logger.Info("Check input emails from {0}", GlobalConfiguration.Configuration.ImapUserName);
 
 			SearchCondition search = null;
 			search = SearchCondition.SentSince(m_LastCheckDate.AddMinutes(-10));
 			var list = m_ImapClient.Search(search);
+			GlobalConfiguration.Configuration.Logger.Info("Found {0} emails from {1}", list.Count(), search);
 			foreach (var uid in list)
 			{
 				m_LastCheckDate = DateTime.Now;

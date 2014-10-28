@@ -13,17 +13,14 @@ namespace QMailer.Web
 		Timer m_Timer;
 		private static object m_Lock = new object();
 
-		public SimpleCacheService(ILogger logger)
+		public SimpleCacheService()
 		{
 			m_CachedList = new SynchronizedCollection<CacheEntry>();
 			m_Timer = new Timer(1000 * 60); // Toutes les 60 secondes
 			m_Timer.Elapsed += new ElapsedEventHandler(OnTimerElapsed);
 			m_Timer.Start();
 
-			this.Logger = logger;
 		}
-
-		protected ILogger Logger { get; private set; }
 
 		void OnTimerElapsed(object sender, ElapsedEventArgs arg)
 		{
@@ -37,7 +34,7 @@ namespace QMailer.Web
 				m_CachedList.Remove(item);
 			}
 
-			Logger.Debug("Cache item count : {0} items", ItemCount);
+			GlobalConfiguration.Configuration.Logger.Debug("Cache item count : {0} items", ItemCount);
 		}
 		
 		#region ICacheService Members

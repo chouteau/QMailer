@@ -78,7 +78,6 @@ namespace QMailer
 				bus.Register.AddFromConfig(busConfigFileName);
 			}
 
-			m_Container.RegisterType<ILogger, DiagnosticsLogger>(new ContainerControlledLifetimeManager());
 			m_Container.RegisterType<ImapClientService>(new ContainerControlledLifetimeManager());
 
 			m_IsContainerConfigured = true;
