@@ -14,19 +14,16 @@ namespace QMailer.Web
 	public class EmailTemplateService : QMailer.Web.IEmailTemplateService 
 	{
 		public EmailTemplateService(
-			QMailer.ILogger logger,
 			Ariane.IServiceBus bus,
 			IModelResolver resolver
 			)
 		{
 			this.EmailParser = new EmailParser();
-			this.Logger = logger;
 			this.Bus = bus;
 			this.ModelResolver = resolver;
 		}
 
 		internal EmailParser EmailParser { get; private set; }
-		protected QMailer.ILogger Logger { get; private set; }
 		protected Ariane.IServiceBus Bus { get; private set; }
 		protected IModelResolver ModelResolver { get; private set;}
 
@@ -60,7 +57,7 @@ namespace QMailer.Web
 			}
 			catch(Exception ex)
 			{
-				Logger.Error(ex);
+				GlobalConfiguration.Configuration.Logger.Error(ex);
 				var failMessage = new SentFail();
 				failMessage.FailDate = DateTime.Now;
 				failMessage.Message = ex.Message;
@@ -92,7 +89,7 @@ namespace QMailer.Web
 			}
 			catch (Exception ex)
 			{
-				Logger.Error(ex);
+				GlobalConfiguration.Configuration.Logger.Error(ex);
 				var failMessage = new SentFail();
 				failMessage.FailDate = DateTime.Now;
 				failMessage.Message = ex.Message;
@@ -260,7 +257,7 @@ namespace QMailer.Web
 				}
 				catch (Exception e)
 				{
-					Logger.Error(e);
+					GlobalConfiguration.Configuration.Logger.Error(e);
 					throw;
 				}
 			}

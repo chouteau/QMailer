@@ -21,7 +21,6 @@ namespace QMailer
 		}
 
 		internal Ariane.IServiceBus Bus { get; set; }
-		internal ILogger Logger { get; set; }
 
 		public EmailConfig CreateEmailConfig(string messageId = null)
 		{
@@ -65,7 +64,7 @@ namespace QMailer
 				{
 					if (arg.Error != null)
 					{
-						Logger.Error(arg.Error);
+						GlobalConfiguration.Configuration.Logger.Error(arg.Error);
 
 						var sentFail = new SentFail();
 						sentFail.Message = arg.Error.Message;
@@ -87,7 +86,7 @@ namespace QMailer
 				if (task.IsFaulted)
 				{
 					task.Exception.Data.Add("MessageId", message.MessageId);
-					Logger.Error(task.Exception);
+					GlobalConfiguration.Configuration.Logger.Error(task.Exception);
 
 					var sentFail = new SentFail();
 					sentFail.Message = task.Exception.Message;
@@ -182,7 +181,7 @@ namespace QMailer
 					ex.Data.Add(string.Format("to{0}", message.To.IndexOf(emailTo)), emailTo.Address);
 				}
 				ex.Data.Add("subject", message.Subject);
-				Logger.Error(ex);
+				GlobalConfiguration.Configuration.Logger.Error(ex);
 			}
 		}
 

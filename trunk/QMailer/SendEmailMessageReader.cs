@@ -9,20 +9,18 @@ namespace QMailer
 {
 	public class SendEmailMessageReader : Ariane.MessageReaderBase<EmailMessage>
 	{
-		public SendEmailMessageReader(ILogger logger,
+		public SendEmailMessageReader(
 			Ariane.IServiceBus bus
 			)
 		{
-			this.Logger = logger;
 			this.Bus = bus;
 		}
 
-		protected ILogger Logger { get; private set; }
 		protected Ariane.IServiceBus Bus { get; private set; }
 
 		public override void ProcessMessage(EmailMessage message)
 		{
-			Logger.Debug("receive message for send by email");
+			GlobalConfiguration.Configuration.Logger.Debug("receive message for send by email");
 			try
 			{
 				((EmailerService)QMailerService.Current).Send(message);

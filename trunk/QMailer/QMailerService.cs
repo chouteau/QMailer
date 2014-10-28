@@ -29,7 +29,6 @@ namespace QMailer
 
 			var emailerService = new EmailerService();
 			emailerService.Bus = bus;
-			emailerService.Logger = new DiagnosticsLogger();
 
 			return emailerService;
 		}
