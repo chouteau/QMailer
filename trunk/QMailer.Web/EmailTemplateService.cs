@@ -69,6 +69,11 @@ namespace QMailer.Web
 				Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, failMessage);
 			}
 
+			if (em == null)
+			{
+				em = new EmailModel();
+			}
+
 			// Create emailView
 			dynamic emailView = CreateEmailView(emailConfig.EmailName, em.Model);
 			if (emailConfig.Parameters != null)
