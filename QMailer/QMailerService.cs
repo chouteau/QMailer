@@ -8,7 +8,8 @@ namespace QMailer
 {
 	public static class QMailerService
 	{
-		private static Lazy<IEmailerService> m_LazyInstance = new Lazy<IEmailerService>(InitializeService, true);
+		private static Lazy<IEmailerService> m_LazyInstance 
+			= new Lazy<IEmailerService>(InitializeService, true);
 
 		public static IEmailerService Current
 		{
