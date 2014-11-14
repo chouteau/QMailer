@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ariane, Version=3.1.35.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Ariane.3.1.35.0\lib\Ariane.dll</HintPath>
+    </Reference>
     <Reference Include="DKIM.Net">
       <HintPath>..\..\..\References\DKIM.Net.dll</HintPath>
     </Reference>
@@ -93,12 +97,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\S3\Codeplex\Ariane\Ariane\Ariane.csproj">
-      <Project>{d71050ce-f15a-4a94-9438-c755c1a28d5d}</Project>
-      <Name>Ariane</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
