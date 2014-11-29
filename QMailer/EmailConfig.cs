@@ -46,5 +46,13 @@ namespace QMailer
 		public int? EntityId { get; set; }
 		[DataMember]
 		public string EntityName { get; set; }
+		[DataMember]
+		public string EmailBodyRequestedQueueName { get; set; }
+		[DataMember]
+		public string SendEmailQueueName { get; set; }
+		[DataMember]
+		public string SentMessageQueueName { get; set; }
+		[DataMember]
+		public string SentFailQueueName { get; set; }
 	}
 }

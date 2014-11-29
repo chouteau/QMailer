@@ -31,7 +31,8 @@ namespace QMailer.Web
 			if (template != null)
 			{
 				GlobalConfiguration.Configuration.Logger.Info("Enqueue email {0} to {1}", message.EmailName, template.Recipients.First(i => i.SendingType == EmailSendingType.To).Address);
-				Bus.Send(GlobalConfiguration.Configuration.SendEmailQueueName, template);
+				var queueName = message.SendEmailQueueName ?? GlobalConfiguration.Configuration.SendEmailQueueName;
+				Bus.Send(queueName, template);
 			}
 		}
 	}

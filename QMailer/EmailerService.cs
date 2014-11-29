@@ -31,6 +31,7 @@ namespace QMailer
 
 		public void SendAsync(EmailConfig emailConfig)
 		{
+			var queueName = emailConfig.EmailBodyRequestedQueueName ?? GlobalConfiguration.Configuration.EmailBodyRequestedQueueName;
 			Bus.Send(GlobalConfiguration.Configuration.EmailBodyRequestedQueueName, emailConfig);
 		}
 
@@ -59,67 +60,81 @@ namespace QMailer
 			htmlView.TransferEncoding = System.Net.Mime.TransferEncoding.QuotedPrintable;
 			mailMessage.AlternateViews.Add(htmlView);
 
+			var mailSentEvent = new System.Threading.ManualResetEvent(false);
 			var sender = CreateSmtpClient();
+			Exception sentFailException = null;
+			bool isCanceled = false;
 			sender.SendCompleted += (s, arg) =>
 				{
 					if (arg.Error != null)
 					{
-						GlobalConfiguration.Configuration.Logger.Error(arg.Error);
-
-						var sentFail = new SentFail();
-						sentFail.Message = arg.Error.Message;
-						sentFail.Stack = arg.Error.ToString();
-						sentFail.MessageId = message.MessageId;
-						sentFail.Recipients = message.Recipients;
-						sentFail.Subject = message.Subject;
-
-						Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, sentFail);
+						sentFailException = arg.Error;
 					}
-					var msg = arg.UserState as MailMessage;
-					if (msg != null)
+
+					if (arg.Cancelled)
 					{
-						msg.Dispose();
+						isCanceled = true;
 					}
+
+					mailSentEvent.Set();
 				};
-			sender.SendMailAsync(mailMessage).ContinueWith(task =>
+
+			sender.SendAsync(mailMessage, message);
+
+			var isSent = mailSentEvent.WaitOne(5 * 1000);
+			if (!isSent)
 			{
-				if (task.IsFaulted)
+				sender.SendAsyncCancel();
+			}
+
+			if (isCanceled)
+			{
+				var sentFail = new SentFail();
+				sentFail.Message = "Canceled";
+				sentFail.Stack = "Canceled";
+				sentFail.MessageId = message.MessageId;
+				sentFail.Recipients = message.Recipients;
+				sentFail.Subject = message.Subject;
+
+				var queueName = message.SentFailQueueName ?? GlobalConfiguration.Configuration.SentFailQueueName;
+				Bus.Send(queueName, sentFail);
+
+				GlobalConfiguration.Configuration.Logger.Warn("Email '{0}' sending was canceled", message.Subject);
+			}
+			else if (sentFailException != null)
+			{
+				var sentFail = new SentFail();
+				sentFail.Message = sentFailException.Message;
+				sentFail.Stack = sentFailException.ToString();
+				sentFail.MessageId = message.MessageId;
+				sentFail.Recipients = message.Recipients;
+				sentFail.Subject = message.Subject;
+
+				var queueName = message.SentFailQueueName ?? GlobalConfiguration.Configuration.SentFailQueueName;
+				Bus.Send(queueName, sentFail);
+
+				GlobalConfiguration.Configuration.Logger.Error(sentFailException);
+			}
+			else if (!message.DoNotTrack)
+			{
+				var sentMessage = new SentMessage();
+				sentMessage.Body = message.Body;
+				sentMessage.MessageId = message.MessageId;
+				sentMessage.Recipients = message.Recipients;
+				sentMessage.Subject = message.Subject;
+				sentMessage.SmtpInfo = sender.Host;
+				sentMessage.Sender = message.Sender;
+				sentMessage.EntityId = message.EntityId;
+				sentMessage.EntityName = message.EntityName;
+
+				if (message.SenderAlias != null)
 				{
-					task.Exception.Data.Add("MessageId", message.MessageId);
-					GlobalConfiguration.Configuration.Logger.Error(task.Exception);
-
-					var sentFail = new SentFail();
-					sentFail.Message = task.Exception.Message;
-					sentFail.Stack = task.Exception.ToString();
-					sentFail.MessageId = message.MessageId;
-					sentFail.Recipients = message.Recipients;
-					sentFail.Subject = message.Subject;
-
-					Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, sentFail);
+					sentMessage.Sender = message.SenderAlias;
 				}
-				else
-				{
-					if (!message.DoNotTrack)
-					{
-						var sentMessage = new SentMessage();
-						sentMessage.Body = message.Body;
-						sentMessage.MessageId = message.MessageId;
-						sentMessage.Recipients = message.Recipients;
-						sentMessage.Subject = message.Subject;
-						sentMessage.SmtpInfo = sender.Host;
-						sentMessage.Sender = message.Sender;
-						sentMessage.EntityId = message.EntityId;
-						sentMessage.EntityName = message.EntityName;
 
-						if (message.SenderAlias != null)
-						{
-							sentMessage.Sender = message.SenderAlias;
-						}
-
-						Bus.Send(GlobalConfiguration.Configuration.SentMessageQueueName, sentMessage);
-					}
-				}
-			}).Wait(10 * 1000);
+				var queueName = message.SentMessageQueueName ?? GlobalConfiguration.Configuration.SentMessageQueueName;
+				Bus.Send(queueName, sentMessage);
+			}
 		}
 
 		private System.Net.Mail.SmtpClient CreateSmtpClient()

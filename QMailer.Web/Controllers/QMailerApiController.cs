@@ -72,7 +72,8 @@ namespace QMailer.Web.Controllers
 		[Route("sendemailmessage")]
 		public void SendAsync(EmailMessage emailMessage)
 		{
-			Bus.Send(GlobalConfiguration.Configuration.SendEmailQueueName, emailMessage);
+			var queueName = emailMessage.SendEmailQueueName ?? GlobalConfiguration.Configuration.SendEmailQueueName;
+			Bus.Send(queueName, emailMessage);
 		}
 
 		[Route("emailmessage")]

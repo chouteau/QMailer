@@ -66,7 +66,8 @@ namespace QMailer.Web
 				failMessage.Stack = string.Format("EmailConfig : {0}\r\n{1}", emailConfig, ex.ToString());
 				failMessage.Subject = "Fail to convert emailconfig model";
 
-				Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, failMessage);
+				var queueName = emailConfig.SentFailQueueName ?? GlobalConfiguration.Configuration.SentFailQueueName;
+				Bus.Send(queueName, failMessage);
 			}
 
 			if (em == null)
@@ -104,7 +105,8 @@ namespace QMailer.Web
 				failMessage.Subject = "Fail create email message";
 				failMessage.ViewName = emailConfig.EmailName;
 
-				Bus.Send(GlobalConfiguration.Configuration.SentFailQueueName, failMessage);
+				var queueName = emailConfig.SentFailQueueName ?? GlobalConfiguration.Configuration.SentFailQueueName;
+				Bus.Send(queueName, failMessage);
 			}
 
 			if (emailMessage == null)
@@ -154,6 +156,10 @@ namespace QMailer.Web
 			emailMessage.EntityId = em.EntityId ?? emailConfig.EntityId;
 			emailMessage.EntityName = em.EntityName ?? emailConfig.EntityName;
 			emailMessage.Attachments = emailConfig.Attachments;
+			emailMessage.EmailBodyRequestedQueueName = emailConfig.EmailBodyRequestedQueueName;
+			emailMessage.SendEmailQueueName = emailConfig.SendEmailQueueName;
+			emailMessage.SentFailQueueName = emailConfig.SentFailQueueName;
+			emailMessage.SentMessageQueueName = emailConfig.SentMessageQueueName;
 
 			return emailMessage;
 		}

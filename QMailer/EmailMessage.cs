@@ -134,6 +134,16 @@ namespace QMailer
 		[DataMember]
 		public string ImapMessageId { get; set; }
 
+		[DataMember]
+		public string EmailBodyRequestedQueueName { get; set; }
+		[DataMember]
+		public string SendEmailQueueName { get; set; }
+		[DataMember]
+		public string SentMessageQueueName { get; set; }
+		[DataMember]
+		public string SentFailQueueName { get; set; }
+
+
 		public static explicit operator System.Net.Mail.MailMessage(EmailMessage template)
 		{
 			var mailMessage = new System.Net.Mail.MailMessage();

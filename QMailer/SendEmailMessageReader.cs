@@ -34,7 +34,8 @@ namespace QMailer
 				sentFail.Recipients = message.Recipients;
 				sentFail.Subject = message.Subject;
 
-				Bus.Send(GlobalConfiguration.Configuration.SentMessageQueueName, sentFail);
+				var failQueueName = message.SentFailQueueName ?? GlobalConfiguration.Configuration.SentFailQueueName;
+				Bus.Send(failQueueName, sentFail);
 			}
 		}
 	}
