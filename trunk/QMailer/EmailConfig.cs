@@ -14,6 +14,7 @@ namespace QMailer
 			Recipients = new List<EmailAddress>();
 			Headers = new List<EmailMessageHeader>();
 			Parameters = new List<EmailMessageParameter>();
+			Attachments = new List<Attachment>();
 			DoNotTrack = false;
 		}
 

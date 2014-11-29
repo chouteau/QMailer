@@ -153,6 +153,7 @@ namespace QMailer.Web
 			emailMessage.DoNotTrack = emailConfig.DoNotTrack;
 			emailMessage.EntityId = em.EntityId ?? emailConfig.EntityId;
 			emailMessage.EntityName = em.EntityName ?? emailConfig.EntityName;
+			emailMessage.Attachments = emailConfig.Attachments;
 
 			return emailMessage;
 		}
