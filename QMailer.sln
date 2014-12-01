@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer", "QMailer\QMailer.csproj", "{9BA2321E-745B-46C1-90F5-A02B037C6BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Web", "QMailer.Web\QMailer.Web.csproj", "{16517442-1304-404D-BF82-C74255B7B850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Tests", "QMailer.Tests\QMailer.Tests.csproj", "{1D54F92C-F440-45EE-A61B-25CA68FBBF95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6EB37C31-BDE8-4E47-8FBE-7998AE51ECC0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailerWebApp", "QMailerWebApp\QMailerWebApp.csproj", "{14B7F768-1929-4EA9-8E30-B8FD308E741C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.SvcHost", "QMailer.SvcHost\QMailer.SvcHost.csproj", "{D574F395-CFC0-4DBF-9743-4E4C63B2C260}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Client35", "QMailer.Client35\QMailer.Client35.csproj", "{F86CBA9D-D99C-4E50-950F-34891727BA45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{F46321AD-8F97-4BA1-A327-D2952195F1A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BA2321E-745B-46C1-90F5-A02B037C6BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA2321E-745B-46C1-90F5-A02B037C6BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA2321E-745B-46C1-90F5-A02B037C6BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA2321E-745B-46C1-90F5-A02B037C6BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16517442-1304-404D-BF82-C74255B7B850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16517442-1304-404D-BF82-C74255B7B850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16517442-1304-404D-BF82-C74255B7B850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16517442-1304-404D-BF82-C74255B7B850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
