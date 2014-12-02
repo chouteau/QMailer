@@ -93,7 +93,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="exclude.txt" />
+    <Content Include="exclude.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QMailer\QMailer.csproj">
@@ -109,6 +111,11 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>del $(ProjectDir)qmsvchost.zip /F /Q
+"C:\Program Files\7-Zip\7z.exe" a -tzip -r -xr@$(TargetDir)exclude.txt $(ProjectDir)qmsvchost.zip $(TargetDir)*
+</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

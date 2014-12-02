@@ -20,7 +20,7 @@ namespace QMailer.SvcHost
 				Console.WriteLine("console mode detected");
 				var listener = new System.Diagnostics.ConsoleTraceListener();
 
-				// System.Diagnostics.Debug.Listeners.Add(listener);
+				System.Diagnostics.Debug.Listeners.Add(listener);
 				System.Diagnostics.Debug.AutoFlush = true;
 
 				try

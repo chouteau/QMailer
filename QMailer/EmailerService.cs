@@ -48,6 +48,7 @@ namespace QMailer
 		public void Start()
 		{
 			Bus.StartReading();
+			GlobalConfiguration.Configuration.Logger.Info("Service started");
 		}
 
 		internal void Send(EmailMessage message)
