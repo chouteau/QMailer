@@ -39,7 +39,7 @@ namespace QMailer.Web.Controllers
 		[Route("createemailconfig/{messageId}")]
 		public EmailConfig CreateEmailConfig(string messageId)
 		{
-			var emailConfig = QMailerService.Current.CreateEmailConfig(messageId);
+			var emailConfig = QMailerService.CreateEmailConfig(messageId);
 			return emailConfig;
 		}
 
@@ -64,7 +64,7 @@ namespace QMailer.Web.Controllers
 		[Route("sendemailconfig")]
 		public void SendAsync(EmailConfig emailConfig)
 		{
-			QMailerService.Current.SendAsync(emailConfig);
+			QMailerService.SendAsync(emailConfig);
 		}
 
 		[ActionFilters.ApiAuthorizedOperation]

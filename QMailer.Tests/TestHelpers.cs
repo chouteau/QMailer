@@ -41,7 +41,7 @@ namespace QMailer.Tests
 					TypeReader = typeof(QMailer.SendEmailMessageReader)
 				});
 
-			QMailerService.Current.ReplaceBusService(bus);
+			QMailerService.ReplaceBusService(bus);
 			QMailer.Web.QMailerConfig.Configure(container);
 
 			var viewEngines = new Moq.Mock<ViewEngineCollection>();

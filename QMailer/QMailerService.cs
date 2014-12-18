@@ -11,12 +11,43 @@ namespace QMailer
 		private static Lazy<IEmailerService> m_LazyInstance 
 			= new Lazy<IEmailerService>(InitializeService, true);
 
+		[Obsolete("Remove Current and use static methods instead", true)]
 		public static IEmailerService Current
 		{
 			get
 			{
 				return m_LazyInstance.Value;
 			}
+		}
+
+		public static EmailConfig CreateEmailConfig(string messageId = null)
+		{
+			return m_LazyInstance.Value.CreateEmailConfig(messageId);
+		}
+
+		public static void ReplaceBusService(Ariane.IServiceBus bus)
+		{
+			m_LazyInstance.Value.ReplaceBusService(bus);
+		}
+
+		public static void SendAsync(EmailConfig emailConfig)
+		{
+			m_LazyInstance.Value.SendAsync(emailConfig);
+		}
+
+		public static void Start()
+		{
+			m_LazyInstance.Value.Start();
+		}
+
+		public static void Stop()
+		{
+			m_LazyInstance.Value.Stop();
+		}
+
+		internal static IEmailerService GetInstance()
+		{
+			return m_LazyInstance.Value;
 		}
 
 		private static EmailerService InitializeService()

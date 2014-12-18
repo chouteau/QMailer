@@ -33,11 +33,11 @@ namespace QMailerWebApp.Controllers
 		public ActionResult Contact(string templateName)
 		{
 			string messageId = Guid.NewGuid().ToString();
-			var emailConfig = QMailerService.Current.CreateEmailConfig(messageId);
+			var emailConfig = QMailerService.CreateEmailConfig(messageId);
 			emailConfig.SetView(templateName)
 				.AddRecipient(new QMailer.EmailAddress() { Address = "test@test.com", SendingType = EmailSendingType.To });
 
-			QMailerService.Current.SendAsync(emailConfig);
+			QMailerService.SendAsync(emailConfig);
 
 			return View();
 		}

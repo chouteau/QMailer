@@ -22,7 +22,7 @@ namespace QMailer.Tests
 		[TestCleanup]
 		public void TearDown()
 		{
-			QMailer.QMailerService.Current.Stop();
+			QMailer.QMailerService.Stop();
 		}
 
 		[TestMethod]
@@ -36,14 +36,14 @@ namespace QMailer.Tests
 			};
 
 			var messageId = Guid.NewGuid().ToString();
-			var emailConfig = QMailerService.Current.CreateEmailConfig(messageId);
+			var emailConfig = QMailerService.CreateEmailConfig(messageId);
 			emailConfig.SetView("test")
 				.AddRecipient(new EmailAddress() { Address = "test@test.com" })
 				.AddParameter("param1", "value1")
 				.SetSender("marc@test.com","marc","god","code",true)
 				.SetModel(model);
 
-			QMailerService.Current.SendAsync(emailConfig);
+			QMailerService.SendAsync(emailConfig);
 		}
 	}
 }

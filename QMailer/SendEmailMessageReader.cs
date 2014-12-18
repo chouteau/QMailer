@@ -23,7 +23,7 @@ namespace QMailer
 			GlobalConfiguration.Configuration.Logger.Debug("receive message for send by email");
 			try
 			{
-				((EmailerService)QMailerService.Current).Send(message);
+				((EmailerService)QMailerService.GetInstance()).Send(message);
 			}
 			catch(Exception ex)
 			{
