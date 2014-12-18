@@ -139,13 +139,12 @@ namespace QMailer.Web
 					};
 					message.Recipients.Add(replyto);
 					break;
-				//case "content-type":
-				//    var charsetMatch = Regex.Match(value, @"\bcharset\s*=\s*(.*)$");
-				//    if (charsetMatch.Success)
-				//    {
-				//        message.BodyEncoding = Encoding.GetEncoding(charsetMatch.Groups[1].Value);
-				//    }
-				//    break;
+				case "attachment" :
+					var attachement = value.Split('|');
+					var fileName = attachement[2].Replace('/','\\').TrimStart('\\');
+					fileName = System.IO.Path.Combine(GlobalConfiguration.Configuration.PhysicalPath.TrimEnd('\\'), fileName);
+					message.AddAttachment(attachement[0], attachement[1], fileName);
+					break;
 				default:
 					// message.Headers[key] = value;
 					headerAdded = false;

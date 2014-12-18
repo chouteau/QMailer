@@ -24,6 +24,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Client35", "QMailer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{F46321AD-8F97-4BA1-A327-D2952195F1A7}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QMailer.Doc", "http://localhost:24728", "{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_24728"
+		Debug.AspNetCompiler.PhysicalPath = "..\QMailer.Doc\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_24728\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_24728"
+		Release.AspNetCompiler.PhysicalPath = "..\QMailer.Doc\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_24728\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\QMailer.Doc\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +75,10 @@ Global
 		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

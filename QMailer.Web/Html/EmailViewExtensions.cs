@@ -36,5 +36,12 @@ namespace QMailer.Web.Html
 		{
 			return helper.Raw(string.Format("{0}: {1} <{2}>", key, fullName, email));
 		}
+
+		public static IHtmlString AddAttachment(this HtmlHelper helper, string attachmentName, string contentType, string fileName)
+		{
+			var header = string.Format("attachment:{1}|{2}|{3}", attachmentName, contentType, fileName);
+			return helper.Raw(header);
+		}
+
 	}
 }
