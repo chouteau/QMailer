@@ -43,5 +43,11 @@ namespace QMailer.Web.Html
 			return helper.Raw(header);
 		}
 
+		public static string FullUrl(this UrlHelper helper, string resourcePath)
+		{
+			var baseUrl = (GlobalConfiguration.Configuration.FullUrl ?? string.Format("{0}://{1}", helper.RequestContext.HttpContext.Request.Url.Scheme, helper.RequestContext.HttpContext.Request.Url.Host)).TrimEnd('/');
+			var result = string.Format("{0}/{1}", baseUrl, resourcePath.TrimStart('/'));
+			return result;
+		}
 	}
 }
