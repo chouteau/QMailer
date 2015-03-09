@@ -155,7 +155,14 @@ namespace QMailer.Web
 			emailMessage.DoNotTrack = emailConfig.DoNotTrack;
 			emailMessage.EntityId = em.EntityId ?? emailConfig.EntityId;
 			emailMessage.EntityName = em.EntityName ?? emailConfig.EntityName;
-			emailMessage.Attachments = emailConfig.Attachments;
+			if (emailMessage.Attachments == null || emailMessage.Attachments.Count == 0)
+			{
+				emailMessage.Attachments = emailConfig.Attachments;
+			}
+			else 
+			{
+				emailMessage.Attachments.AddRange(emailConfig.Attachments);
+			}
 			emailMessage.EmailBodyRequestedQueueName = emailConfig.EmailBodyRequestedQueueName;
 			emailMessage.SendEmailQueueName = emailConfig.SendEmailQueueName;
 			emailMessage.SentFailQueueName = emailConfig.SentFailQueueName;
