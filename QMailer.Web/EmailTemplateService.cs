@@ -159,7 +159,7 @@ namespace QMailer.Web
 			{
 				emailMessage.Attachments = emailConfig.Attachments;
 			}
-			else 
+			else if(emailConfig.Attachments != null)
 			{
 				emailMessage.Attachments.AddRange(emailConfig.Attachments);
 			}
