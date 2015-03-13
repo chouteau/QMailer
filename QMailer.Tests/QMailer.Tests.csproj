@@ -107,6 +107,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AttachmentTests.cs" />
     <Compile Include="EmailerServiceTests.cs" />
     <Compile Include="FakeView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +135,9 @@
     <Content Include="EmailViews\Web.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="file.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

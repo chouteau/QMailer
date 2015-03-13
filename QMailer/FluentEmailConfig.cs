@@ -88,7 +88,8 @@ namespace QMailer
 				}
 				stream.Close();
 			}
-			config.AddAttachment(ms.GetBuffer(), name, contentType);
+			var content = ms.ToArray();
+			config.AddAttachment(content, name, contentType);
 			return config;
 		}
 
@@ -117,7 +118,8 @@ namespace QMailer
 				}
 				stream.Close();
 			}
-			message.AddAttachment(ms.GetBuffer(), name, contentType);
+			var content = ms.ToArray();
+			message.AddAttachment(content, name, contentType);
 			return message;
 		}
 
