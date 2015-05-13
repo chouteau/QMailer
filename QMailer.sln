@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer", "QMailer\QMailer.csproj", "{9BA2321E-745B-46C1-90F5-A02B037C6BCF}"
 EndProject
@@ -45,6 +45,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QMailer.Doc", "http://local
 		SlnRelativePath = "..\QMailer.Doc\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKIM.Net", "..\DKIM.Net\src\DKIM.Net\DKIM.Net.csproj", "{1CFB14B2-E0FF-4491-820F-490CFFBAA47A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,8 +81,15 @@ Global
 		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1CFB14B2-E0FF-4491-820F-490CFFBAA47A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CFB14B2-E0FF-4491-820F-490CFFBAA47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CFB14B2-E0FF-4491-820F-490CFFBAA47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CFB14B2-E0FF-4491-820F-490CFFBAA47A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CFB14B2-E0FF-4491-820F-490CFFBAA47A} = {F46321AD-8F97-4BA1-A327-D2952195F1A7}
 	EndGlobalSection
 EndGlobal

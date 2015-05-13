@@ -55,37 +55,47 @@ namespace QMailer
 		{
 			var mailMessage = (System.Net.Mail.MailMessage)message;
 
-			AddDkimHeader(mailMessage);
+			if (message.Attachments == null 
+				|| message.Attachments.Count == 0)
+			{
+				AddDkimHeader(mailMessage);
+			}
 
 			var htmlView = AlternateView.CreateAlternateViewFromString(message.Body, null, "text/html");
 			htmlView.TransferEncoding = System.Net.Mime.TransferEncoding.QuotedPrintable;
 			mailMessage.AlternateViews.Add(htmlView);
 
-			var mailSentEvent = new System.Threading.ManualResetEvent(false);
-			var sender = CreateSmtpClient();
 			Exception sentFailException = null;
 			bool isCanceled = false;
-			sender.SendCompleted += (s, arg) =>
-				{
-					if (arg.Error != null)
-					{
-						sentFailException = arg.Error;
-					}
-
-					if (arg.Cancelled)
-					{
-						isCanceled = true;
-					}
-
-					mailSentEvent.Set();
-				};
-
-			sender.SendAsync(mailMessage, message);
-
-			var isSent = mailSentEvent.WaitOne(5 * 1000);
-			if (!isSent)
+			string senderHost = null;
+			using (var sender = CreateSmtpClient())
 			{
-				sender.SendAsyncCancel();
+				senderHost = sender.Host;
+				using (var mailSentEvent = new System.Threading.ManualResetEvent(false))
+				{
+					sender.SendCompleted += (s, arg) =>
+						{
+							if (arg.Error != null)
+							{
+								sentFailException = arg.Error;
+							}
+
+							if (arg.Cancelled)
+							{
+								isCanceled = true;
+							}
+
+							mailSentEvent.Set();
+						};
+
+					sender.SendAsync(mailMessage, message);
+
+					var isSent = mailSentEvent.WaitOne(5 * 1000);
+					if (!isSent)
+					{
+						sender.SendAsyncCancel();
+					}
+				}
 			}
 
 			if (isCanceled)
@@ -123,7 +133,7 @@ namespace QMailer
 				sentMessage.MessageId = message.MessageId;
 				sentMessage.Recipients = message.Recipients;
 				sentMessage.Subject = message.Subject;
-				sentMessage.SmtpInfo = sender.Host;
+				sentMessage.SmtpInfo = senderHost;
 				sentMessage.Sender = message.Sender;
 				sentMessage.EntityId = message.EntityId;
 				sentMessage.EntityName = message.EntityName;

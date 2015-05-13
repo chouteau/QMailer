@@ -11,15 +11,6 @@ namespace QMailer
 		private static Lazy<IEmailerService> m_LazyInstance 
 			= new Lazy<IEmailerService>(InitializeService, true);
 
-		[Obsolete("Remove Current and use static methods instead", true)]
-		public static IEmailerService Current
-		{
-			get
-			{
-				return m_LazyInstance.Value;
-			}
-		}
-
 		public static EmailConfig CreateEmailConfig(string messageId = null)
 		{
 			return m_LazyInstance.Value.CreateEmailConfig(messageId);
