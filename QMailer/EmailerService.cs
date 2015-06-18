@@ -85,17 +85,27 @@ namespace QMailer
 								isCanceled = true;
 							}
 
-							mailSentEvent.Set();
+							if (!mailSentEvent.SafeWaitHandle.IsClosed)
+							{
+								mailSentEvent.Set();
+							}
 						};
 
 					sender.SendAsync(mailMessage, message);
 
-					var isSent = mailSentEvent.WaitOne(5 * 1000);
+					var isSent = mailSentEvent.WaitOne(30 * 1000);
 					if (!isSent)
 					{
 						sender.SendAsyncCancel();
+						isCanceled = true;
 					}
 				}
+			}
+
+			var sentFailQueueName = message.SentFailQueueName;
+			if (string.IsNullOrWhiteSpace(sentFailQueueName))
+			{
+				sentFailQueueName = GlobalConfiguration.Configuration.SentFailQueueName;
 			}
 
 			if (isCanceled)
@@ -107,8 +117,7 @@ namespace QMailer
 				sentFail.Recipients = message.Recipients;
 				sentFail.Subject = message.Subject;
 
-				var queueName = message.SentFailQueueName ?? GlobalConfiguration.Configuration.SentFailQueueName;
-				Bus.Send(queueName, sentFail);
+				Bus.Send(sentFailQueueName, sentFail);
 
 				GlobalConfiguration.Configuration.Logger.Warn("Email '{0}' sending was canceled", message.Subject);
 			}
@@ -121,10 +130,9 @@ namespace QMailer
 				sentFail.Recipients = message.Recipients;
 				sentFail.Subject = message.Subject;
 
-				var queueName = message.SentFailQueueName ?? GlobalConfiguration.Configuration.SentFailQueueName;
-				Bus.Send(queueName, sentFail);
-
 				GlobalConfiguration.Configuration.Logger.Error(sentFailException);
+
+				Bus.Send(sentFailQueueName, sentFail);
 			}
 			else if (!message.DoNotTrack)
 			{

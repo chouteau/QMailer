@@ -1,0 +1,20 @@
+﻿2.1.5.1
+Fix timeout on sendasync to 30 seconds
+
+2.1.4.0 
+Fix potential threadleak on send email message
+Remove dkim when attachment exists
+
+2.0.3.1 
+Fix bug attachment with bad size of buffer
+
+2.0.2 
+Fix nuget reference
+
+2.0.1 
+Replace singleton "Current" in QMailerService  by statics methods
+
+2.0.0 
+
+
+
