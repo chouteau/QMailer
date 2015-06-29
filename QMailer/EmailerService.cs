@@ -85,9 +85,16 @@ namespace QMailer
 								isCanceled = true;
 							}
 
-							if (!mailSentEvent.SafeWaitHandle.IsClosed)
+							try
 							{
-								mailSentEvent.Set();
+								if (!mailSentEvent.SafeWaitHandle.IsClosed)
+								{
+									mailSentEvent.Set();
+								}
+							}
+							catch (Exception ex)
+							{
+								GlobalConfiguration.Configuration.Logger.Error(ex);
 							}
 						};
 

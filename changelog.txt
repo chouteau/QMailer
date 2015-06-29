@@ -1,4 +1,7 @@
-﻿2.1.5.1
+﻿2.1.6.2
+Fix SendAsync cause fatal crash on error with manual reset event
+
+2.1.5.1
 Fix timeout on sendasync to 30 seconds
 
 2.1.4.0 
