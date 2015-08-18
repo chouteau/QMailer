@@ -14,6 +14,7 @@ namespace QMailer
 			SendEmailQueueName = "sendemail";
 			VirtualPath = "~/emailviews";
 			BusConfigFileName = @".\ariane.config";
+			SmtpClientFactory = new SmtpClientFactory();
 		}
 
 		/// <summary>
@@ -70,5 +71,7 @@ namespace QMailer
 		public string ImapAuthMethod { get; set; }
 
 		public bool ImapUseSSL { get; set; }
+
+		public ISmtpClientFactory SmtpClientFactory { get; set; }
 	}
 }

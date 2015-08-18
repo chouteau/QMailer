@@ -15,7 +15,6 @@ namespace QMailer
 {
 	class EmailerService : QMailer.IEmailerService
 	{
-
 		internal EmailerService()
 		{
 		}
@@ -68,7 +67,7 @@ namespace QMailer
 			Exception sentFailException = null;
 			bool isCanceled = false;
 			string senderHost = null;
-			using (var sender = CreateSmtpClient())
+			using (var sender = GlobalConfiguration.Configuration.SmtpClientFactory.Create(message.Recipients))
 			{
 				senderHost = sender.Host;
 				using (var mailSentEvent = new System.Threading.ManualResetEvent(false))
@@ -161,26 +160,6 @@ namespace QMailer
 				var queueName = message.SentMessageQueueName ?? GlobalConfiguration.Configuration.SentMessageQueueName;
 				Bus.Send(queueName, sentMessage);
 			}
-		}
-
-		private System.Net.Mail.SmtpClient CreateSmtpClient()
-		{
-			var client = new System.Net.Mail.SmtpClient();
-
-			// For Tests
-			if (client.DeliveryMethod == System.Net.Mail.SmtpDeliveryMethod.SpecifiedPickupDirectory
-				&& client.PickupDirectoryLocation.StartsWith(@".\"))
-			{
-				var path = System.IO.Path.GetDirectoryName(this.GetType().Assembly.Location);
-				path = System.IO.Path.Combine(path, "emails");
-				if (!System.IO.Directory.Exists(path))
-				{
-					System.IO.Directory.CreateDirectory(path);
-				}
-				client.PickupDirectoryLocation = path;
-			}
-
-			return client;
 		}
 
 		public void AddDkimHeader(System.Net.Mail.MailMessage message)

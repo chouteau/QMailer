@@ -9,5 +9,5 @@ namespace QMailer
 		void SendAsync(EmailConfig emailConfig);
 		void Start();
 		void Stop();
-	}
+    }
 }

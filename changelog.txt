@@ -1,4 +1,8 @@
-﻿2.1.6.2
+﻿2.2.7.0
+Added possibility of changing smtpclient creation  
+use GlobalConfiguration.Configuration.SmtpClientFactory = new CustomSmtpClientFactory()
+
+2.1.6.2
 Fix SendAsync cause fatal crash on error with manual reset event
 
 2.1.5.1
