@@ -17,5 +17,7 @@ namespace QMailer
 		BCC,
 		[EnumMember]
 		ReplyTo,
+        [EnumMember]
+        ReturnPath,
 	}
 }

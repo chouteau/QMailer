@@ -1,4 +1,7 @@
-﻿2.2.7.0
+﻿2.3.8.0
+Add support of Return-Path mailmessage header
+
+2.2.7.0
 Added possibility of changing smtpclient creation  
 use GlobalConfiguration.Configuration.SmtpClientFactory = new CustomSmtpClientFactory()
 

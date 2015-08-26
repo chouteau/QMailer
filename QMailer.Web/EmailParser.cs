@@ -139,7 +139,16 @@ namespace QMailer.Web
 					};
 					message.Recipients.Add(replyto);
 					break;
-				case "attachment" :
+                case "return-path":
+                    var returnPath = new EmailAddress()
+                    {
+                        Address = email,
+                        DisplayName = displayName,
+                        SendingType = EmailSendingType.ReturnPath
+                    };
+                    message.Recipients.Add(returnPath);
+                    break;
+                case "attachment" :
 					var attachement = value.Split('|');
 					var fileName = attachement[2].Replace('/','\\').TrimStart('\\');
 					fileName = System.IO.Path.Combine(GlobalConfiguration.Configuration.PhysicalPath.TrimEnd('\\'), fileName);
