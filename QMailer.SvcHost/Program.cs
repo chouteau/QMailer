@@ -14,31 +14,41 @@ namespace QMailer.SvcHost
 		/// </summary>
 		static void Main(string[] args)
 		{
-			Console.WriteLine("starting QMailerSvcHost");
-			if (args != null && args.Length > 0 && args[0] == "/console")
+			var serviceName = GetServiceName();
+
+			Console.WriteLine("starting " + serviceName);
+			if (System.Environment.UserInteractive)
 			{
 				Console.WriteLine("console mode detected");
-				var listener = new System.Diagnostics.ConsoleTraceListener();
 
-				System.Diagnostics.Debug.Listeners.Add(listener);
-				System.Diagnostics.Debug.AutoFlush = true;
-
-				try
+				string parameter = string.Concat(args);
+				switch (parameter)
 				{
-					MainService.StartQMailer();
+					case "/install":
+						ServiceControllerHelper.InstallService(serviceName);
+						break;
+					case "/uninstall":
+						ServiceControllerHelper.UninstallService(serviceName);
+						break;
+					default:
+						try
+						{
+							MainService.StartQMailer();
+						}
+						catch (Exception ex)
+						{
+							Console.WriteLine(ex.ToString());
+							System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+							return;
+						}
+
+						Console.WriteLine("hoster started");
+
+						System.Console.Read();
+
+						QMailerService.Stop();
+						break;
 				}
-				catch (Exception ex)
-				{
-					Console.WriteLine(ex.ToString());
-					System.Diagnostics.EventLog.WriteEntry("Application", ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
-					return;
-				}
-
-				Console.WriteLine("hoster started");
-
-				System.Console.Read();
-
-				QMailerService.Stop();
 			}
 			else
 			{
@@ -50,6 +60,20 @@ namespace QMailer.SvcHost
 				};
 				ServiceBase.Run(ServicesToRun);
 			}
+		}
+
+		public static string GetServiceName()
+		{
+			var exePath = System.IO.Path.Combine(Environment.CurrentDirectory, "QMailerSvcHost.exe");
+			System.Diagnostics.Trace.WriteLine(exePath);
+			var config = System.Configuration.ConfigurationManager.OpenExeConfiguration(exePath);
+			var result = "QMailerSvcHost";
+			if (config.AppSettings.Settings["QMailerSvcHost.ServiceName"] != null)
+			{
+				result = config.AppSettings.Settings["QMailerSvcHost.ServiceName"].Value;
+			}
+			Console.WriteLine("ServiceName : {0}", result);
+			return result;
 		}
 	}
 }
