@@ -13,7 +13,7 @@ namespace QMailer.SvcHost
 	{
 		public static bool m_UninstallInProgress = false;
 
-		public static void InstallService(string svcName)
+		public static void InstallService(string svcName, bool autostart = false)
 		{
 			var svc = GetWindowsService(svcName);
 
@@ -32,11 +32,18 @@ namespace QMailer.SvcHost
 				System.Diagnostics.Trace.WriteLine(string.Format("{0} already installed", svcName));
 			}
 
-			if (svc.Status == ServiceControllerStatus.Stopped)
+			if (svc.Status == ServiceControllerStatus.Stopped && autostart)
 			{
 				System.Diagnostics.Trace.WriteLine(string.Format("Try to start {0}", svcName));
-				svc.Start();
-				svc.WaitForStatus(ServiceControllerStatus.Running, new TimeSpan(0, 0, 15));
+				try
+				{
+					svc.Start();
+					svc.WaitForStatus(ServiceControllerStatus.Running, new TimeSpan(0, 0, 15));
+				}
+				catch (Exception ex)
+				{
+					System.Diagnostics.Trace.WriteLine(ex.Message);
+				}
 			}
 		}
 
@@ -57,23 +64,39 @@ namespace QMailer.SvcHost
 
 			System.Diagnostics.Trace.WriteLine(string.Format("uninstall {0}", svcName));
 
-			if (svc.Status != ServiceControllerStatus.Stopped)
+			bool stopped = svc.Status == ServiceControllerStatus.Stopped;
+			if (!stopped)
 			{
 				System.Diagnostics.Trace.WriteLine(string.Format("try to stop {0}", svcName));
-				svc.Stop();
-				svc.WaitForStatus(ServiceControllerStatus.Stopped, new TimeSpan(0, 0, 15));
-			}
+				try
+				{
+					svc.Stop();
+					svc.WaitForStatus(ServiceControllerStatus.Stopped, new TimeSpan(0, 0, 15));
+					stopped = true;
+				}
+				catch(Exception ex)
+				{
+					System.Diagnostics.Trace.WriteLine(ex.Message);
+				}
+            }
 
-			System.Diagnostics.Trace.WriteLine(string.Format("{0} stopped", svcName));
-			try
+			if (stopped)
 			{
-				ManagedInstallerClass.InstallHelper(new string[] { "/u", Assembly.GetExecutingAssembly().Location });
+				System.Diagnostics.Trace.WriteLine(string.Format("{0} stopped", svcName));
+				try
+				{
+					ManagedInstallerClass.InstallHelper(new string[] { "/u", Assembly.GetExecutingAssembly().Location });
+				}
+				catch (Exception ex)
+				{
+					System.Diagnostics.Trace.WriteLine(ex.ToString());
+				}
+				System.Diagnostics.Trace.WriteLine(string.Format("{0} uninstalled", svcName));
 			}
-			catch(Exception ex)
+			else
 			{
-				System.Diagnostics.Trace.WriteLine(ex.ToString());
+				System.Diagnostics.Trace.WriteLine("cant stop this service, try to stop manualy before uninstall");
 			}
-			System.Diagnostics.Trace.WriteLine(string.Format("{0} uninstalled", svcName));
 		}
 
 		public static ServiceController GetWindowsService(string serviceName)

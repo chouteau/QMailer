@@ -17,7 +17,7 @@ namespace QMailer.Web.Controllers.ActionFilters
 			{
 				throw new System.Security.SecurityException("this service required an api key");
 			}
-			if (!apiKeyHeader.Value.First().Equals(GlobalConfiguration.Configuration.ApiToken))
+			if (!apiKeyHeader.Value.First().Equals(QMailer.GlobalConfiguration.Configuration.ApiToken))
 			{
 				throw new System.Security.SecurityException("this service is denied with this api key");
 			}

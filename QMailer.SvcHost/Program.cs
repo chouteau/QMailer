@@ -64,13 +64,11 @@ namespace QMailer.SvcHost
 
 		public static string GetServiceName()
 		{
-			var exePath = System.IO.Path.Combine(Environment.CurrentDirectory, "QMailerSvcHost.exe");
-			System.Diagnostics.Trace.WriteLine(exePath);
-			var config = System.Configuration.ConfigurationManager.OpenExeConfiguration(exePath);
 			var result = "QMailerSvcHost";
-			if (config.AppSettings.Settings["QMailerSvcHost.ServiceName"] != null)
+			var svcNameSettings = System.Configuration.ConfigurationManager.AppSettings["QMailerSvcHost.ServiceName"];
+			if (svcNameSettings != null)
 			{
-				result = config.AppSettings.Settings["QMailerSvcHost.ServiceName"].Value;
+				result = svcNameSettings;
 			}
 			Console.WriteLine("ServiceName : {0}", result);
 			return result;
