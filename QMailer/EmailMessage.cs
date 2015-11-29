@@ -165,7 +165,7 @@ namespace QMailer
 						mailMessage.Bcc.Add(new System.Net.Mail.MailAddress(email.Address, email.DisplayName));		 
 						break;
 					case EmailSendingType.ReplyTo:
-						mailMessage.ReplyToList.Add(new System.Net.Mail.MailAddress(email.Address, email.DisplayName));
+						mailMessage.ReplyTo = new System.Net.Mail.MailAddress(email.Address, email.DisplayName);
 						break;
                     case EmailSendingType.ReturnPath:
                         mailMessage.Headers.Add("Return-Path", email.Address);

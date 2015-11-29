@@ -9,13 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Web", "QMailer.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Tests", "QMailer.Tests\QMailer.Tests.csproj", "{1D54F92C-F440-45EE-A61B-25CA68FBBF95}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6EB37C31-BDE8-4E47-8FBE-7998AE51ECC0}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailerWebApp", "QMailerWebApp\QMailerWebApp.csproj", "{14B7F768-1929-4EA9-8E30-B8FD308E741C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.SvcHost", "QMailer.SvcHost\QMailer.SvcHost.csproj", "{D574F395-CFC0-4DBF-9743-4E4C63B2C260}"
