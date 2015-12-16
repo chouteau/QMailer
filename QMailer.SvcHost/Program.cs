@@ -31,6 +31,10 @@ namespace QMailer.SvcHost
 						ServiceControllerHelper.UninstallService(serviceName);
 						break;
 					default:
+
+						System.Diagnostics.Debug.Listeners.Add(new System.Diagnostics.ConsoleTraceListener());
+						System.Diagnostics.Debug.AutoFlush = true;
+
 						try
 						{
 							MainService.StartQMailer();
