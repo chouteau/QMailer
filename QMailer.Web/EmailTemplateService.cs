@@ -9,6 +9,8 @@ using System.Web.Mvc;
 
 using Microsoft.Practices.Unity;
 
+using QMailer;
+
 namespace QMailer.Web
 {
 	public class EmailTemplateService : QMailer.Web.IEmailTemplateService 
@@ -173,8 +175,8 @@ namespace QMailer.Web
 
 		public EmailMessage CreateEmailMessage(EmailView emailView)
 		{
-			// var container = GlobalConfiguration.Configuration.DependencyResolver.GetConfiguredContainer();
-			var renderer = GlobalConfiguration.Configuration.DependencyResolver.GetService<IEmailViewRenderer>(emailView.RendererName);
+			var container = GlobalConfiguration.Configuration.DependencyResolver.GetConfiguredContainer();
+			var renderer = container.Resolve<IEmailViewRenderer>(emailView.RendererName);
 			var rawEmailString = renderer.Render(emailView);
 			var result = EmailParser.CreateMailMessage(rawEmailString);
 			return result;
