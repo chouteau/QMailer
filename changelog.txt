@@ -1,4 +1,7 @@
-﻿2.3.8.0
+﻿2.3.11.0
+Ariane, Json nuget update
+
+2.3.8.0
 Add support of Return-Path mailmessage header
 
 2.2.7.0
