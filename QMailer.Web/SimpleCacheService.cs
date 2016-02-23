@@ -33,8 +33,6 @@ namespace QMailer.Web
 				}
 				m_CachedList.Remove(item);
 			}
-
-			GlobalConfiguration.Configuration.Logger.Debug("Cache item count : {0} items", ItemCount);
 		}
 		
 		#region ICacheService Members

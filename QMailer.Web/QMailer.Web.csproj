@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ariane, Version=3.2.42.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ariane.3.2.42.0\lib\Ariane.dll</HintPath>
+    <Reference Include="Ariane, Version=3.2.45.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ariane.3.2.45.1\lib\Ariane.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
