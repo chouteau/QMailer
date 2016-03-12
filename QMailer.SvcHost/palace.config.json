@@ -1,0 +1,8 @@
+{
+  "ServiceName": "QMailerSvcHost",
+  "ServiceDisplayName": "QMailer SvsHost",
+  "ServiceDescription": "QMailer Services Host",
+  "UpdateUriList": [],
+  "ScanIntervalInSeconds": "60",
+  "ApiKey": null
+}
