@@ -1,4 +1,8 @@
-﻿2.3.11.0
+﻿2.4.13.0
+Add IEmailMessageSender interface
+Add MailJet IEmailMessageSender in separated assembly "QMailer.MailJet"
+
+2.3.11.0
 Ariane, Json nuget update
 
 2.3.8.0

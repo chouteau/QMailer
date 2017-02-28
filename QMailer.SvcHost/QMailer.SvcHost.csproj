@@ -93,6 +93,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\QMailer.MailJet\QMailer.MailJet.csproj">
+      <Project>{1b12b2ac-bca6-43b0-8264-5cb18a9618b9}</Project>
+      <Name>QMailer.MailJet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QMailer\QMailer.csproj">
       <Project>{9ba2321e-745b-46c1-90f5-a02b037c6bcf}</Project>
       <Name>QMailer</Name>

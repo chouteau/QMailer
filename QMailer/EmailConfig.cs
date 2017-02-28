@@ -9,7 +9,7 @@ namespace QMailer
 	[DataContract]
 	public class EmailConfig
 	{
-		internal EmailConfig ()
+		public EmailConfig ()
 		{
 			Recipients = new List<EmailAddress>();
 			Headers = new List<EmailMessageHeader>();

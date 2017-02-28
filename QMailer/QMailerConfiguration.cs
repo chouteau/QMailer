@@ -73,5 +73,7 @@ namespace QMailer
 		public bool ImapUseSSL { get; set; }
 
 		public ISmtpClientFactory SmtpClientFactory { get; set; }
+
+		public string EmailMessageSenderType { get; set; }
 	}
 }

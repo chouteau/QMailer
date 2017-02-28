@@ -143,7 +143,7 @@ namespace QMailer.Web
 				}
 			}
 
-			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer", Value = "QMailer" });
+			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-GEN", Value = "QMailer" });
 			emailMessage.Headers.Add(new EmailMessageHeader() { Name = "X-Mailer-MID", Value = emailConfig.MessageId });
 			if (emailConfig.Headers != null)
 			{
@@ -179,6 +179,7 @@ namespace QMailer.Web
 			var renderer = container.Resolve<IEmailViewRenderer>(emailView.RendererName);
 			var rawEmailString = renderer.Render(emailView);
 			var result = EmailParser.CreateMailMessage(rawEmailString);
+			result.Body = ToSingleLine(result.Body);
 			return result;
 		}
 
@@ -377,6 +378,18 @@ namespace QMailer.Web
 				return content;
 			}
 			return "Le fichier spécifié n'existe pas";
+		}
+
+		private string ToSingleLine(string input)
+		{
+			if (input == null)
+			{
+				return null;
+			}
+			var result = input.Replace("\t", "").Replace("\r", "").Replace("\n", "");
+			result = System.Text.RegularExpressions.Regex.Replace(result, @"\s{2,}", " ");
+			result = System.Text.RegularExpressions.Regex.Replace(result, @"<!--(.*?)-->", "");
+			return result;
 		}
 
 		#endregion

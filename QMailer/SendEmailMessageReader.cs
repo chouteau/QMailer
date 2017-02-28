@@ -9,33 +9,16 @@ namespace QMailer
 {
 	public class SendEmailMessageReader : Ariane.MessageReaderBase<EmailMessage>
 	{
-		public SendEmailMessageReader(
-			Ariane.IServiceBus bus
-			)
+		public SendEmailMessageReader(IEmailMessageSender sender)
 		{
-			this.Bus = bus;
+			this.EmailMessageSender = sender;
 		}
 
-		protected Ariane.IServiceBus Bus { get; private set; }
+		protected IEmailMessageSender EmailMessageSender { get; private set; }
 
 		public override void ProcessMessage(EmailMessage message)
 		{
-			try
-			{
-				((EmailerService)QMailerService.GetInstance()).Send(message);
-			}
-			catch(Exception ex)
-			{
-				var sentFail = new SentFail();
-				sentFail.Message = ex.Message;
-				sentFail.Stack = ex.ToString();
-				sentFail.MessageId = message.MessageId;
-				sentFail.Recipients = message.Recipients;
-				sentFail.Subject = message.Subject;
-
-				var failQueueName = message.SentFailQueueName ?? GlobalConfiguration.Configuration.SentFailQueueName;
-				Bus.Send(failQueueName, sentFail);
-			}
+			EmailMessageSender.Send(message);
 		}
 	}
 }

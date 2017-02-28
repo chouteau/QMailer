@@ -7,6 +7,12 @@ namespace QMailer
 {
 	public class DiagnosticsLogger : ILogger
 	{
+		public DiagnosticsLogger()
+		{
+			System.Diagnostics.Trace.Listeners.Add(new System.Diagnostics.ConsoleTraceListener());
+			System.Diagnostics.Trace.AutoFlush = true;
+		}
+
 		public void Info(string message)
 		{
             System.Diagnostics.Trace.TraceInformation(message);

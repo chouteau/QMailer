@@ -25,11 +25,13 @@ namespace QMailer.SvcHost
 		public void Start()
 		{
 			QMailerService.Start();
+			Console.WriteLine("Service Started");
 		}
 
 		public void Stop()
 		{
 			QMailerService.Stop();
+			Console.WriteLine("Service Stopped");
 		}
 	}
 }

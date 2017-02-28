@@ -88,6 +88,7 @@
     <Compile Include="GlobalConfiguration.cs" />
     <Compile Include="IDependencyResolver.cs" />
     <Compile Include="IEmailerService.cs" />
+    <Compile Include="IEmailMessageSender.cs" />
     <Compile Include="ILogger.cs" />
     <Compile Include="ImapClientService.cs" />
     <Compile Include="ISmtpClientFactory.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="SentFail.cs" />
     <Compile Include="SentMessage.cs" />
     <Compile Include="SmtpClientFactory.cs" />
+    <Compile Include="StandardEmailMessageSender.cs" />
     <Compile Include="UnityDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>

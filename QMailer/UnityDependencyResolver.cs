@@ -79,6 +79,15 @@ namespace QMailer
 			}
 
 			m_Container.RegisterType<ImapClientService>(new ContainerControlledLifetimeManager());
+			if (GlobalConfiguration.Configuration.EmailMessageSenderType == null)
+			{
+				m_Container.RegisterType<IEmailMessageSender, StandardEmailMessageSender>(new PerResolveLifetimeManager());
+			}
+			else
+			{
+				var type = Type.GetType(GlobalConfiguration.Configuration.EmailMessageSenderType);
+				m_Container.RegisterType(typeof(IEmailMessageSender), type, new PerResolveLifetimeManager());
+			}
 
 			m_IsContainerConfigured = true;
 		}

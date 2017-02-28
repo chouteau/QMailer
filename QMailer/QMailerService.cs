@@ -11,6 +11,8 @@ namespace QMailer
 		private static Lazy<IEmailerService> m_LazyInstance 
 			= new Lazy<IEmailerService>(InitializeService, true);
 
+		private static List<Action> StopList { get; set; } = new List<Action>();
+
 		public static EmailConfig CreateEmailConfig(string messageId = null)
 		{
 			return m_LazyInstance.Value.CreateEmailConfig(messageId);
@@ -33,7 +35,16 @@ namespace QMailer
 
 		public static void Stop()
 		{
+			foreach (var item in StopList)
+			{
+				item.Invoke();
+			}
 			m_LazyInstance.Value.Stop();
+		}
+
+		public static void OnStop(Action stop)
+		{
+			StopList.Add(stop);
 		}
 
 		internal static IEmailerService GetInstance()
