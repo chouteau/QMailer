@@ -78,7 +78,7 @@ namespace QMailer
 				bus.Register.AddFromConfig(busConfigFileName);
 			}
 
-			m_Container.RegisterType<ImapClientService>(new ContainerControlledLifetimeManager());
+			// m_Container.RegisterType<ImapClientService>(new ContainerControlledLifetimeManager());
 			if (GlobalConfiguration.Configuration.EmailMessageSenderType == null)
 			{
 				m_Container.RegisterType<IEmailMessageSender, StandardEmailMessageSender>(new PerResolveLifetimeManager());

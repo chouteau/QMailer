@@ -67,18 +67,18 @@ namespace QMailer.MailJet
 				Bus.Send(queueName, sentMessage);
 			}
 
-			foreach (var item in result.Sent)
-			{
-				var pending = new PendingMessage();
-				pending.MessageId = message.MessageId;
-				pending.MailJetMessageId = item.MessageID;
-				pending.Email = item.Email;
-				pending.SendDate = DateTime.Now;
-				pending.Subject = message.Subject;
-				pending.Recipients = message.Recipients;
+			//foreach (var item in result.Sent)
+			//{
+			//	var pending = new PendingMessage();
+			//	pending.MessageId = message.MessageId;
+			//	pending.MailJetMessageId = item.MessageID;
+			//	pending.Email = item.Email;
+			//	pending.SendDate = DateTime.Now;
+			//	pending.Subject = message.Subject;
+			//	pending.Recipients = message.Recipients;
 
-				StatusChecker.Current.Add(pending);
-			}
+			//	StatusChecker.Current.Add(pending);
+			//}
 		}
 	}
 }

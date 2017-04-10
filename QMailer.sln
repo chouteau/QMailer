@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer", "QMailer\QMailer.csproj", "{9BA2321E-745B-46C1-90F5-A02B037C6BCF}"
 EndProject
@@ -13,30 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailerWebApp", "QMailerWeb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.SvcHost", "QMailer.SvcHost\QMailer.SvcHost.csproj", "{D574F395-CFC0-4DBF-9743-4E4C63B2C260}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Client35", "QMailer.Client35\QMailer.Client35.csproj", "{F86CBA9D-D99C-4E50-950F-34891727BA45}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{F46321AD-8F97-4BA1-A327-D2952195F1A7}"
-EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QMailer.Doc", "http://localhost:24728", "{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}"
-	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_24728"
-		Debug.AspNetCompiler.PhysicalPath = "..\QMailer.Doc\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_24728\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_24728"
-		Release.AspNetCompiler.PhysicalPath = "..\QMailer.Doc\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_24728\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "..\QMailer.Doc\"
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKIM.Net", "..\DKIM.Net\src\DKIM.Net\DKIM.Net.csproj", "{1CFB14B2-E0FF-4491-820F-490CFFBAA47A}"
 EndProject
@@ -76,14 +53,6 @@ Global
 		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F86CBA9D-D99C-4E50-950F-34891727BA45}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA6BBE7F-C8F4-4F83-B107-AEF4A4C03D9D}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{1CFB14B2-E0FF-4491-820F-490CFFBAA47A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1CFB14B2-E0FF-4491-820F-490CFFBAA47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CFB14B2-E0FF-4491-820F-490CFFBAA47A}.Release|Any CPU.ActiveCfg = Release|Any CPU

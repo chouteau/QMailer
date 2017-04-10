@@ -1,4 +1,13 @@
-﻿2.4.13.0
+﻿2.5.14 (QMailer)
+Remove S22 IMap Client dependency 
+
+2.0.2 (QMailer.Client)
+Replace RestSharp by HttpClient (WebApi)
+
+1.0.1 (QMailer.MailJet)
+Create new Provider for MailJet Api
+
+2.4.13.0
 Add IEmailMessageSender interface
 Add MailJet IEmailMessageSender in separated assembly "QMailer.MailJet"
 
