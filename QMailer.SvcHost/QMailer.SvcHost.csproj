@@ -58,9 +58,8 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Palace, Version=1.3.7.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Palace.1.3.7.1\lib\Palace.exe</HintPath>
-      <Private>True</Private>
+    <Reference Include="Palace, Version=2.4.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Palace.2.4.15\lib\Palace.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

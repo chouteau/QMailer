@@ -13,7 +13,7 @@ namespace QMailer
 			EmailBodyRequestedQueueName = "emailbodyrequested";
 			SendEmailQueueName = "sendemail";
 			VirtualPath = "~/emailviews";
-			BusConfigFileName = @".\ariane.config";
+			// BusConfigFileName = @".\ariane.config";
 			SmtpClientFactory = new SmtpClientFactory();
 		}
 
@@ -48,6 +48,7 @@ namespace QMailer
 
 		public string VirtualPath { get; set; }
 
+		[Obsolete("using specific configuration for ariane", true)]
 		public string BusConfigFileName { get; set; }
 
 		public string ApiToken { get; set; }

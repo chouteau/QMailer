@@ -109,3 +109,4 @@ UpgradeLog*.XML
 /QMailer.SvcHost/qmsvchost.zip
 /.nuget
 /.vs/config
+/.vs/QMailer/v15

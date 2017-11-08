@@ -7,8 +7,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-using Microsoft.Practices.Unity;
-
 using QMailer;
 
 namespace QMailer.Web
@@ -175,8 +173,7 @@ namespace QMailer.Web
 
 		public EmailMessage CreateEmailMessage(EmailView emailView)
 		{
-			var container = GlobalConfiguration.Configuration.DependencyResolver.GetConfiguredContainer();
-			var renderer = container.Resolve<IEmailViewRenderer>(emailView.RendererName);
+			var renderer = GlobalConfiguration.Configuration.DependencyResolver.GetService<IEmailViewRenderer>(emailView.RendererName);
 			var rawEmailString = renderer.Render(emailView);
 			var result = EmailParser.CreateMailMessage(rawEmailString);
 			result.Body = ToSingleLine(result.Body);

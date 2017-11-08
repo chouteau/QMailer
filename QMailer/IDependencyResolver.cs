@@ -10,7 +10,7 @@ namespace QMailer
 	/// </summary>
 	public interface IDependencyResolver
 	{
-		Microsoft.Practices.Unity.IUnityContainer GetConfiguredContainer();
+		// Microsoft.Practices.Unity.IUnityContainer GetConfiguredContainer();
 		/// <summary>
 		/// Get service for type
 		/// </summary>
@@ -28,5 +28,12 @@ namespace QMailer
 		/// </summary>
 		/// <returns></returns>
 		IEnumerable<object> GetAllServices();
+		/// <summary>
+		/// Get service for type by name
+		/// </summary>
+		/// <param name="serviceName"></param>
+		/// <param name="serviceType"></param>
+		/// <returns></returns>
+		object GetService(string serviceName, Type serviceType);
 	}
 }

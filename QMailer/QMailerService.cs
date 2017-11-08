@@ -54,11 +54,11 @@ namespace QMailer
 
 		private static EmailerService InitializeService()
 		{
-			if (GlobalConfiguration.Configuration.DependencyResolver == null)
-			{
-				var container = new Microsoft.Practices.Unity.UnityContainer();
-				GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
-			}
+			//if (GlobalConfiguration.Configuration.DependencyResolver == null)
+			//{
+			//	var container = new Microsoft.Practices.Unity.UnityContainer();
+			//	GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+			//}
 			var bus = GlobalConfiguration.Configuration.DependencyResolver.GetService<Ariane.IServiceBus>();
 
 			var emailerService = new EmailerService();

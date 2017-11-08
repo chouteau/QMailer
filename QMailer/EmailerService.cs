@@ -5,11 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-using Microsoft.Practices.Unity;
-
 using Ariane;
-
-using DKIM;
 
 namespace QMailer
 {

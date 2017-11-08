@@ -5,7 +5,9 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QMailer
+using DKIM;
+
+namespace QMailer.Dkim
 {
 	public class StandardEmailMessageSender : IEmailMessageSender
 	{
@@ -39,6 +41,12 @@ namespace QMailer
 		private void SendInternal(EmailMessage message)
 		{ 
 			var mailMessage = (System.Net.Mail.MailMessage)message;
+
+			if (message.Attachments == null
+				|| message.Attachments.Count == 0)
+			{
+				AddDkimHeader(mailMessage);
+			}
 
 			var htmlView = AlternateView.CreateAlternateViewFromString(message.Body, null, "text/html");
 			htmlView.TransferEncoding = System.Net.Mime.TransferEncoding.QuotedPrintable;
@@ -146,6 +154,48 @@ namespace QMailer
 			}
 		}
 
+		public void AddDkimHeader(System.Net.Mail.MailMessage message)
+		{
+			if (string.IsNullOrWhiteSpace(GlobalConfiguration.Configuration.DkimPrivateKey))
+			{
+				return;
+			}
+			if (message.From.Host != GlobalConfiguration.Configuration.DkimDomain)
+			{
+				return;
+			}
+
+			try
+			{
+				var privateKey = DKIM.PrivateKeySigner.Create(GlobalConfiguration.Configuration.DkimPrivateKey);
+				var headerToSign = new string[] { "From", "To", "Subject" };
+
+				var domainKeySigner = new DKIM.DomainKeySigner(privateKey,
+									GlobalConfiguration.Configuration.DkimDomain,
+									GlobalConfiguration.Configuration.DkimSelector,
+									headerToSign);
+
+				var dkimSigner = new DkimSigner(privateKey,
+								GlobalConfiguration.Configuration.DkimDomain,
+								GlobalConfiguration.Configuration.DkimSelector,
+								headerToSign);
+
+
+				message.DomainKeySign(domainKeySigner);
+				message.DkimSign(dkimSigner);
+			}
+			catch (Exception ex)
+			{
+				ex.Data.Add("domain", GlobalConfiguration.Configuration.DkimDomain);
+				ex.Data.Add("from", message.From.Address);
+				foreach (var emailTo in message.To)
+				{
+					ex.Data.Add(string.Format("to{0}", message.To.IndexOf(emailTo)), emailTo.Address);
+				}
+				ex.Data.Add("subject", message.Subject);
+				GlobalConfiguration.Configuration.Logger.Error(ex);
+			}
+		}
 
 	}
 }

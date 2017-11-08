@@ -38,9 +38,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ariane, Version=3.2.45.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ariane.3.2.45.1\lib\Ariane.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Ariane, Version=4.2.54.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ariane.4.2.54.2\lib\Ariane.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
@@ -113,8 +112,10 @@
     <Compile Include="FakeView.cs" />
     <Compile Include="MockSmtpClientFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QMailerConfig.cs" />
     <Compile Include="TestHelpers.cs" />
     <Compile Include="TestModel.cs" />
+    <Compile Include="UnityDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QMailer.Web\QMailer.Web.csproj">

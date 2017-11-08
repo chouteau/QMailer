@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer", "QMailer\QMailer.csproj", "{9BA2321E-745B-46C1-90F5-A02B037C6BCF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Web", "QMailer.Web\QMailer.Web.csproj", "{16517442-1304-404D-BF82-C74255B7B850}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Tests", "QMailer.Tests\QMailer.Tests.csproj", "{1D54F92C-F440-45EE-A61B-25CA68FBBF95}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailerWebApp", "QMailerWebApp\QMailerWebApp.csproj", "{14B7F768-1929-4EA9-8E30-B8FD308E741C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.SvcHost", "QMailer.SvcHost\QMailer.SvcHost.csproj", "{D574F395-CFC0-4DBF-9743-4E4C63B2C260}"
 EndProject
@@ -26,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Client", "QMailer.Client\QMailer.Client.csproj", "{9411A900-F57B-4FE3-87F6-554724D8F4B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.MailJet", "QMailer.MailJet\QMailer.MailJet.csproj", "{1B12B2AC-BCA6-43B0-8264-5CB18A9618B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Unity", "QMailer.Unity\QMailer.Unity.csproj", "{F9A7E850-3AC5-4D99-8D3F-3347562DBE1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Dkim", "QMailer.Dkim\QMailer.Dkim.csproj", "{DA8AEAE6-A51C-4DA7-8487-07FB4403939F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +47,6 @@ Global
 		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D54F92C-F440-45EE-A61B-25CA68FBBF95}.Release|Any CPU.Build.0 = Release|Any CPU
-		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14B7F768-1929-4EA9-8E30-B8FD308E741C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D574F395-CFC0-4DBF-9743-4E4C63B2C260}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,11 +63,21 @@ Global
 		{1B12B2AC-BCA6-43B0-8264-5CB18A9618B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B12B2AC-BCA6-43B0-8264-5CB18A9618B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B12B2AC-BCA6-43B0-8264-5CB18A9618B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A7E850-3AC5-4D99-8D3F-3347562DBE1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A7E850-3AC5-4D99-8D3F-3347562DBE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A7E850-3AC5-4D99-8D3F-3347562DBE1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA8AEAE6-A51C-4DA7-8487-07FB4403939F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA8AEAE6-A51C-4DA7-8487-07FB4403939F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA8AEAE6-A51C-4DA7-8487-07FB4403939F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA8AEAE6-A51C-4DA7-8487-07FB4403939F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1CFB14B2-E0FF-4491-820F-490CFFBAA47A} = {F46321AD-8F97-4BA1-A327-D2952195F1A7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D6139FD-7452-4E91-8F8C-A3BCFD354B59}
 	EndGlobalSection
 EndGlobal

@@ -13,6 +13,12 @@ namespace QMailer
 			return result;
 		}
 
+		public static TService GetService<TService>(this IDependencyResolver resolver, string serviceName)
+		{
+			var result = (TService)resolver.GetService(serviceName, typeof(TService));
+			return result;
+		}
+
 		public static IEnumerable<TService> GetServices<TService>(this IDependencyResolver resolver)
 		{
 			return resolver.GetServices(typeof(TService)).Cast<TService>();
