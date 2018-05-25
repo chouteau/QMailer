@@ -23,6 +23,7 @@ namespace QMailer
 					System.IO.Directory.CreateDirectory(path);
 				}
 				client.PickupDirectoryLocation = path;
+				client.EnableSsl = false;
 			}
 
 			return client;

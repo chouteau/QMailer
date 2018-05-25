@@ -64,7 +64,14 @@ namespace QMailer.MailJet
 				}
 
 				var queueName = message.SentMessageQueueName ?? GlobalConfiguration.Configuration.SentMessageQueueName;
-				Bus.Send(queueName, sentMessage);
+				if (message.SentMessage == null)
+				{
+					Bus.Send(queueName, sentMessage);
+				}
+				else
+				{
+					Bus.Send(queueName, message.SentMessage);
+				}
 			}
 
 			//foreach (var item in result.Sent)

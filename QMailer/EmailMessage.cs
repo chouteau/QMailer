@@ -141,6 +141,8 @@ namespace QMailer
 		[DataMember]
 		public string SentMessageQueueName { get; set; }
 		[DataMember]
+		public object SentMessage { get; set; }
+		[DataMember]
 		public string SentFailQueueName { get; set; }
 
 

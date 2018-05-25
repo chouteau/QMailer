@@ -77,17 +77,34 @@ namespace QMailer
 						}
 					};
 
-					sender.SendAsync(mailMessage, message);
-
-					var isSent = mailSentEvent.WaitOne(30 * 1000);
-					if (!isSent)
+					if (sender.DeliveryMethod == SmtpDeliveryMethod.SpecifiedPickupDirectory)
 					{
-						sender.SendAsyncCancel();
-						isCanceled = true;
+						sender.EnableSsl = false;
 					}
-					else
+
+					try
 					{
-						GlobalConfiguration.Configuration.Logger.Debug("mail for {0} sent", mailMessage.To.First().Address);
+						sender.SendAsync(mailMessage, message);
+					}
+					catch(Exception ex)
+					{
+						isCanceled = true;
+						mailSentEvent.Set();
+						GlobalConfiguration.Configuration.Logger.Error(ex);
+					}
+
+					if (!isCanceled)
+					{
+						var isSent = mailSentEvent.WaitOne(30 * 1000);
+						if (!isSent)
+						{
+							sender.SendAsyncCancel();
+							isCanceled = true;
+						}
+						else
+						{
+							GlobalConfiguration.Configuration.Logger.Debug("mail for {0} sent", mailMessage.To.First().Address);
+						}
 					}
 				}
 			}
@@ -142,7 +159,14 @@ namespace QMailer
 				}
 
 				var queueName = message.SentMessageQueueName ?? GlobalConfiguration.Configuration.SentMessageQueueName;
-				Bus.Send(queueName, sentMessage);
+				if (message.SentMessage == null)
+				{
+					Bus.Send(queueName, sentMessage);
+				}
+				else
+				{
+					Bus.Send(queueName, message.SentMessage);
+				}
 			}
 		}
 
