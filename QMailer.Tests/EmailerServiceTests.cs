@@ -26,6 +26,15 @@ namespace QMailer.Tests
 		}
 
 		[TestMethod]
+		public void Parse_Title()
+		{
+			var title = "test D&#39;X";
+			title = System.Web.HttpUtility.HtmlDecode(title);
+
+			Assert.AreEqual("test D'X", title);
+		}
+
+		[TestMethod]
 		public void Send_Email()
 		{
 			var model = new TestModel()

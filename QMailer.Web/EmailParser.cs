@@ -165,11 +165,13 @@ namespace QMailer.Web
 		internal string ParseTitle(string emailViewOutput)
 		{
 			var match = System.Text.RegularExpressions.Regex.Match(emailViewOutput, @"<title>(?<t>[^<]*)</title>");
+			string result = null;
 			if (match.Success)
 			{
-				return match.Groups["t"].Value;
+				result = match.Groups["t"].Value;
+				result = System.Web.HttpUtility.HtmlDecode(result);
 			}
-			return null;
+			return result;
 		}
 	}
 }

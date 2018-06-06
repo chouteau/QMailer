@@ -30,6 +30,8 @@ namespace QMailer.MailJet
 			}
 			catch(Exception ex)
 			{
+				GlobalConfiguration.Configuration.Logger.Error(ex);
+
 				var sentFail = new SentFail();
 				sentFail.Message = ex.Message;
 				sentFail.Stack = ex.ToString();

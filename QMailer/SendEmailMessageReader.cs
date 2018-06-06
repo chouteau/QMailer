@@ -18,6 +18,7 @@ namespace QMailer
 
 		public override void ProcessMessage(EmailMessage message)
 		{
+			GlobalConfiguration.Configuration.Logger.Debug($"receive message to send {message.Subject}");
 			EmailMessageSender.Send(message);
 		}
 	}

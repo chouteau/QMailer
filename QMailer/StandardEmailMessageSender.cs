@@ -24,6 +24,7 @@ namespace QMailer
 			}
 			catch (Exception ex)
 			{
+				GlobalConfiguration.Configuration.Logger.Error(ex);
 				var sentFail = new SentFail();
 				sentFail.Message = ex.Message;
 				sentFail.Stack = ex.ToString();
@@ -84,7 +85,9 @@ namespace QMailer
 
 					try
 					{
+						GlobalConfiguration.Configuration.Logger.Debug($"try to message send to {message.Recipients.First().Address}");
 						sender.SendAsync(mailMessage, message);
+						GlobalConfiguration.Configuration.Logger.Debug($"message sent to {message.Recipients.First().Address}");
 					}
 					catch(Exception ex)
 					{

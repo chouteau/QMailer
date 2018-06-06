@@ -22,15 +22,9 @@ namespace QMailer.Web
 
 		public override void ProcessMessage(EmailConfig message)
 		{
-            ProcessEmailMessage(message);
-        }
-
-		void ProcessEmailMessage(EmailConfig message)
-		{
 			var template = EmailTemplateService.GetEmailMessage(message);
 			if (template != null)
 			{
-				GlobalConfiguration.Configuration.Logger.Info("Enqueue email {0} to {1}", message.EmailName, template.Recipients.First(i => i.SendingType == EmailSendingType.To).Address);
 				var queueName = message.SendEmailQueueName ?? GlobalConfiguration.Configuration.SendEmailQueueName;
 				Bus.Send(queueName, template);
 			}
