@@ -106,7 +106,11 @@ namespace QMailer
 						}
 						else
 						{
-							GlobalConfiguration.Configuration.Logger.Debug("mail for {0} sent", mailMessage.To.First().Address);
+							var firstMail = mailMessage.To.FirstOrDefault();
+							if (firstMail != null)
+							{
+								GlobalConfiguration.Configuration.Logger.Debug("mail for {0} sent", firstMail.Address);
+							}
 						}
 					}
 				}

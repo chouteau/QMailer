@@ -99,6 +99,11 @@ namespace QMailer.MailJet
 				}
 			}
 
+			if (!string.IsNullOrWhiteSpace(emailMessage.MessageId))
+			{
+				headers.Add("Mj-CustomID", emailMessage.MessageId);
+			}
+
 			if (headers.Count > 0)
 			{
 				content.Add("Headers", headers);

@@ -33,7 +33,7 @@ namespace QMailer.MailJet
 				GlobalConfiguration.Configuration.Logger.Error(ex);
 
 				var sentFail = new SentFail();
-				sentFail.Message = ex.Message;
+				sentFail.Message = GetFirstGoodErrorMessage(ex);
 				sentFail.Stack = ex.ToString();
 				sentFail.MessageId = message.MessageId;
 				sentFail.Recipients = message.Recipients;
@@ -88,6 +88,26 @@ namespace QMailer.MailJet
 
 			//	StatusChecker.Current.Add(pending);
 			//}
+		}
+
+		private string GetFirstGoodErrorMessage(Exception ex)
+		{
+			var x = ex;
+			var loop = 0;
+			while(true)
+			{
+				if (x.InnerException == null)
+				{
+					break;
+				}
+				if (loop > 10)
+				{
+					break;
+				}
+				x = x.InnerException;
+				loop++;
+			}
+			return x.Message;
 		}
 	}
 }

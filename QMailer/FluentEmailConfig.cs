@@ -147,5 +147,11 @@ namespace QMailer
 			config.EntityName = entityName;
 			return config;
 		}
+
+		public static EmailConfig SetMessageId(this EmailConfig config, string messageId)
+		{
+			config.MessageId = messageId;
+			return config;
+		}
 	}
 }

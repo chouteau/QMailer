@@ -109,7 +109,17 @@ namespace QMailer.Client
 			var key = result["messageId"];
 
 			//var key = result.GetType().GetProperty("messageId", System.Reflection.BindingFlags.GetProperty | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance).GetValue(result, null);
-			return string.Format("http://{0}/qmailer/preview/{1}", GlobalConfiguration.Configuration.ApiUrl.TrimEnd('/'), key);
+			string url = null;
+			if (GlobalConfiguration.Configuration.ApiUrl.StartsWith("http"))
+			{
+				url = $"{GlobalConfiguration.Configuration.ApiUrl}/qmailer/preview/{key}";
+			}
+			else
+			{
+				url = $"http://{GlobalConfiguration.Configuration.ApiUrl}/qmailer/preview/{key}";
+			}
+
+			return url;
 		}
 
 		private T ExecuteRetry<T>(Func<HttpClient, HttpResponseMessage> predicate, bool hasReturn = false)

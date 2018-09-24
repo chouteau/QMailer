@@ -63,6 +63,7 @@
     <Compile Include="Models\MessageHistory.cs" />
     <Compile Include="Models\MessageStatus.cs" />
     <Compile Include="Models\Sent.cs" />
+    <Compile Include="Models\SentEvent.cs" />
     <Compile Include="Models\SentMessageData.cs" />
     <Compile Include="PendingMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

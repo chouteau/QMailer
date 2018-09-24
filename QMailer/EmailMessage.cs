@@ -81,27 +81,19 @@ namespace QMailer
 			foreach (var attachment in mailMessage.Attachments)
 			{
 				string content = null;
-				int contentLength = 0;
 				using(var reader = new System.IO.StreamReader(attachment.ContentStream))
 				{
 					content = reader.ReadToEnd();
-					content = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(content));
-					contentLength = content.Length;
+					var buffer = System.Text.Encoding.UTF8.GetBytes(content);
+					content = Convert.ToBase64String(buffer);
 				}
 
-				if (contentLength < 1024)
+				Attachments.Add(new Attachment()
 				{
-					Attachments.Add(new Attachment()
-					{
-						Content = content,
-						ContentType = attachment.ContentType.Name,
-						Name = attachment.Name
-					});
-				}
-				else
-				{
-					// ?
-				}
+					Content = content,
+					ContentType = attachment.ContentType.Name,
+					Name = attachment.Name
+				});
 			}
 		}
 
@@ -195,6 +187,7 @@ namespace QMailer
 			{
 				var buffer = System.Convert.FromBase64String(attachment.Content);
 				var ms = new System.IO.MemoryStream(buffer);
+				ms.Seek(0, System.IO.SeekOrigin.Begin);
 				var att = new System.Net.Mail.Attachment(ms, attachment.Name, attachment.ContentType);
 				mailMessage.Attachments.Add(att);
 			}

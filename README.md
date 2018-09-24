@@ -1,4 +1,4 @@
-# QMailer (2.3.8.0)
+# QMailer (2.3.21.0)
 Distributed mass email sender for aspnet
 
 **QMailer** can by used with Microsoft .Net 4.5 (minimum).
