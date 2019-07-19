@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer", "QMailer\QMailer.csproj", "{9BA2321E-745B-46C1-90F5-A02B037C6BCF}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Unity", "QMailer.Unity\QMailer.Unity.csproj", "{F9A7E850-3AC5-4D99-8D3F-3347562DBE1E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Dkim", "QMailer.Dkim\QMailer.Dkim.csproj", "{DA8AEAE6-A51C-4DA7-8487-07FB4403939F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.SendinBlue", "QMailer.SendinBlue\QMailer.SendinBlue.csproj", "{DB3543C3-D991-40A4-A9EB-ED8E20847DB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,9 +69,12 @@ Global
 		{F9A7E850-3AC5-4D99-8D3F-3347562DBE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9A7E850-3AC5-4D99-8D3F-3347562DBE1E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA8AEAE6-A51C-4DA7-8487-07FB4403939F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA8AEAE6-A51C-4DA7-8487-07FB4403939F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA8AEAE6-A51C-4DA7-8487-07FB4403939F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA8AEAE6-A51C-4DA7-8487-07FB4403939F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB3543C3-D991-40A4-A9EB-ED8E20847DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB3543C3-D991-40A4-A9EB-ED8E20847DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB3543C3-D991-40A4-A9EB-ED8E20847DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB3543C3-D991-40A4-A9EB-ED8E20847DB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
