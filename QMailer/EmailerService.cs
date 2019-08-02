@@ -28,6 +28,7 @@ namespace QMailer
 		{
 			var queueName = emailConfig.EmailBodyRequestedQueueName ?? GlobalConfiguration.Configuration.EmailBodyRequestedQueueName;
 			Bus.Send(GlobalConfiguration.Configuration.EmailBodyRequestedQueueName, emailConfig);
+			GlobalConfiguration.Configuration.Logger.Debug($"Send emailConfig message {emailConfig.EmailName} to queue {queueName}");
 		}
 
 		public void ReplaceBusService(Ariane.IServiceBus bus)

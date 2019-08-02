@@ -40,7 +40,8 @@ namespace QMailer.Client
 
 		public EmailMessage GetEmailMessage(EmailConfig emailConfig)
 		{
-			if (emailConfig.Model == null)
+			if (emailConfig == null
+				|| emailConfig.Model == null)
 			{
 				return null;
 			}

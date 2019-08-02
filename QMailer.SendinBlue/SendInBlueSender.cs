@@ -77,8 +77,8 @@ namespace QMailer.SendinBlue
             var pending = new Models.PendingMessage();
             pending.MessageId = message.MessageId;
             pending.SendInBlueMessageId = result.MessageId;
-            pending.SendDate = DateTime.Now;
-            pending.Subject = message.Subject;
+			pending.SendDate = DateTime.Now;
+			pending.Subject = message.Subject;
             pending.Recipients = message.Recipients;
 
             StatusChecker.Current.Add(pending);

@@ -115,9 +115,10 @@ namespace QMailer.SendinBlue
 
             var result = Execute<Models.CreateSmtpEmail>(client =>
             {
-                var contentString = JsonConvert.SerializeObject(content);
-                var httpContent = new StringContent(contentString, Encoding.UTF8, "application/json");
-                var response = client.PostAsync("smtp/email", httpContent).Result;
+                // var contentString = JsonConvert.SerializeObject(content);
+                // var httpContent = new StringContent(contentString, Encoding.UTF8, "application/json");
+                // var response = client.PostAsync("smtp/email", httpContent).Result;
+				var response = client.PostAsJsonAsync("smtp/email", content).Result;
                 return response;
             });
 

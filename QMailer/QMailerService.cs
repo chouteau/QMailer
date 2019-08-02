@@ -59,6 +59,11 @@ namespace QMailer
 			//	var container = new Microsoft.Practices.Unity.UnityContainer();
 			//	GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
 			//}
+
+			if (GlobalConfiguration.Configuration.DependencyResolver == null)
+			{
+				return null;
+			}
 			var bus = GlobalConfiguration.Configuration.DependencyResolver.GetService<Ariane.IServiceBus>();
 
 			var emailerService = new EmailerService();

@@ -14,7 +14,10 @@ namespace QMailer.Tests
         public void Initialize()
         {
             TestHelpers.Initialize();
-        }
+			Bus = GlobalConfiguration.Configuration.DependencyResolver.GetService<Ariane.IServiceBus>();
+		}
+
+		protected Ariane.IServiceBus Bus { get; private set; }
 
         [TestCleanup]
         public void TearDown()
@@ -26,10 +29,12 @@ namespace QMailer.Tests
         [TestMethod]
         public void Send_Email()
         {
-            var client = new QMailer.SendinBlue.SendInBlueClient("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");
-            QMailer.SendinBlue.Models.CreateSmtpEmail result = null;
+			var sender = new QMailer.SendinBlue.SendInBlueSender(Bus);
 
-            var message = new EmailMessage();
+			var emailSender = System.Configuration.ConfigurationManager.AppSettings["SIBSenderEmail"];
+			var emailRecipient = System.Configuration.ConfigurationManager.AppSettings["SIBRecipientEmail"];
+
+			var message = new EmailMessage();
             message.Body = "<html><body>Hello world</body></html>";
             message.Subject = "Test SendInBlue";
             message.IsBodyHtml = true;
@@ -37,38 +42,42 @@ namespace QMailer.Tests
             message.Recipients = new List<EmailAddress>();
             message.Recipients.Add(new EmailAddress()
             {
-                Address = "pascal.heilly@gmail.com",
-                DisplayName = "Pascal Heilly",
+                Address = emailRecipient,
+                DisplayName = $"-- {emailRecipient} --",
                 RecipientId = Guid.NewGuid().ToString(),
                 SendingType = EmailSendingType.To
             });
             message.Sender = new Sender() {
-                DisplayName =" Pascal",
-                Email = "pascal@societe-crea.com"
-            };
+                DisplayName = $"-- {emailSender} --",
+				Email = emailSender
+			};
 
-            result = client.SendMessage(message);
+            sender.Send(message);
 
-            Assert.IsNotNull(result);
+			// SendinBlue.StatusChecker.Current.CheckPendingMessage()
+
+            //Assert.IsNotNull(result);
 
 
-            var statusCheck = client.GetMessageHistory(result.MessageId);
+            //var statusCheck = client.GetMessageHistory(result.MessageId);
 
-            Assert.IsNotNull(statusCheck);
-            Assert.IsNotNull(statusCheck.Events);
+            //Assert.IsNotNull(statusCheck);
+            //Assert.IsNotNull(statusCheck.Events);
 
-            var lastStatus = statusCheck.Events.Last();
-            Assert.IsNotNull(lastStatus);
+            //var lastStatus = statusCheck.Events.Last();
+            //Assert.IsNotNull(lastStatus);
         }
 
 
         [TestMethod]
         public void Send_Text_Email()
         {
-            var client = new QMailer.SendinBlue.SendInBlueClient("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");
-            QMailer.SendinBlue.Models.CreateSmtpEmail result = null;
+			var sender = new QMailer.SendinBlue.SendInBlueSender(Bus);
 
-            var message = new EmailMessage();
+			var emailSender = System.Configuration.ConfigurationManager.AppSettings["SIBSenderEmail"];
+			var emailRecipient = System.Configuration.ConfigurationManager.AppSettings["SIBRecipientEmail"];
+
+			var message = new EmailMessage();
             message.Body = "Hello world";
             message.IsBodyHtml = false;
             message.Subject = "Test SendInBlue";
@@ -76,29 +85,29 @@ namespace QMailer.Tests
             message.Recipients = new List<EmailAddress>();
             message.Recipients.Add(new EmailAddress()
             {
-                Address = "pascal.heilly@gmail.com",
-                DisplayName = "Pascal Heilly",
-                RecipientId = Guid.NewGuid().ToString(),
+				Address = emailRecipient,
+				DisplayName = $"-- {emailRecipient} --",
+				RecipientId = Guid.NewGuid().ToString(),
                 SendingType = EmailSendingType.To
             });
             message.Sender = new Sender()
             {
-                DisplayName = " Pascal",
-                Email = "pascal@societe-crea.com"
-            };
+				DisplayName = $"-- {emailSender} --",
+				Email = emailSender
+			};
 
-            result = client.SendMessage(message);
+            sender.Send(message);
 
-            Assert.IsNotNull(result);
+            //Assert.IsNotNull(result);
 
 
-            var statusCheck = client.GetMessageHistory(result.MessageId);
+            //var statusCheck = client.GetMessageHistory(result.MessageId);
 
-            Assert.IsNotNull(statusCheck);
-            Assert.IsNotNull(statusCheck.Events);
+            //Assert.IsNotNull(statusCheck);
+            //Assert.IsNotNull(statusCheck.Events);
 
-            var lastStatus = statusCheck.Events.Last();
-            Assert.IsNotNull(lastStatus);
+            //var lastStatus = statusCheck.Events.Last();
+            //Assert.IsNotNull(lastStatus);
         }
 
         private string GetFirstGoodErrorMessage(Exception ex)
