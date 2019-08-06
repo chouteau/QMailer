@@ -11,7 +11,10 @@ namespace QMailer
 		private static Lazy<IEmailerService> m_LazyInstance 
 			= new Lazy<IEmailerService>(InitializeService, true);
 
-		private static List<Action> StopList { get; set; } = new List<Action>();
+        private static Lazy<List<Type>> m_InterceptorList
+    = new Lazy<List<Type>>();
+
+        private static List<Action> StopList { get; set; } = new List<Action>();
 
 		public static EmailConfig CreateEmailConfig(string messageId = null)
 		{
@@ -41,6 +44,16 @@ namespace QMailer
 			}
 			m_LazyInstance.Value.Stop();
 		}
+
+        public static void RegisterInterceptor(Type interceptorType)
+        {
+            m_InterceptorList.Value.Add(interceptorType);
+        }
+
+        public static List<Type> GetInterceptorTypeList()
+        {
+            return m_InterceptorList.Value;
+        }
 
 		public static void OnStop(Action stop)
 		{

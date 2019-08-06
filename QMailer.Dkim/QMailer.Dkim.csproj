@@ -52,10 +52,6 @@
     <Compile Include="DkimEmailMessageSender.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DKIM.Net\src\DKIM.Net\DKIM.Net.csproj">
-      <Project>{1cfb14b2-e0ff-4491-820f-490cffbaa47a}</Project>
-      <Name>DKIM.Net</Name>
-    </ProjectReference>
     <ProjectReference Include="..\QMailer\QMailer.csproj">
       <Project>{9ba2321e-745b-46c1-90f5-a02b037c6bcf}</Project>
       <Name>QMailer</Name>

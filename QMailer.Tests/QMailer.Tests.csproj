@@ -113,6 +113,7 @@
     <Compile Include="MockSmtpClientFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QMailerConfig.cs" />
+    <Compile Include="MessageInterceptorTests.cs" />
     <Compile Include="SendInBlueTests.cs" />
     <Compile Include="TestHelpers.cs" />
     <Compile Include="TestModel.cs" />

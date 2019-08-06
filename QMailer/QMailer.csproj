@@ -71,6 +71,7 @@
     <Compile Include="IDependencyResolver.cs" />
     <Compile Include="IEmailerService.cs" />
     <Compile Include="IEmailMessageSender.cs" />
+    <Compile Include="IMessageInterceptor.cs" />
     <Compile Include="ILogger.cs" />
     <Compile Include="ISmtpClientFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
