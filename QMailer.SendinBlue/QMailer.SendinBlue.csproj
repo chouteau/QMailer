@@ -61,6 +61,7 @@
     <Compile Include="Models\EmailEventReport.cs" />
     <Compile Include="Models\EmailEventReportEvent.cs" />
     <Compile Include="Models\PendingMessage.cs" />
+    <Compile Include="Models\SendInBlueEvent.cs" />
     <Compile Include="Models\SendSmtpEmail.cs" />
     <Compile Include="Models\SendSmtpEmailAttachment.cs" />
     <Compile Include="Models\SendSmtpEmailRecipient.cs" />
