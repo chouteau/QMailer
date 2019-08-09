@@ -9,25 +9,25 @@ using System.Threading.Tasks;
 
 namespace QMailer.Tests
 {
-    [TestClass]
-    public class MessageInterceptorTests
-    {
-        [TestInitialize]
-        public void Initialize()
-        {
-            TestHelpers.Initialize();
+	[TestClass]
+	public class MessageInterceptorTests
+	{
+		[TestInitialize]
+		public void Initialize()
+		{
+			TestHelpers.Initialize();
 			Bus = GlobalConfiguration.Configuration.DependencyResolver.GetService<Ariane.IServiceBus>();
 		}
 
 		protected Ariane.IServiceBus Bus { get; private set; }
 
-        [TestCleanup]
-        public void TearDown()
-        {
-            QMailer.QMailerService.Stop();
-        }
+		[TestCleanup]
+		public void TearDown()
+		{
+			QMailer.QMailerService.Stop();
+		}
 
-        [TestMethod]
+		[TestMethod]
         [Ignore]
         
         public void Send_Email_WithInterceptor()
@@ -37,13 +37,8 @@ namespace QMailer.Tests
 			var emailSender = System.Configuration.ConfigurationManager.AppSettings["SIBSenderEmail"];
 			var emailRecipient = System.Configuration.ConfigurationManager.AppSettings["SIBRecipientEmail"];
 
-            bool mockIsExecuted = false;
 
-            Mock<IMessageInterceptor> mockInterceptor = new Mock<IMessageInterceptor>();
-
-            mockInterceptor.Setup(x => x.ExecuteInterceptor(It.IsAny<EmailMessage>())).Callback(() => { mockIsExecuted = true; });
-
-            QMailerService.AddInterceptor(mockInterceptor.Object);
+            QMailerService.RegisterInterceptor(typeof(MockInterceptor));
 
             var message = new EmailMessage();
             message.Body = "Hello world";
@@ -68,11 +63,11 @@ namespace QMailer.Tests
 
             DateTime retryMaxTime = DateTime.Now.Add(new TimeSpan(0, 1, 0));
 
-            while(mockIsExecuted == false && DateTime.Now<retryMaxTime)
+            while(message.Body != "executed" && DateTime.Now<retryMaxTime)
             {
                 Thread.Sleep(1000);
             }
-            Assert.IsTrue(mockIsExecuted);
+            Assert.IsTrue(message.Body == "executed");
         }
 
         private string GetFirstGoodErrorMessage(Exception ex)

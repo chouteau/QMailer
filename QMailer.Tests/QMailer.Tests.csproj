@@ -110,6 +110,7 @@
     <Compile Include="AttachmentTests.cs" />
     <Compile Include="EmailerServiceTests.cs" />
     <Compile Include="FakeView.cs" />
+    <Compile Include="MockInterceptor.cs" />
     <Compile Include="MockSmtpClientFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QMailerConfig.cs" />
