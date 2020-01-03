@@ -85,6 +85,9 @@ namespace QMailer.SendinBlue
                     headers.Add("Return-Path", address.DisplayName);
                 }
             }
+
+            content.HtmlContent = emailMessage.Body;
+            /*
             if (emailMessage.IsBodyHtml)
             {
                 content.HtmlContent = emailMessage.Body;
@@ -92,7 +95,7 @@ namespace QMailer.SendinBlue
             else
             {
                 content.TextContent = emailMessage.Body;
-            }
+            } */
             content.Subject = emailMessage.Subject;
 
             if (emailMessage.Headers.Count > 0)
