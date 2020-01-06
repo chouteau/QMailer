@@ -157,7 +157,7 @@ namespace QMailer.SendinBlue
                 {
                     GlobalConfiguration.Configuration.Logger.Error($"Get history fail with email {pending.Email}/{pending.Subject}");
                     GlobalConfiguration.Configuration.Logger.Error(ex);
-                    SentFail(pending, "mailjet:historyFail", "Status code error");
+                    SentFail(pending, "sendinblue:historyFail", "Status code error");
                 }
 
                 if (result == null)
@@ -231,7 +231,7 @@ namespace QMailer.SendinBlue
             var contentString = Newtonsoft.Json.JsonConvert.SerializeObject(sentFail);
 
             var path = System.IO.Path.GetDirectoryName(this.GetType().Assembly.Location);
-            path = System.IO.Path.Combine(path, $"fails/{status.Replace("mailjet:", "")}-{Guid.NewGuid()}.json");
+            path = System.IO.Path.Combine(path, $"fails/{status.Replace("sendinblue:", "")}-{Guid.NewGuid()}.json");
             System.IO.File.WriteAllText(path, contentString);
 
             var failQueueName = GlobalConfiguration.Configuration.SentFailQueueName;
