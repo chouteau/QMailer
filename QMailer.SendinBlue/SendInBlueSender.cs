@@ -33,10 +33,10 @@ namespace QMailer.SendinBlue
                 {
                     if (message.Recipients != null)
                     {
-                        var recipient = message.Recipients.First(i => i.SendingType == EmailSendingType.To);
+                        var recipient = message.Recipients.FirstOrDefault(i => i.SendingType == EmailSendingType.To);
                         if (recipient == null)
                         {
-                            recipient = message.Recipients.First();
+                            recipient = message.Recipients.FirstOrDefault();
                         }
                         if (recipient != null)
                         {
