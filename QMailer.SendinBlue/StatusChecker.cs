@@ -1,5 +1,4 @@
-﻿using CloudSoft.Extensions;
-using QMailer.SendinBlue.Models;
+﻿using QMailer.SendinBlue.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -165,7 +164,7 @@ namespace QMailer.SendinBlue
                     return null;
                 }
 
-                if (result.Events.IsNullOrEmpty())
+                if (result.Events == null || result.Events.Count == 0)
                 {
                     return null;
                 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace QMailer.SendinBlue
 {
     public class SendInBlueSender : QMailer.IEmailMessageSender
@@ -28,6 +29,9 @@ namespace QMailer.SendinBlue
             }
             catch (Exception ex)
             {
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(message);
+                ex.Data.Add("MessageContent", json);
+
                 ex.Data.Add("Subject", message.Subject);
                 try
                 {

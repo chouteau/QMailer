@@ -34,9 +34,6 @@
     <Reference Include="Ariane, Version=4.2.54.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Ariane.4.2.54.2\lib\Ariane.dll</HintPath>
     </Reference>
-    <Reference Include="CloudSoft.Extensions, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CloudSoft.Extensions.1.2.11.0\lib\CloudSoft.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
