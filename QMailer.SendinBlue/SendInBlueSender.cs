@@ -22,15 +22,18 @@ namespace QMailer.SendinBlue
         {
             var client = new SendInBlueClient(ApiKey);
             Models.CreateSmtpEmail result = null;
-
+            var content = client.CreateSendinBlueMessage(message);
             try
             {
-                result = client.SendMessage(message);
+                result = client.SendMessage(content);
             }
             catch (Exception ex)
             {
                 var json = Newtonsoft.Json.JsonConvert.SerializeObject(message);
                 ex.Data.Add("MessageContent", json);
+
+                var sendinBlueMessageJson = Newtonsoft.Json.JsonConvert.SerializeObject(content);
+                ex.Data.Add("SendinBlueMessageContent", sendinBlueMessageJson);
 
                 ex.Data.Add("Subject", message.Subject);
                 try
@@ -48,9 +51,9 @@ namespace QMailer.SendinBlue
                         }
                     }
                 }
-                catch
+                catch(Exception subEx)
                 {
-
+                    GlobalConfiguration.Configuration.Logger.Error(subEx);
                 }
                 
                 GlobalConfiguration.Configuration.Logger.Error(ex);

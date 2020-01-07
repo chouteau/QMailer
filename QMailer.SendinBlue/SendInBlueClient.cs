@@ -18,8 +18,7 @@ namespace QMailer.SendinBlue
             this.m_ApiKey = apiKey;
         }
 
-
-        public Models.CreateSmtpEmail SendMessage(EmailMessage emailMessage)
+        public Models.SendSmtpEmail CreateSendinBlueMessage(EmailMessage emailMessage)
         {
             var content = new Models.SendSmtpEmail();
             var headers = new JObject();
@@ -37,7 +36,7 @@ namespace QMailer.SendinBlue
                     var buffer = System.Convert.FromBase64String(item.Content);
                     var ms = new System.IO.MemoryStream(buffer);
 
-                    var attachment = new Models.SendSmtpEmailAttachment(null, ms.ToArray(),item.Name);
+                    var attachment = new Models.SendSmtpEmailAttachment(null, ms.ToArray(), item.Name);
                     content.Attachment.Add(attachment);
                 }
             }
@@ -49,11 +48,11 @@ namespace QMailer.SendinBlue
                     Email = address.Address,
                     Name = address.DisplayName
                 };
-                
+
 
                 if (address.SendingType == EmailSendingType.To)
                 {
-                    if(content.To == null)
+                    if (content.To == null)
                     {
                         content.To = new List<Models.SendSmtpEmailRecipient>();
                     }
@@ -116,12 +115,18 @@ namespace QMailer.SendinBlue
                 content.Headers = headers;
             }
 
+            return content;
+        }
+
+
+        public Models.CreateSmtpEmail SendMessage(Models.SendSmtpEmail senfinBlueMessage)
+        {
             var result = Execute<Models.CreateSmtpEmail>(client =>
             {
                 // var contentString = JsonConvert.SerializeObject(content);
                 // var httpContent = new StringContent(contentString, Encoding.UTF8, "application/json");
                 // var response = client.PostAsync("smtp/email", httpContent).Result;
-				var response = client.PostAsJsonAsync("smtp/email", content).Result;
+				var response = client.PostAsJsonAsync("smtp/email", senfinBlueMessage).Result;
                 return response;
             });
 
