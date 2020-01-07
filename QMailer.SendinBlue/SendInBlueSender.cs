@@ -28,6 +28,27 @@ namespace QMailer.SendinBlue
             }
             catch (Exception ex)
             {
+                ex.Data.Add("Subject", message.Subject);
+                try
+                {
+                    if (message.Recipients != null)
+                    {
+                        var recipient = message.Recipients.First(i => i.SendingType == EmailSendingType.To);
+                        if (recipient == null)
+                        {
+                            recipient = message.Recipients.First();
+                        }
+                        if (recipient != null)
+                        {
+                            ex.Data.Add("Email", recipient.Address);
+                        }
+                    }
+                }
+                catch
+                {
+
+                }
+                
                 GlobalConfiguration.Configuration.Logger.Error(ex);
 
                 var sentFail = new SentFail();
