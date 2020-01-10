@@ -25,9 +25,9 @@ namespace QMailer.SendinBlue
             content.Sender = new Models.SendSmtpEmailRecipient()
             {
                 Email = emailMessage.Sender.Email,
-                Name = emailMessage.Sender.DisplayName
+                Name = string.IsNullOrWhiteSpace(emailMessage.Sender.DisplayName) ? emailMessage.Sender.Email : emailMessage.Sender.DisplayName
             };
-
+          
             if (emailMessage.Attachments.Any())
             {
                 content.Attachment = new List<Models.SendSmtpEmailAttachment>();
@@ -46,9 +46,8 @@ namespace QMailer.SendinBlue
                 var recipient = new Models.SendSmtpEmailRecipient()
                 {
                     Email = address.Address,
-                    Name = address.DisplayName
+                    Name = string.IsNullOrWhiteSpace(address.DisplayName)?address.Address:address.DisplayName
                 };
-
 
                 if (address.SendingType == EmailSendingType.To)
                 {
@@ -126,7 +125,7 @@ namespace QMailer.SendinBlue
                 // var contentString = JsonConvert.SerializeObject(content);
                 // var httpContent = new StringContent(contentString, Encoding.UTF8, "application/json");
                 // var response = client.PostAsync("smtp/email", httpContent).Result;
-				var response = client.PostAsJsonAsync("smtp/email", senfinBlueMessage).Result;
+                var response = client.PostAsJsonAsync("smtp/email", senfinBlueMessage).Result;
                 return response;
             });
 
