@@ -15,6 +15,8 @@ namespace QMailer
 			VirtualPath = "~/emailviews";
 			// BusConfigFileName = @".\ariane.config";
 			SmtpClientFactory = new SmtpClientFactory();
+			Logger = new DiagnosticsLogger();
+			EmailerServiceFactory = new EmailerServiceFactory();
 		}
 
 		/// <summary>
@@ -25,6 +27,8 @@ namespace QMailer
 		/// Logger
 		/// </summary>
 		public ILogger Logger { get; set; }
+
+		public IEmailerServiceFactory EmailerServiceFactory { get; set; }
 
 		public string EmailBodyRequestedQueueName { get; set; }
 

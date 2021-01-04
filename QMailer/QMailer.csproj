@@ -61,6 +61,7 @@
     <Compile Include="EmailAddress.cs" />
     <Compile Include="EmailConfig.cs" />
     <Compile Include="EmailerService.cs" />
+    <Compile Include="EmailerServiceFactory.cs" />
     <Compile Include="EmailMessage.cs" />
     <Compile Include="EmailMessageHeader.cs" />
     <Compile Include="EmailMessageParameter.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="GlobalConfiguration.cs" />
     <Compile Include="IDependencyResolver.cs" />
     <Compile Include="IEmailerService.cs" />
+    <Compile Include="IEmailerServiceFactory.cs" />
     <Compile Include="IEmailMessageSender.cs" />
     <Compile Include="IMessageInterceptor.cs" />
     <Compile Include="ILogger.cs" />

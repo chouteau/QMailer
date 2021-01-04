@@ -28,8 +28,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.Dkim", "QMailer.Dki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.SendinBlue", "QMailer.SendinBlue\QMailer.SendinBlue.csproj", "{DB3543C3-D991-40A4-A9EB-ED8E20847DB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMailer.SendInBlue.WebHook", "QMailer.SendInBlue.WebHook\QMailer.SendInBlue.WebHook.csproj", "{EAFF29C7-B9BA-4B1B-95F7-EDC4E4CE827F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,10 +68,6 @@ Global
 		{DB3543C3-D991-40A4-A9EB-ED8E20847DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB3543C3-D991-40A4-A9EB-ED8E20847DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB3543C3-D991-40A4-A9EB-ED8E20847DB0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EAFF29C7-B9BA-4B1B-95F7-EDC4E4CE827F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAFF29C7-B9BA-4B1B-95F7-EDC4E4CE827F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAFF29C7-B9BA-4B1B-95F7-EDC4E4CE827F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAFF29C7-B9BA-4B1B-95F7-EDC4E4CE827F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

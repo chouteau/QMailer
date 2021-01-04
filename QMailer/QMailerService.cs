@@ -12,7 +12,7 @@ namespace QMailer
 			= new Lazy<IEmailerService>(InitializeService, true);
 
         private static Lazy<List<Type>> m_InterceptorList
-    = new Lazy<List<Type>>();
+			= new Lazy<List<Type>>();
 
         private static List<Action> StopList { get; set; } = new List<Action>();
 
@@ -65,22 +65,17 @@ namespace QMailer
 			return m_LazyInstance.Value;
 		}
 
-		private static EmailerService InitializeService()
+		private static IEmailerService InitializeService()
 		{
-			//if (GlobalConfiguration.Configuration.DependencyResolver == null)
-			//{
-			//	var container = new Microsoft.Practices.Unity.UnityContainer();
-			//	GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
-			//}
-
 			if (GlobalConfiguration.Configuration.DependencyResolver == null)
 			{
 				return null;
 			}
 			var bus = GlobalConfiguration.Configuration.DependencyResolver.GetService<Ariane.IServiceBus>();
+			var esf = GlobalConfiguration.Configuration.EmailerServiceFactory;
 
-			var emailerService = new EmailerService();
-			emailerService.Bus = bus;
+			var emailerService = esf.Create();
+			emailerService.ReplaceBusService(bus);
 
 			return emailerService;
 		}
